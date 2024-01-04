@@ -11,9 +11,9 @@ public class Main {
 
 		Game window = new Game();
 		
-		window.setSize(850, 850);
-	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    window.setVisible(true);
+//		window.setSize(850, 850);
+//	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	    window.setVisible(true);
 		
 //		JFrame window = new JFrame();
 //		

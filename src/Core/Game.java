@@ -14,36 +14,47 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class Game extends JFrame implements MouseListener {
+public class Game extends JFrame {
 	
 	public static final int WIDTH = 850;
 	public static final int HEIGHT = 850;
 	
-	CardLayout cl;
-	Container container;
-	
-	JPanel bedSide;
+	private JPanel cardPanel;
+	private BedSide bedSide;
 	
 //	private ArrayList<Furniture> furniture;
 	
 	public Game() {
 		super();
-		cl = new CardLayout();
-		container = getContentPane();
-		container.setLayout(cl);
+		setBounds(100, 100, WIDTH, HEIGHT);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		bedSide = new BedSide();
+		cardPanel = new JPanel();
+		CardLayout cl = new CardLayout();
+		cardPanel.setLayout(cl);
+//		container = getContentPane();
+//		container.setLayout(cl);
 		
-		container.add(bedSide, "bedSide");
+		bedSide = new BedSide(this, WIDTH, HEIGHT);
 		
-		switchScreen("bedSide");
+//		container.add(bedSide, "bedSide");
+		
+		cardPanel.add(bedSide, "bedSide");
+		
+		add(cardPanel);
+		setVisible(true);
+		
+		bedSide.run();
+		
+//		switchScreen("bedSide");
 //		furniture = new ArrayList<Furniture>();
 //		addFurniture();
 
 	}
 	
 	public void switchScreen(String panelName) {
-		cl.show(container, panelName);
+		((CardLayout)cardPanel.getLayout()).show(cardPanel, panelName);
+		requestFocus();
 	}
 	
 //	public void run() {
@@ -78,37 +89,7 @@ public class Game extends JFrame implements MouseListener {
 //	    g2.setTransform(at);
 //	}
 //
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		
-	}
 
-	@Override
-	public void mousePressed(MouseEvent e) {
-		
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public void mouseDragged(MouseEvent e) {
-		
-	}
 //	
 //	private void addFurniture() {
 //		furniture.add(new Furniture("bed", 180, 360, 450, 450));
