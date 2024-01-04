@@ -16,7 +16,7 @@ public class BedSide extends Screen {
 		// TODO Auto-generated constructor stub
 		surface = drawer;
 		items = new ArrayList<Item>();
-		items.add(new Item("img/Slice 156.png", 50, 500, 100, 100));
+		items.add(new Item("img/bed.png", 50, 500, 100, 100));
 	}
 	
 	public void draw() {
