@@ -27,7 +27,8 @@ public class Game extends JFrame {
 	
 	public Game() {
 		super();
-		setBounds(100, 100, WIDTH, HEIGHT);
+		setSize(WIDTH, HEIGHT);
+		setBounds(0, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		cardPanel = new JPanel();
