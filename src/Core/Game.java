@@ -34,9 +34,16 @@ public class Game extends JFrame implements MouseListener {
 		
 		bedSide = new BedSide();
 		
+		container.add(bedSide, "bedSide");
+		
+		switchScreen("bedSide");
 //		furniture = new ArrayList<Furniture>();
 //		addFurniture();
 
+	}
+	
+	public void switchScreen(String panelName) {
+		cl.show(container, panelName);
 	}
 	
 //	public void run() {
