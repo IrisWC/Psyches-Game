@@ -11,7 +11,7 @@ public class Main {
 
 		JFrame window = new JFrame();
 		
-		window.setSize(750, 850);
+		window.setSize(850, 850);
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //	    window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 	    
