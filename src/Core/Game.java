@@ -1,6 +1,7 @@
 package Core;
 
 import Assets.*;
+import Screens.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -13,53 +14,63 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class Game extends JPanel implements MouseListener, MouseMotionListener {
+public class Game extends JFrame implements MouseListener {
 	
 	public static final int WIDTH = 850;
 	public static final int HEIGHT = 850;
 	
-	private ArrayList<Furniture> furniture;
+	CardLayout cl;
+	Container container;
+	
+	JPanel bedSide;
+	
+//	private ArrayList<Furniture> furniture;
 	
 	public Game() {
 		super();
+		cl = new CardLayout();
+		container = getContentPane();
+		container.setLayout(cl);
 		
-		furniture = new ArrayList<Furniture>();
-		addFurniture();
+		bedSide = new BedSide();
+		
+//		furniture = new ArrayList<Furniture>();
+//		addFurniture();
 
 	}
 	
-	public void run() {
-		while(true) {
-			repaint();
-			
-			try {
-				Thread.sleep(20);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//	public void run() {
+//		while(true) {
+//			repaint();
+//			
+//			try {
+//				Thread.sleep(20);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 	
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);;
-		
-		int width = getWidth();
-		int height = getHeight();
-		
-		double ratioX = (double)width/WIDTH;
-	    double ratioY = (double)height/HEIGHT;
-	    
-	    Graphics2D g2 = (Graphics2D)g;
-	    AffineTransform at = g2.getTransform();
-	    g2.scale(ratioX,ratioY);
-	    
-		for (Furniture f : furniture) {
-			f.draw(g, this);
-		}
-	    
-	    g2.setTransform(at);
-	}
-
+//	public void paintComponent(Graphics g) {
+//		super.paintComponent(g);;
+//		
+//		int width = getWidth();
+//		int height = getHeight();
+//		
+//		double ratioX = (double)width/WIDTH;
+//	    double ratioY = (double)height/HEIGHT;
+//	    
+//	    Graphics2D g2 = (Graphics2D)g;
+//	    AffineTransform at = g2.getTransform();
+//	    g2.scale(ratioX,ratioY);
+//	    
+//		for (Furniture f : furniture) {
+//			f.draw(g, this);
+//		}
+//	    
+//	    g2.setTransform(at);
+//	}
+//
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
@@ -91,16 +102,11 @@ public class Game extends JPanel implements MouseListener, MouseMotionListener {
 	public void mouseDragged(MouseEvent e) {
 		
 	}
-	
-	private void addFurniture() {
-		furniture.add(new Furniture("bed", 180, 360, 450, 450));
-		furniture.add(new Furniture("painting", 260, 50, 300, 300));
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+//	
+//	private void addFurniture() {
+//		furniture.add(new Furniture("bed", 180, 360, 450, 450));
+//		furniture.add(new Furniture("painting", 260, 50, 300, 300));
+//		
+//	}
+//
 }

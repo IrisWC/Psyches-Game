@@ -2,20 +2,22 @@ package Screens;
 
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import Assets.*;
 
-public class BedSide extends Screen {
+public class BedSide extends JPanel {
 
 	private ArrayList<Furniture> furnitures;
 	
-	public BedSide(int width, int height) {
-		super(width, height);
-		// TODO Auto-generated constructor stub
-		furnitures = new ArrayList<Furniture>();
+	public BedSide() {
+		
 	}
 	
 	public void draw() {
-
+		
 	}
 
 }
