@@ -1,4 +1,6 @@
-package Attempt2;
+package Core;
+
+import Assets.*;
 
 import java.awt.*;
 import java.awt.event.*;

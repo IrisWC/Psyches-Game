@@ -1,29 +1,30 @@
 package Core;
 
-import java.awt.Dimension;
-
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
-import processing.awt.PSurfaceAWT;
-import processing.core.PApplet;
+import javax.swing.JLabel;
 
 public class Main {
 	
-	public static void main(String args[]) {
-		DrawingSurface drawing = new DrawingSurface();
-		PApplet.runSketch(new String[]{""}, drawing);
-		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
-		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		drawing.windowMove(-5, 0);
-		JFrame window = (JFrame)canvas.getFrame();
-		
-		window.setSize(1600, 900);
-		window.setMinimumSize(new Dimension(100,100));
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setResizable(true);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
-		window.setVisible(true);
-		canvas.requestFocus();
+		JFrame window = new JFrame();
+		
+		window.setSize(850, 850);
+	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	    window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+	    
+	    Game game = new Game();
+	    
+	    window.addMouseListener(game);
+	    window.addMouseMotionListener(game);
+	    window.add(game);
+	    window.setVisible(true);
+	    
+	    game.run();
 	}
+	
+	
 	
 }
