@@ -11,9 +11,9 @@ public class Main {
 
 		JFrame window = new JFrame();
 		
-		window.setSize(1600, 900);
+		window.setSize(750, 850);
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+//	    window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 	    
 	    Game game = new Game();
 	    

@@ -13,8 +13,8 @@ import javax.swing.SwingUtilities;
 
 public class Game extends JPanel implements MouseListener, MouseMotionListener {
 	
-	public static final int WIDTH = 1600;
-	public static final int HEIGHT = 900;
+	public static final int WIDTH = 750;
+	public static final int HEIGHT = 850;
 	
 	private ArrayList<Furniture> furniture;
 	
@@ -91,8 +91,8 @@ public class Game extends JPanel implements MouseListener, MouseMotionListener {
 	}
 	
 	private void addFurniture() {
-		furniture.add(new Furniture("bed", 50, 360, 300, 300));
-		furniture.add(new Furniture("painting", 100, 100, 200, 200));
+		furniture.add(new Furniture("bed", 130, 360, 450, 450));
+		furniture.add(new Furniture("painting", 210, 50, 300, 300));
 		
 	}
 
