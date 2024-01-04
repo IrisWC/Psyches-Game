@@ -14,7 +14,7 @@ public class Main {
 		PApplet.runSketch(new String[]{""}, drawing);
 		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		drawing.windowMove(0, 0);
+		drawing.windowMove(-5, 0);
 		JFrame window = (JFrame)canvas.getFrame();
 		
 		window.setSize(1600, 900);

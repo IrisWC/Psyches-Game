@@ -12,7 +12,7 @@ public class DrawingSurface extends PApplet {
 	public DrawingSurface() {
 		this.screens = new ArrayList<Screen>();
 	}
-	
+
 	public void setup() {
 		for (Screen screen : screens)
 			screen.setup();
