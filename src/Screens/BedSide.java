@@ -4,14 +4,16 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.geom.AffineTransform;
+import java.awt.event.*;
 
 import Assets.*;
 import Core.*;
 
-public class BedSide extends JPanel {
+public class BedSide extends JPanel implements ActionListener{
 
 	private Game mainCore;
 	private int width, height;
+	private JButton leftButton, rightButton;
 //	private JPanel p;
 	private ArrayList<Furniture> furnitures;
 	
@@ -21,7 +23,21 @@ public class BedSide extends JPanel {
 		this.width = width;
 		this.height = height;
 		
-//		p = new JPanel();
+		JPanel p = new JPanel();
+		
+		p.setLayout(new BoxLayout(p,BoxLayout.X_AXIS));
+		p.add(Box.createHorizontalStrut(500));
+		p.setBackground(new Color(0,0,0,0));
+		
+		JButton leftButton = new JButton("left");
+		leftButton.addActionListener(this);
+		p.add(leftButton);
+		
+		JButton rightButton = new JButton("right");
+		rightButton.addActionListener(this);
+		p.add(rightButton);
+		
+		add(p);
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -62,6 +78,14 @@ public class BedSide extends JPanel {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == leftButton)
+			mainCore.switchScreen("exitSide");
+		if(e.getSource() == rightButton)
+			mainCore.switchScreen("bathroomSide");
 	}
 
 }
