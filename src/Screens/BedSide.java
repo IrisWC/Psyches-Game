@@ -24,54 +24,31 @@ public class BedSide extends JPanel implements ActionListener{
 		this.height = height;
 		
 		JPanel p = new JPanel();
+		GridLayout gl = new GridLayout();
+		p.setLayout(gl);
 		
-//		p.setLayout(new BoxLayout(p,BoxLayout.X_AXIS));
-//		p.add(Box.createHorizontalStrut(500));
-		p.setBackground(new Color(0,0,0,0));
-
+		ImageIcon background = new ImageIcon("squares/yellow.png");
+		JLabel label = new JLabel(background);
+		label.setSize(850, 850);
+		label.setLocation(0, 0);
 		
-		ImageIcon arrowIcon = new ImageIcon("squares/white.png");
-		Image arrowIconNew = arrowIcon.getImage();
-		Image arrowIconModified = arrowIconNew.getScaledInstance(100, 850, Image.SCALE_SMOOTH);
-		arrowIcon = new ImageIcon(arrowIconModified);
-		
-		JButton leftButton = new JButton();
-		leftButton.setBounds(-425, -425, 100, 850);
-		leftButton.setBackground(Color.WHITE);
-		leftButton.setBorderPainted(false);
+		JButton leftButton = new JButton("left");
+		leftButton.setBounds(0, 0, 100, 850);
+		leftButton.setOpaque(false);
+		leftButton.setMargin(new Insets(0, 0, 0, 0));
 		leftButton.addActionListener(this);
+		p.add(leftButton);
 		
-		ImageIcon background = new ImageIcon("squares/yellow.png"); 
-		JLabel label = new JLabel(arrowIcon);
-		label.setSize(850, 650);
+		JButton rightButton = new JButton("right");
+		rightButton.setBounds(750, 0, 100, 850);
+		rightButton.addActionListener(this);
+		p.add(rightButton);
 		
+//		JLabel label = new JLabel(new ImageIcon("squares/white.png"));
+//		label.setBounds(0, 0, 850, 850);
 		label.add(leftButton);
-		
-		add(label);
-		
-//		ImageIcon background = new ImageIcon("squares/yellow.png");
-//		JLabel label = new JLabel(background);
-//		label.setSize(850, 850);
-//		label.setLocation(0, 0);
-//		
-//		
-//		JButton leftButton = new JButton(arrowIcon);
-//		leftButton.setBounds(0, 0, 100, 850);
-//		leftButton.setOpaque(false);
-//		leftButton.setMargin(new Insets(0, 0, 0, 0));
-//		leftButton.addActionListener(this);
-////		p.add(leftButton);
-//		
-//		JButton rightButton = new JButton("right");
-//		rightButton.setBounds(750, 0, 100, 850);
-//		rightButton.addActionListener(this);
-////		p.add(rightButton);
-//		
-////		JLabel label = new JLabel(new ImageIcon("squares/white.png"));
-////		label.setBounds(0, 0, 850, 850);
-//		label.add(leftButton);
-//		label.add(rightButton);
-//		p.add(label);
+		label.add(rightButton);
+		p.add(label);
 		
 		add(p);
 	}
