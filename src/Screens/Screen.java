@@ -1,5 +1,8 @@
 package Screens;
 
+import java.util.*;
+import Assets.*;
+
 public abstract class Screen {
 
 	private final int WIDTH, HEIGHT;

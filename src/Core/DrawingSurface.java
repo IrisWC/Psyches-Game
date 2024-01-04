@@ -11,11 +11,21 @@ public class DrawingSurface extends PApplet {
 	
 	public DrawingSurface() {
 		this.screens = new ArrayList<Screen>();
+		screens.add(new BedSide(1600, 900, this));
+		
+		currentScreen = screens.get(0);
 	}
 
 	public void setup() {
 		for (Screen screen : screens)
 			screen.setup();
+	}
+	
+	public void draw() {
+		push();
+		scale((float)width/currentScreen.getWidth(), (float)height/currentScreen.getHeight());
+		currentScreen.draw();
+		pop();
 	}
 	
 	public void mousePressed() {
