@@ -1,5 +1,11 @@
 package Assets;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.ImageObserver;
+
+import javax.swing.ImageIcon;
+
 public class Item {
 	
 	private String image;
@@ -31,5 +37,10 @@ public class Item {
 	
 	public int getHeight() {
 		return height;
+	}
+	
+	public void draw(Graphics g, ImageObserver io) {
+		Image img = new ImageIcon(image).getImage();
+		g.drawImage(img, x, y, width, height, io);
 	}
 }

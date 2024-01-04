@@ -15,13 +15,13 @@ public class DrawingSurface extends PApplet {
 	}
 	
 	public void settings() {
-		//size(800, 600, super.JAVA2D);   // Default renderer  (uses Swing)
-		size(800, 600, super.P2D);      // OpenGL 2D renderer
-		//size(800, 600, super.P3D);      // OpenGL 3D renderer
+//		size(800, 600, super.JAVA2D);   // Default renderer  (uses Swing)
+//		size(800, 600, super.P2D);      // OpenGL 2D renderer
+		size(800, 600, super.P3D);      // OpenGL 3D renderer
 	}
 	
 	public void setup() {
-		mario = super.loadImage("img/mario.png");
+		mario = super.loadImage("img/bed.png");
 	}
 	
 	public void draw() {
@@ -33,7 +33,7 @@ public class DrawingSurface extends PApplet {
 		textAlign(CENTER);
 		text(out,width/2,height/2);
 		
-		image(mario, width/2, 100, 50, 50);
+		image(mario, width/2, 100, 300, 300);
 	}
 	
 	public void keyPressed() {
