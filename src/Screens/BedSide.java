@@ -28,6 +28,7 @@ public class BedSide extends JPanel implements ActionListener{
 //		p.setLayout(new BoxLayout(p,BoxLayout.X_AXIS));
 //		p.add(Box.createHorizontalStrut(500));
 		p.setBackground(new Color(0,0,0,0));
+
 		
 		ImageIcon arrowIcon = new ImageIcon("squares/white.png");
 		Image arrowIconNew = arrowIcon.getImage();
@@ -35,12 +36,12 @@ public class BedSide extends JPanel implements ActionListener{
 		arrowIcon = new ImageIcon(arrowIconModified);
 		
 		JButton leftButton = new JButton();
-		leftButton.setBounds(0, 0, 100, 850);
+		leftButton.setBounds(-425, -425, 100, 850);
 		leftButton.setBackground(Color.WHITE);
 		leftButton.setBorderPainted(false);
 		leftButton.addActionListener(this);
 		
-//		ImageIcon background = new ImageIcon("squares/yellow.png"); 
+		ImageIcon background = new ImageIcon("squares/yellow.png"); 
 		JLabel label = new JLabel(arrowIcon);
 		label.setSize(850, 650);
 		
