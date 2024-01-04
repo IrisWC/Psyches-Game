@@ -16,8 +16,8 @@ public class DrawingSurface extends PApplet {
 	
 	public void settings() {
 //		size(800, 600, super.JAVA2D);   // Default renderer  (uses Swing)
-//		size(800, 600, super.P2D);      // OpenGL 2D renderer
-		size(800, 600, super.P3D);      // OpenGL 3D renderer
+		size(800, 600, super.P2D);      // OpenGL 2D renderer
+//		size(800, 600, super.P3D);      // OpenGL 3D renderer
 	}
 	
 	public void setup() {

@@ -91,7 +91,8 @@ public class Game extends JPanel implements MouseListener, MouseMotionListener {
 	}
 	
 	private void addFurniture() {
-		furniture.add(new Furniture("Bed", 8, 360, 393, 273));
+		furniture.add(new Furniture("bed", 50, 360, 300, 300));
+		furniture.add(new Furniture("painting", 100, 100, 200, 200));
 		
 	}
 
