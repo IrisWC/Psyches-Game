@@ -1,8 +1,7 @@
-package screens;
+
 
 import java.awt.event.*;
 
-import core.DrawingSurface;
 
 
 public class SecondScreen extends Screen {

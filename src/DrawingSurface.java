@@ -1,13 +1,9 @@
-package core;
+
 
 import java.awt.Point;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
-import screens.FirstScreen;
-import screens.Screen;
-import screens.ScreenSwitcher;
-import screens.SecondScreen;
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 

@@ -1,4 +1,4 @@
-package screens;
+
 
 public interface ScreenSwitcher {
 	public static final int SCREEN1 = 0;
