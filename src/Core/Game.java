@@ -20,6 +20,7 @@ public class Game extends JFrame {
 	public static final int HEIGHT = 850;
 	
 	private JPanel cardPanel;
+	private MenuScreen menu;
 	private BedSide bedSide;
 	
 //	private ArrayList<Furniture> furniture;
@@ -35,15 +36,19 @@ public class Game extends JFrame {
 //		container = getContentPane();
 //		container.setLayout(cl);
 		
+		menu = new MenuScreen(this, WIDTH, HEIGHT);
 		bedSide = new BedSide(this, WIDTH, HEIGHT);
 		
 //		container.add(bedSide, "bedSide");
 		
+		cardPanel.add(menu, "menu");
 		cardPanel.add(bedSide, "bedSide");
 		
 		add(cardPanel);
+		
 		setVisible(true);
 		
+//		menu.run();
 		bedSide.run();
 		
 //		switchScreen("bedSide");
