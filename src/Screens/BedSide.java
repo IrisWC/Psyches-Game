@@ -32,6 +32,13 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
 		
+		dialogueBox = new JButton("painting clue");
+		dialogueBox.setBounds(125, 550, 800, 200);
+		dialogueBox.addActionListener(this);
+        add(dialogueBox);
+        dialogueBox.setEnabled(false);
+		dialogueBox.setVisible(false);
+		
 //		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
 //		Image bedModified = bedIcon.getImage().getScaledInstance(450, 450, Image.SCALE_SMOOTH);
 //		JButton bed = new JButton(new ImageIcon(bedModified));
@@ -116,7 +123,9 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == starryNight) {
-			System.out.println("starryNight clicked");
+//			System.out.println("starryNight clicked");
+			dialogueBox.setEnabled(true);
+			dialogueBox.setVisible(true);
 			
 //			dialogueBox = new JButton("staryyNight clue");
 //			dialogueBox.setBounds(300, 300, 300, 300);
@@ -126,9 +135,10 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //			dialogueBox.addActionListener(this);
 //			this.add(dialogueBox);
 		}
-		if(e.getSource() == dialogueBox) 
-			dialogueBox = null;
-		
+		if(e.getSource() == dialogueBox) {
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))
 				clickableItems.get(i).click();
