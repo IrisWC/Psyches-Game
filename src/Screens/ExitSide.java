@@ -26,7 +26,7 @@ public class ExitSide extends JPanel implements ActionListener {
 		add(leftButton);
 		
 		rightButton = new JButton("right");
-		rightButton.setBounds(750, 0, 100, 850);
+		rightButton.setBounds(950, 0, 100, 850);
 		rightButton.addActionListener(this);
 		add(rightButton);
 		
@@ -36,9 +36,9 @@ public class ExitSide extends JPanel implements ActionListener {
         add(title);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(BACKGROUND_WIDTH, BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
+		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 0, BACKGROUND_WIDTH, BACKGROUND_HEIGHT);
+		background.setBounds(0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
         add(background);
 	}
 
