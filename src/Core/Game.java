@@ -25,6 +25,7 @@ public class Game extends JFrame {
 	private ExitSide exitSide;
 	private BathroomSide bathroomSide;
 	private PianoSide pianoSide;
+	private Bathroom bathroom;
 	
 //	private ArrayList<Furniture> furniture;
 	
@@ -45,6 +46,7 @@ public class Game extends JFrame {
 		exitSide = new ExitSide(this, WIDTH, HEIGHT);
 		bathroomSide = new BathroomSide(this, WIDTH, HEIGHT);
 		pianoSide = new PianoSide(this, WIDTH, HEIGHT);
+		bathroom = new Bathroom(this, WIDTH, HEIGHT);
 		
 //		container.add(bedSide, "bedSide");
 		
@@ -53,6 +55,7 @@ public class Game extends JFrame {
 		cardPanel.add(exitSide, "exitSide");
 		cardPanel.add(bathroomSide, "bathroomSide");
 		cardPanel.add(pianoSide, "pianoSide");
+		cardPanel.add(bathroom, "bathroom");
 		
 		add(cardPanel);
 		

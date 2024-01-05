@@ -10,7 +10,7 @@ public class BathroomSide extends JPanel implements ActionListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton;
+	private JButton leftButton, rightButton, door;
 	
 	public BathroomSide(Game mainCore, int width, int height) {
 		super();
@@ -30,8 +30,13 @@ public class BathroomSide extends JPanel implements ActionListener {
 		rightButton.addActionListener(this);
 		add(rightButton);
 		
+		door = new JButton("door");
+		door.setBounds(500, 100, 200, 350);
+		door.addActionListener(this);
+		add(door);
+		
 		JButton title = new JButton("Bathroom Side");
-		title.setBounds(300, 300, 300, 300);
+		title.setBounds(150, 300, 300, 300);
 		title.addActionListener(this);
         add(title);
         
@@ -48,6 +53,8 @@ public class BathroomSide extends JPanel implements ActionListener {
 			mainCore.switchScreen("bedSide");
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("pianoSide");
+		if(e.getSource() == door)
+			mainCore.switchScreen("bathroom");
 		
 	}
 }
