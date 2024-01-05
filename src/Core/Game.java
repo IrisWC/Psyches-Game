@@ -81,6 +81,7 @@ public class Game extends JFrame implements WindowListener{
 	
 	public void switchScreen(String panelName) {
 		((CardLayout)cardPanel.getLayout()).show(cardPanel, panelName);
+		requestFocusInWindow();
 		requestFocus();
 	}
 	
