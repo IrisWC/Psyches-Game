@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 import Core.Game;
+import navigationButtons.BackpackButton;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
@@ -12,7 +13,7 @@ public class ExitSide extends JPanel implements ActionListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton;
+	private JButton leftButton, rightButton, backpackButton;
 	
 	public ExitSide(Game mainCore, int width, int height) {
 		super();
@@ -24,6 +25,10 @@ public class ExitSide extends JPanel implements ActionListener {
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		
+		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
+		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
 		
 		JButton title = new JButton("Exit Side");
 		title.setBounds(300, 300, 300, 300);

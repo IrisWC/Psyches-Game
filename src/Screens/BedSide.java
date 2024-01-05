@@ -8,14 +8,13 @@ import java.awt.event.*;
 
 import Assets.*;
 import Core.*;
-import navigationButtons.LeftButton;
-import navigationButtons.RightButton;
+import navigationButtons.*;
 
 public class BedSide extends JPanel implements ActionListener{
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton;
+	private JButton leftButton, rightButton, backpackButton;
 //	private JPanel p;
 	private ArrayList<Furniture> furnitures;
 	
@@ -38,6 +37,10 @@ public class BedSide extends JPanel implements ActionListener{
 //		rightButton.addActionListener(this);
 //		add(rightButton);
 		rightButton = new RightButton(this);
+		
+		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
+		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
 		
 		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
 		Image bedModified = bedIcon.getImage().getScaledInstance(450, 450, Image.SCALE_SMOOTH);

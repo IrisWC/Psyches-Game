@@ -5,12 +5,13 @@ import javax.swing.*;
 import java.awt.event.*;
 
 import Core.Game;
+import navigationButtons.BackpackButton;
 
 public class Bathroom extends JPanel implements ActionListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton exit;
+	private JButton exit, backpackButton;
 	
 	public Bathroom(Game mainCore, int width, int height) {
 		super();
@@ -24,6 +25,10 @@ public class Bathroom extends JPanel implements ActionListener {
 		exit.setBounds(-5, 750, Game.WIDTH+10, 100);
 		exit.addActionListener(this);
 		add(exit);
+		
+		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
+		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
 		
 		JButton title = new JButton("Bathroom");
 		title.setBounds(300, 300, 300, 300);
