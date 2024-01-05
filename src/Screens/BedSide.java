@@ -39,6 +39,9 @@ public class BedSide extends JPanel implements ActionListener{
 		Image bedModified = bedIcon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
 		JButton bed = new JButton(new ImageIcon(bedModified));
 		bed.setBounds(300, 300, 300, 300);
+		bed.setOpaque(false);
+		bed.setContentAreaFilled(false);
+		bed.setBorderPainted(false);
 		bed.addActionListener(this);
         add(bed);
 		
