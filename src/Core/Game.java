@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class Game extends JFrame {
+public class Game extends JFrame implements WindowListener{
 	
 	public static final int WIDTH = 1050;
 	public static final int HEIGHT = 825;
@@ -83,15 +83,57 @@ public class Game extends JFrame {
 		requestFocus();
 	}
 	
-	public void setInventoryStatus() {
+	public void openInventory() {
 		if(!inventoryOpen) {
 			JFrame inventoryWindow = new JFrame("Inventory");
 			inventoryWindow.setResizable(false);
 			inventoryWindow.setBounds(1100, 200, 400, 400);
+			inventoryWindow.addWindowListener(this);
 			inventoryWindow.setVisible(true);
-		} else {
-			inventoryOpen = false;
-		}
+			
+			inventoryOpen = true;
+		} 
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		inventoryOpen = false;		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 //	public void run() {

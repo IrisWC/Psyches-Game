@@ -54,7 +54,7 @@ public class PianoSide extends JPanel implements ActionListener {
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("exitSide");
 		if(e.getSource() == backpackButton)
-			mainCore.setInventoryStatus();
+			mainCore.openInventory();
 		
 	}
 }

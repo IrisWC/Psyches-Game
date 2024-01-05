@@ -14,7 +14,7 @@ public class BedSide extends JPanel implements ActionListener{
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton;
+	private JButton leftButton, rightButton, backpackButton, painting, dialogueBox;
 //	private JPanel p;
 	private ArrayList<Furniture> furnitures;
 	
@@ -54,7 +54,7 @@ public class BedSide extends JPanel implements ActionListener{
         
         ImageIcon paintingIcon = new ImageIcon("img/paintings/starry night.png");
 		Image paintingModified = paintingIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-		JButton painting = new JButton(new ImageIcon(paintingModified));
+		painting = new JButton(new ImageIcon(paintingModified));
 		painting.setBounds(425, 50, 200, 200);
 		painting.setOpaque(false);
 		painting.setContentAreaFilled(false);
@@ -71,6 +71,8 @@ public class BedSide extends JPanel implements ActionListener{
 		table.setBorderPainted(false);
 		table.addActionListener(this);
         add(table);
+        
+        dialogueBox = null;
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
@@ -156,7 +158,20 @@ public class BedSide extends JPanel implements ActionListener{
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("bathroomSide");
 		if(e.getSource() == backpackButton)
-			mainCore.setInventoryStatus();
+			mainCore.openInventory();
+		if(e.getSource() == painting) {
+			System.out.println("painting clicked");
+			
+			dialogueBox = new JButton("painting clue");
+			dialogueBox.setBounds(300, 300, 300, 300);
+			dialogueBox.setBackground(new Color(55,50,45));
+			dialogueBox.setOpaque(true);
+			dialogueBox.setBorderPainted(false);
+			dialogueBox.addActionListener(this);
+			this.add(dialogueBox);
+		}
+		if(e.getSource() == dialogueBox) 
+			dialogueBox = null;
 	}
 
 }
