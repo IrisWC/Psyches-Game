@@ -37,6 +37,7 @@ public class Game extends JFrame {
 		setSize(WIDTH, HEIGHT);
 		setBounds(0, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
 		
 		cardPanel = new JPanel();
 		CardLayout cl = new CardLayout();
@@ -50,8 +51,6 @@ public class Game extends JFrame {
 		bathroomSide = new BathroomSide(this, WIDTH, HEIGHT);
 		pianoSide = new PianoSide(this, WIDTH, HEIGHT);
 		bathroom = new Bathroom(this, WIDTH, HEIGHT);
-		
-//		container.add(bedSide, "bedSide");
 		
 		cardPanel.add(menu, "menu");
 		cardPanel.add(bedSide, "bedSide");
