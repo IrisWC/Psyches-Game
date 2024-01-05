@@ -8,6 +8,7 @@ import java.awt.event.*;
 
 import Assets.*;
 import Core.*;
+import navigationButtons.LeftButton;
 
 public class BedSide extends JPanel implements ActionListener{
 
@@ -25,10 +26,11 @@ public class BedSide extends JPanel implements ActionListener{
 		
 		setLayout(null);
 		
-		leftButton = new JButton("left");
-		leftButton.setBounds(0, 0, 100, 850);
-		leftButton.addActionListener(this);
-		add(leftButton);
+//		leftButton = new JButton("left");
+//		leftButton.setBounds(0, 0, 100, 850);
+//		leftButton.addActionListener(this);
+		leftButton = new LeftButton(this);
+//		add(leftButton);
 		
 		rightButton = new JButton("right");
 		rightButton.setBounds(950, 0, 100, 850);
@@ -36,9 +38,9 @@ public class BedSide extends JPanel implements ActionListener{
 		add(rightButton);
 		
 		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
-		Image bedModified = bedIcon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+		Image bedModified = bedIcon.getImage().getScaledInstance(450, 450, Image.SCALE_SMOOTH);
 		JButton bed = new JButton(new ImageIcon(bedModified));
-		bed.setBounds(300, 300, 300, 300);
+		bed.setBounds(300, 270, 450, 450);
 		bed.setOpaque(false);
 		bed.setContentAreaFilled(false);
 		bed.setBorderPainted(false);

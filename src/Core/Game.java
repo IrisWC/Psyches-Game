@@ -52,7 +52,7 @@ public class Game extends JFrame {
 		pianoSide = new PianoSide(this, WIDTH, HEIGHT);
 		bathroom = new Bathroom(this, WIDTH, HEIGHT);
 		
-		cardPanel.add(menu, "menu");
+//		cardPanel.add(menu, "menu");
 		cardPanel.add(bedSide, "bedSide");
 		cardPanel.add(exitSide, "exitSide");
 		cardPanel.add(bathroomSide, "bathroomSide");
