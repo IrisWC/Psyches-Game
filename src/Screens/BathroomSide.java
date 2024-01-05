@@ -34,6 +34,12 @@ public class BathroomSide extends JPanel implements ActionListener {
 		title.setBounds(300, 300, 300, 300);
 		title.addActionListener(this);
         add(title);
+        
+        ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
+		Image bedroomModified = bedroom.getImage().getScaledInstance(850, 850, Image.SCALE_SMOOTH);
+		JLabel background = new JLabel(new ImageIcon(bedroomModified));
+		background.setBounds(0, 0, 850, 850);
+        add(background);
 	}
 
 	@Override
