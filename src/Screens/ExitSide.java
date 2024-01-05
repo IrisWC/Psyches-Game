@@ -13,7 +13,7 @@ public class ExitSide extends JPanel implements ActionListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton;
+	private JButton leftButton, rightButton, backpackButton, door;
 	
 	public ExitSide(Game mainCore, int width, int height) {
 		super();
@@ -30,8 +30,19 @@ public class ExitSide extends JPanel implements ActionListener {
 		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
 		
+		ImageIcon doorIcon = new ImageIcon("img/exit door.png");
+		Image doorModified = doorIcon.getImage().getScaledInstance(200, 350, Image.SCALE_SMOOTH);
+		door = new JButton(new ImageIcon(doorModified));
+		door.setBounds(600, 100, 200, 350);
+		door.setOpaque(false);
+		door.setContentAreaFilled(false);
+//		door.setBorderPainted(false);
+		door.addActionListener(this);
+		add(door);
+
+		
 		JButton title = new JButton("Exit Side");
-		title.setBounds(300, 300, 300, 300);
+		title.setBounds(200, 300, 300, 300);
 		title.addActionListener(this);
         add(title);
         

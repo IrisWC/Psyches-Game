@@ -30,10 +30,15 @@ public class PianoSide extends JPanel implements ActionListener {
 		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
 		
-		JButton title = new JButton("Piano Side");
-		title.setBounds(300, 300, 300, 300);
-		title.addActionListener(this);
-        add(title);
+		ImageIcon pianoIcon = new ImageIcon("img/furniture/piano.png");
+		Image pianoModified = pianoIcon.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+		JButton piano = new JButton(new ImageIcon(pianoModified));
+		piano.setBounds(300, 300, 400, 400);
+		piano.setOpaque(false);
+		piano.setContentAreaFilled(false);
+		piano.setBorderPainted(false);
+		piano.addActionListener(this);
+        add(piano);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
