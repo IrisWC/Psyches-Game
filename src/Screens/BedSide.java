@@ -3,6 +3,7 @@ package Screens;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+
 import java.awt.geom.AffineTransform;
 import java.awt.event.*;
 
@@ -10,13 +11,13 @@ import Assets.*;
 import Core.*;
 import navigationButtons.*;
 
-public class BedSide extends JPanel implements ActionListener{
+public class BedSide extends JPanel implements ActionListener, KeyListener{
 
 	private Game mainCore;
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton, painting, dialogueBox;
 //	private JPanel p;
-	private ArrayList<Furniture> furnitures;
+	private ArrayList<ClickableItem> furnitures;
 	
 	public BedSide(Game mainCore, int width, int height) {
 		super();
@@ -26,51 +27,21 @@ public class BedSide extends JPanel implements ActionListener{
 		
 		setLayout(null);
 		
-//		leftButton = new JButton("left");
-//		leftButton.setBounds(0, 0, 100, 850);
-//		leftButton.addActionListener(this);
-//		add(leftButton);
 		leftButton = new LeftButton(this);
-		
-//		rightButton = new JButton("right");
-//		rightButton.setBounds(950, 0, 100, 850);
-//		rightButton.addActionListener(this);
-//		add(rightButton);
 		rightButton = new RightButton(this);
+		backpackButton = new BackpackButton(this);
 		
-		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
-		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
-		
-		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
-		Image bedModified = bedIcon.getImage().getScaledInstance(450, 450, Image.SCALE_SMOOTH);
-		JButton bed = new JButton(new ImageIcon(bedModified));
-		bed.setBounds(300, 270, 450, 450);
-		bed.setOpaque(false);
-		bed.setContentAreaFilled(false);
-		bed.setBorderPainted(false);
-		bed.addActionListener(this);
-        add(bed);
-        
-        ImageIcon paintingIcon = new ImageIcon("img/paintings/starry night.png");
-		Image paintingModified = paintingIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-		painting = new JButton(new ImageIcon(paintingModified));
-		painting.setBounds(425, 50, 200, 200);
-		painting.setOpaque(false);
-		painting.setContentAreaFilled(false);
-		painting.setBorderPainted(false);
-		painting.addActionListener(this);
-        add(painting);
-        
-        ImageIcon tableIcon = new ImageIcon("img/furniture/bedside table.png");
-		Image tableModified = tableIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-		JButton table = new JButton(new ImageIcon(tableModified));
-		table.setBounds(760, 350, 150, 150);
-		table.setOpaque(false);
-		table.setContentAreaFilled(false);
-		table.setBorderPainted(false);
-		table.addActionListener(this);
-        add(table);
+//		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
+//		Image bedModified = bedIcon.getImage().getScaledInstance(450, 450, Image.SCALE_SMOOTH);
+//		JButton bed = new JButton(new ImageIcon(bedModified));
+//		bed.setBounds(300, 270, 450, 450);
+//		bed.setOpaque(false);
+//		bed.setContentAreaFilled(false);
+//		bed.setBorderPainted(false);
+//		bed.addActionListener(this);
+//        add(bed);
+		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 300, 270, 450, 450);
+		ClickableItem starryNight = new ClickableItem(this, "img/paintings/starry night.png", 425, 50, 200, 200);
         
         dialogueBox = null;
         
@@ -79,36 +50,7 @@ public class BedSide extends JPanel implements ActionListener{
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
 		background.setBounds(0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
         add(background);
-		
-//		JPanel p = new JPanel();
-//		GridLayout gl = new GridLayout();
-//		p.setLayout(gl);
-//		
-//		ImageIcon background = new ImageIcon("squares/yellow.png");
-//		JLabel label = new JLabel(background);
-//		label.setSize(850, 850);
-//		label.setLocation(0, 0);
-//		label.setBounds(0, 0, 850, 850);
-//		
-//		JButton leftButton = new JButton("left");
-//		leftButton.setBounds(0, 0, 100, 850);
-//		leftButton.setOpaque(false);
-//		leftButton.setMargin(new Insets(0, 0, 0, 0));
-//		leftButton.addActionListener(this);
-//		p.add(leftButton);
-//		
-//		JButton rightButton = new JButton("right");
-//		rightButton.setBounds(750, 0, 100, 850);
-//		rightButton.addActionListener(this);
-//		p.add(rightButton);
-//		
-////		JLabel label = new JLabel(new ImageIcon("squares/white.png"));
-////		label.setBounds(0, 0, 850, 850);
-//		label.add(leftButton);
-//		label.add(rightButton);
-//		p.add(label);
-//		
-//		add(p);
+        
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -172,6 +114,24 @@ public class BedSide extends JPanel implements ActionListener{
 		}
 		if(e.getSource() == dialogueBox) 
 			dialogueBox = null;
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

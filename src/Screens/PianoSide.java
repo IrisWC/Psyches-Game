@@ -2,6 +2,9 @@ package Screens;
 
 import java.awt.*;
 import javax.swing.*;
+
+import Assets.ClickableItem;
+
 import java.awt.event.*;
 
 import Core.Game;
@@ -9,7 +12,7 @@ import navigationButtons.BackpackButton;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
-public class PianoSide extends JPanel implements ActionListener {
+public class PianoSide extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -25,20 +28,9 @@ public class PianoSide extends JPanel implements ActionListener {
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		backpackButton = new BackpackButton(this);
 		
-		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
-		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
-		
-		ImageIcon pianoIcon = new ImageIcon("img/furniture/piano.png");
-		Image pianoModified = pianoIcon.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
-		JButton piano = new JButton(new ImageIcon(pianoModified));
-		piano.setBounds(300, 300, 400, 400);
-		piano.setOpaque(false);
-		piano.setContentAreaFilled(false);
-		piano.setBorderPainted(false);
-		piano.addActionListener(this);
-        add(piano);
+		ClickableItem gwpe = new ClickableItem(this, "img/furniture/piano.png", 300, 300, 400, 400);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
@@ -55,6 +47,24 @@ public class PianoSide extends JPanel implements ActionListener {
 			mainCore.switchScreen("exitSide");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

@@ -2,12 +2,15 @@ package Screens;
 
 import java.awt.*;
 import javax.swing.*;
+
+import Assets.ClickableItem;
+
 import java.awt.event.*;
 
 import Core.Game;
 import navigationButtons.BackpackButton;
 
-public class Bathroom extends JPanel implements ActionListener {
+public class Bathroom extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -29,53 +32,17 @@ public class Bathroom extends JPanel implements ActionListener {
 		exit.addActionListener(this);
 		add(exit);
 		
-		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
-		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
+		backpackButton = new BackpackButton(this);
 		
-		ImageIcon toiletIcon = new ImageIcon("img/bathroom/toilet.png");
-		Image toiletModified = toiletIcon.getImage().getScaledInstance(150, 200, Image.SCALE_SMOOTH);
-		JButton toilet = new JButton(new ImageIcon(toiletModified));
-		toilet.setBounds(600, 350, 150, 200);
-		toilet.setOpaque(false);
-		toilet.setContentAreaFilled(false);
-		toilet.setBorderPainted(false);
-		toilet.addActionListener(this);
-        add(toilet);
+		ClickableItem toilet = new ClickableItem(this, "img/bathroom/toilet.png", 600, 350, 150, 200);
+		ClickableItem sink = new ClickableItem(this, "img/bathroom/sink.png", 100, 350, 400, 200);
+		ClickableItem mirror = new ClickableItem(this, "img/bathroom/mirror.png", 100, 100, 400, 200);
+		ClickableItem shower = new ClickableItem(this, "img/bathroom/shower.png", 800, 150, 200, 400);
+		
         
-        ImageIcon sinkIcon = new ImageIcon("img/bathroom/sink.png");
-		Image sinkModified = sinkIcon.getImage().getScaledInstance(400, 200, Image.SCALE_SMOOTH);
-		JButton sink = new JButton(new ImageIcon(sinkModified));
-		sink.setBounds(100, 350, 400, 200);
-		sink.setOpaque(false);
-		sink.setContentAreaFilled(false);
-		sink.setBorderPainted(false);
-		sink.addActionListener(this);
-        add(sink);
-        
-        ImageIcon mirrorIcon = new ImageIcon("img/bathroom/mirror.png");
-		Image mirrorModified = mirrorIcon.getImage().getScaledInstance(400, 200, Image.SCALE_SMOOTH);
-		JButton mirror = new JButton(new ImageIcon(mirrorModified));
-		mirror.setBounds(100, 100, 400, 200);
-		mirror.setOpaque(false);
-		mirror.setContentAreaFilled(false);
-		mirror.setBorderPainted(false);
-		mirror.addActionListener(this);
-        add(mirror);
-       
-        ImageIcon showerIcon = new ImageIcon("img/bathroom/shower.png");
-		Image showerModified = showerIcon.getImage().getScaledInstance(200, 400, Image.SCALE_SMOOTH);
-		JButton shower = new JButton(new ImageIcon(showerModified));
-		shower.setBounds(800, 150, 200, 400);
-		shower.setOpaque(false);
-		shower.setContentAreaFilled(false);
-		shower.setBorderPainted(false);
-		shower.addActionListener(this);
-        add(shower);
-        
-        ImageIcon bedroom = new ImageIcon("img/Bathroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
-		JLabel background = new JLabel(new ImageIcon(bedroomModified));
+        ImageIcon bathroom = new ImageIcon("img/Bathroom.png");
+		Image bathroomModified = bathroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
+		JLabel background = new JLabel(new ImageIcon(bathroomModified));
 		background.setBounds(-140, -20, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
         add(background);
 	}
@@ -86,6 +53,24 @@ public class Bathroom extends JPanel implements ActionListener {
 			mainCore.switchScreen("bathroomSide");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

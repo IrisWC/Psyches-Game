@@ -2,6 +2,9 @@ package Screens;
 
 import java.awt.*;
 import javax.swing.*;
+
+import Assets.ClickableItem;
+
 import java.awt.event.*;
 
 import Core.Game;
@@ -9,7 +12,7 @@ import navigationButtons.BackpackButton;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
-public class BathroomSide extends JPanel implements ActionListener {
+public class BathroomSide extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -25,20 +28,10 @@ public class BathroomSide extends JPanel implements ActionListener {
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		backpackButton = new BackpackButton(this);
 		
-		ImageIcon doorIcon = new ImageIcon("img/bathroom door.png");
-		Image doorModified = doorIcon.getImage().getScaledInstance(200, 350, Image.SCALE_SMOOTH);
-		door = new JButton(new ImageIcon(doorModified));
-		door.setBounds(600, 100, 200, 350);
-		door.setOpaque(false);
-		door.setContentAreaFilled(false);
-		door.setBorderPainted(false);
-		door.addActionListener(this);
-		add(door);
-		
-		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
-		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
+		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 200, 350, 150, 150);
+		door = new ClickableItem(this, "img/bathroom door.png", 600, 100, 200, 350);
 		
 		JButton title = new JButton("Bathroom Side");
 		title.setBounds(150, 300, 300, 300);
@@ -62,6 +55,24 @@ public class BathroomSide extends JPanel implements ActionListener {
 			mainCore.switchScreen("bathroom");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

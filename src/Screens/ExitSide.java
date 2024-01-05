@@ -2,6 +2,9 @@ package Screens;
 
 import java.awt.*;
 import javax.swing.*;
+
+import Assets.ClickableItem;
+
 import java.awt.event.*;
 
 import Core.Game;
@@ -9,7 +12,7 @@ import navigationButtons.BackpackButton;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
-public class ExitSide extends JPanel implements ActionListener {
+public class ExitSide extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -25,40 +28,11 @@ public class ExitSide extends JPanel implements ActionListener {
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		backpackButton = new BackpackButton(this);
 		
-		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
-		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-		backpackButton = new BackpackButton(this, new ImageIcon(bagModified));
-		
-		ImageIcon doorIcon = new ImageIcon("img/exit door.png");
-		Image doorModified = doorIcon.getImage().getScaledInstance(200, 350, Image.SCALE_SMOOTH);
-		door = new JButton(new ImageIcon(doorModified));
-		door.setBounds(600, 100, 200, 350);
-		door.setOpaque(false);
-		door.setContentAreaFilled(false);
-		door.setBorderPainted(false);
-		door.addActionListener(this);
-		add(door);
-		
-		ImageIcon closetIcon = new ImageIcon("img/furniture/closet.png");
-		Image closetModified = closetIcon.getImage().getScaledInstance(200, 400, Image.SCALE_SMOOTH);
-		JButton closet = new JButton(new ImageIcon(closetModified));
-		closet.setBounds(150, 150, 200, 400);
-		closet.setOpaque(false);
-		closet.setContentAreaFilled(false);
-		closet.setBorderPainted(false);
-		closet.addActionListener(this);
-        add(closet);
-        
-        ImageIcon paintingIcon = new ImageIcon("img/paintings/girl with a pearl earing.png");
-		Image paintingModified = paintingIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-		JButton painting = new JButton(new ImageIcon(paintingModified));
-		painting.setBounds(400, 200, 150, 150);
-		painting.setOpaque(false);
-		painting.setContentAreaFilled(false);
-		painting.setBorderPainted(false);
-		painting.addActionListener(this);
-        add(painting);
+		ClickableItem door = new ClickableItem(this, "img/exit door.png", 600, 100, 200, 350);
+		ClickableItem closet = new ClickableItem(this, "img/furniture/closet.png", 150, 150, 200, 400);
+		ClickableItem gwpe = new ClickableItem(this, "img/paintings/girl with a pearl earing.png", 400, 200, 150, 150);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
@@ -75,6 +49,24 @@ public class ExitSide extends JPanel implements ActionListener {
 			mainCore.switchScreen("bedSide");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }
