@@ -13,7 +13,7 @@ public class BackpackButton extends JButton{
 		super(img);
 		this.setBounds(875, 700, 60, 60);
 //		this.setOpaque(false);
-		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+//		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 //		this.setBorderPainted(false);
 		this.addActionListener((ActionListener) p);
 		p.add(this);
