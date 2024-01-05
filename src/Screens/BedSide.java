@@ -35,7 +35,7 @@ public class BedSide extends JPanel implements ActionListener{
 		rightButton.addActionListener(this);
 		add(rightButton);
 		
-		ImageIcon bedIcon = new ImageIcon("img/bed.png");
+		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
 		Image bedModified = bedIcon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
 		JButton bed = new JButton(new ImageIcon(bedModified));
 		bed.setBounds(300, 300, 300, 300);
