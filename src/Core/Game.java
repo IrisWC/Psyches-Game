@@ -17,7 +17,7 @@ import javax.swing.SwingUtilities;
 public class Game extends JFrame {
 	
 	public static final int WIDTH = 1050;
-	public static final int HEIGHT = 850;
+	public static final int HEIGHT = 825;
 	
 	public static final int BACKGROUND_WIDTH = 1600;
 	public static final int BACKGROUND_HEIGHT = 900;
