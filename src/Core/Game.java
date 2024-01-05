@@ -31,6 +31,8 @@ public class Game extends JFrame {
 	private PianoSide pianoSide;
 	private Bathroom bathroom;
 	
+	private boolean inventoryOpen;
+	
 //	private ArrayList<Furniture> furniture;
 	
 	public Game() {
@@ -45,6 +47,8 @@ public class Game extends JFrame {
 		cardPanel.setLayout(cl);
 //		container = getContentPane();
 //		container.setLayout(cl);
+		
+		inventoryOpen = false;
 		
 		menu = new MenuScreen(this, WIDTH, HEIGHT);
 		bedSide = new BedSide(this, WIDTH, HEIGHT);
@@ -77,6 +81,17 @@ public class Game extends JFrame {
 	public void switchScreen(String panelName) {
 		((CardLayout)cardPanel.getLayout()).show(cardPanel, panelName);
 		requestFocus();
+	}
+	
+	public void setInventoryStatus() {
+		if(!inventoryOpen) {
+			JFrame inventoryWindow = new JFrame("Inventory");
+			inventoryWindow.setResizable(false);
+			inventoryWindow.setBounds(1100, 200, 400, 400);
+			inventoryWindow.setVisible(true);
+		} else {
+			inventoryOpen = false;
+		}
 	}
 	
 //	public void run() {

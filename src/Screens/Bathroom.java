@@ -84,6 +84,8 @@ public class Bathroom extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == exit)
 			mainCore.switchScreen("bathroomSide");
+		if(e.getSource() == backpackButton)
+			mainCore.setInventoryStatus();
 		
 	}
 }

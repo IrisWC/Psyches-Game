@@ -53,6 +53,8 @@ public class PianoSide extends JPanel implements ActionListener {
 			mainCore.switchScreen("bathroomSide");
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("exitSide");
+		if(e.getSource() == backpackButton)
+			mainCore.setInventoryStatus();
 		
 	}
 }

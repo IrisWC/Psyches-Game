@@ -73,6 +73,8 @@ public class ExitSide extends JPanel implements ActionListener {
 			mainCore.switchScreen("pianoSide");
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("bedSide");
+		if(e.getSource() == backpackButton)
+			mainCore.setInventoryStatus();
 		
 	}
 }

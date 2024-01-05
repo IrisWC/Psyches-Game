@@ -155,6 +155,8 @@ public class BedSide extends JPanel implements ActionListener{
 			mainCore.switchScreen("exitSide");
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("bathroomSide");
+		if(e.getSource() == backpackButton)
+			mainCore.setInventoryStatus();
 	}
 
 }
