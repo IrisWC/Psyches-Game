@@ -49,7 +49,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		
 		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 425, 50, 200, 200);
 		clickableItems.add(starryNight);
-        
+		
 //        dialogueBox = new JButton("painting clue");
 //		dialogueBox.setBounds(300, 300, 300, 300);
 //		dialogueBox.setBackground(new Color(55,50,45));
@@ -116,15 +116,15 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == starryNight) {
-//			System.out.println("starryNight clicked");
+			System.out.println("starryNight clicked");
 			
-			dialogueBox = new JButton("staryyNight clue");
-			dialogueBox.setBounds(300, 300, 300, 300);
-			dialogueBox.setBackground(new Color(55,50,45));
-			dialogueBox.setOpaque(true);
-			dialogueBox.setBorderPainted(false);
-			dialogueBox.addActionListener(this);
-			this.add(dialogueBox);
+//			dialogueBox = new JButton("staryyNight clue");
+//			dialogueBox.setBounds(300, 300, 300, 300);
+//			dialogueBox.setBackground(new Color(55,50,45));
+//			dialogueBox.setOpaque(true);
+//			dialogueBox.setBorderPainted(false);
+//			dialogueBox.addActionListener(this);
+//			this.add(dialogueBox);
 		}
 		if(e.getSource() == dialogueBox) 
 			dialogueBox = null;
