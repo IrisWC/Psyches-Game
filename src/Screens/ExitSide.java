@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.event.*;
 
 import Core.Game;
+import navigationButtons.LeftButton;
+import navigationButtons.RightButton;
 
 public class ExitSide extends JPanel implements ActionListener {
 
@@ -20,15 +22,8 @@ public class ExitSide extends JPanel implements ActionListener {
 		
 		setLayout(null);
 		
-		leftButton = new JButton("left");
-		leftButton.setBounds(0, 0, 100, 850);
-		leftButton.addActionListener(this);
-		add(leftButton);
-		
-		rightButton = new JButton("right");
-		rightButton.setBounds(950, 0, 100, 850);
-		rightButton.addActionListener(this);
-		add(rightButton);
+		leftButton = new LeftButton(this);
+		rightButton = new RightButton(this);
 		
 		JButton title = new JButton("Exit Side");
 		title.setBounds(300, 300, 300, 300);

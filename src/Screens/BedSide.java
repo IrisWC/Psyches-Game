@@ -9,6 +9,7 @@ import java.awt.event.*;
 import Assets.*;
 import Core.*;
 import navigationButtons.LeftButton;
+import navigationButtons.RightButton;
 
 public class BedSide extends JPanel implements ActionListener{
 
@@ -29,13 +30,14 @@ public class BedSide extends JPanel implements ActionListener{
 //		leftButton = new JButton("left");
 //		leftButton.setBounds(0, 0, 100, 850);
 //		leftButton.addActionListener(this);
-		leftButton = new LeftButton(this);
 //		add(leftButton);
+		leftButton = new LeftButton(this);
 		
-		rightButton = new JButton("right");
-		rightButton.setBounds(950, 0, 100, 850);
-		rightButton.addActionListener(this);
-		add(rightButton);
+//		rightButton = new JButton("right");
+//		rightButton.setBounds(950, 0, 100, 850);
+//		rightButton.addActionListener(this);
+//		add(rightButton);
+		rightButton = new RightButton(this);
 		
 		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
 		Image bedModified = bedIcon.getImage().getScaledInstance(450, 450, Image.SCALE_SMOOTH);
