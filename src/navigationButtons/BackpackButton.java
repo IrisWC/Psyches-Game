@@ -13,7 +13,7 @@ public class BackpackButton extends JButton{
 		ImageIcon bagIcon = new ImageIcon("img/Backpack.png");
 		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 		this.setIcon(new ImageIcon(bagModified));
-		this.setBounds(875, 20, 65, 65);
+		this.setBounds(875, 20, 62, 62);
 		this.setBackground(new Color(220,190,140));
 		this.setOpaque(true);
 		this.setBorderPainted(false);
