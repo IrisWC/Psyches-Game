@@ -50,7 +50,13 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 425, 50, 200, 200);
 		clickableItems.add(starryNight);
         
-        dialogueBox = null;
+//        dialogueBox = new JButton("painting clue");
+//		dialogueBox.setBounds(300, 300, 300, 300);
+//		dialogueBox.setBackground(new Color(55,50,45));
+//		dialogueBox.setOpaque(true);
+//		dialogueBox.setBorderPainted(false);
+//		dialogueBox.addActionListener(this);
+////		dialogueBox.setEnabled(false);	
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
