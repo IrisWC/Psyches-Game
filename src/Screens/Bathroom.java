@@ -20,8 +20,8 @@ public class Bathroom extends JPanel implements ActionListener {
 		
 		setLayout(null);
 		
-		exit = new JButton("exit");
-		exit.setBounds(0, 750, 1050, 100);
+		exit = new JButton();
+		exit.setBounds(-5, 750, Game.WIDTH+10, 100);
 		exit.addActionListener(this);
 		add(exit);
 		
@@ -33,7 +33,7 @@ public class Bathroom extends JPanel implements ActionListener {
         ImageIcon bedroom = new ImageIcon("img/Bathroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(-100, -20, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
+		background.setBounds(-140, -20, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
         add(background);
 	}
 
