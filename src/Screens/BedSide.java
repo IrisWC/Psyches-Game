@@ -133,24 +133,28 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			System.out.println("left");
+		}
+		
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
-		for (int i = 0; i < clickableItems.size(); i++) {
-			int key = e.getKeyCode();
-			if (key == KeyEvent.VK_LEFT)
-				System.out.println("hi");
+//		for (int i = 0; i < clickableItems.size(); i++) {
+//			int key = e.getKeyCode();
+//			if (key == KeyEvent.VK_LEFT)
 //				clickableItems.get(i).move(-1, 0);
-			if (key == KeyEvent.VK_RIGHT)
-				clickableItems.get(i).move(1, 0);
-			if (key == KeyEvent.VK_UP)
-				clickableItems.get(i).move(0, -1);
-			if (key == KeyEvent.VK_DOWN)
-				clickableItems.get(i).move(0, 1);
-		}
+//			if (key == KeyEvent.VK_RIGHT)
+//				clickableItems.get(i).move(1, 0);
+//			if (key == KeyEvent.VK_UP)
+//				clickableItems.get(i).move(0, -1);
+//			if (key == KeyEvent.VK_DOWN)
+//				clickableItems.get(i).move(0, 1);
+//		}
+		
 	}
 
 	@Override
