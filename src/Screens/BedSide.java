@@ -149,10 +149,6 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			System.out.println("left");
-		}
-		
 	}
 
 	@Override
