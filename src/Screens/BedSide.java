@@ -23,37 +23,6 @@ public class BedSide extends JPanel implements ActionListener{
 		this.width = width;
 		this.height = height;
 		
-		JPanel p = new JPanel();
-		GridLayout gl = new GridLayout();
-		p.setLayout(gl);
-		
-		ImageIcon background = new ImageIcon("squares/yellow.png");
-		JLabel label = new JLabel(background);
-		label.setSize(850, 850);
-		label.setLocation(0, 0);
-		label.setBounds(0, 0, 850, 850);
-		
-		JButton leftButton = new JButton("left");
-		leftButton.setBounds(0, 0, 100, 850);
-		leftButton.setOpaque(false);
-		leftButton.setMargin(new Insets(0, 0, 0, 0));
-		leftButton.addActionListener(this);
-		p.add(leftButton);
-		
-		JButton rightButton = new JButton("right");
-		rightButton.setBounds(750, 0, 100, 850);
-		rightButton.addActionListener(this);
-		p.add(rightButton);
-		
-//		JLabel label = new JLabel(new ImageIcon("squares/white.png"));
-//		label.setBounds(0, 0, 850, 850);
-		label.add(leftButton);
-		label.add(rightButton);
-		p.add(label);
-		
-		add(p);
-	}
-		
 		setLayout(null); 
 
 	    JButton button = new JButton();
@@ -90,7 +59,7 @@ public class BedSide extends JPanel implements ActionListener{
 //		p.add(label);
 //		
 //		add(p);
-//	}
+	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
