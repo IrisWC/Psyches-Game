@@ -13,6 +13,9 @@ public class ClickableItem extends JButton {
 	private int x, y;
 	private int w, h;
 	
+	// for testing
+	private boolean clicked;
+	
 	public ClickableItem(JPanel p, String img, int x, int y, int w, int h) {
 		this.img = img;
 		this.x = x;
@@ -29,20 +32,39 @@ public class ClickableItem extends JButton {
 		this.setBorderPainted(false);
 		this.addActionListener((ActionListener) p);
 		p.add(this);
+		
+		clicked = false;
 	}
 	
+	public void click() {
+		if (clicked) {
+			System.out.println("false");
+			clicked = false;
+			System.out.println(img + ": " + x + "," + y + "," + w + "," + h);
+		}
+		else {
+			System.out.println("true");
+			clicked = true;
+		}
+	}
+	
+	public boolean getClicked() {
+		return clicked;
+	}
+	
+	
 	public void move(int x, int y) {
-		this.x += x;
-		this.y += y;
+		if (clicked) {
+			this.x += x;
+			this.y += y;
+		}
 	}
 	
 	public void resize(int w, int h) {
-		this.w *= w;
-		this.y *= h;
-	}
-	
-	public String get() {
-		return img + ": " + x + "," + y + "," + w + "," + h;
+		if (clicked) {
+			this.w *= w;
+			this.y *= h;
+		}
 	}
 
 }

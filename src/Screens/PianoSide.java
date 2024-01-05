@@ -30,7 +30,7 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
 		
-		ClickableItem gwpe = new ClickableItem(this, "img/furniture/piano.png", 300, 300, 400, 400);
+		ClickableItem piano = new ClickableItem(this, "img/furniture/piano.png", 300, 300, 400, 400);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);

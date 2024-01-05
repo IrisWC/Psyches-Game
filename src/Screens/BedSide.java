@@ -15,9 +15,10 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton, painting, dialogueBox;
+	private JButton leftButton, rightButton, backpackButton, dialogueBox;
+	private ClickableItem starryNight;
 //	private JPanel p;
-	private ArrayList<ClickableItem> furnitures;
+	private ArrayList<ClickableItem> clickableItems;
 	
 	public BedSide(Game mainCore, int width, int height) {
 		super();
@@ -40,8 +41,14 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //		bed.setBorderPainted(false);
 //		bed.addActionListener(this);
 //        add(bed);
+		
+		clickableItems = new ArrayList<ClickableItem>();
+		
 		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 300, 270, 450, 450);
-		ClickableItem starryNight = new ClickableItem(this, "img/paintings/starry night.png", 425, 50, 200, 200);
+		clickableItems.add(bed);
+		
+		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 425, 50, 200, 200);
+		clickableItems.add(starryNight);
         
         dialogueBox = null;
         
@@ -90,6 +97,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
 		}
 	}
 
@@ -101,10 +109,10 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			mainCore.switchScreen("bathroomSide");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
-		if(e.getSource() == painting) {
-			System.out.println("painting clicked");
+		if(e.getSource() == starryNight) {
+//			System.out.println("starryNight clicked");
 			
-			dialogueBox = new JButton("painting clue");
+			dialogueBox = new JButton("staryyNight clue");
 			dialogueBox.setBounds(300, 300, 300, 300);
 			dialogueBox.setBackground(new Color(55,50,45));
 			dialogueBox.setOpaque(true);
@@ -114,6 +122,11 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		}
 		if(e.getSource() == dialogueBox) 
 			dialogueBox = null;
+		
+		for (int i = 0; i < clickableItems.size(); i++) {
+			if(e.getSource() == clickableItems.get(i))
+				clickableItems.get(i).click();
+		}
 	}
 
 	@Override
@@ -126,6 +139,18 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+		for (int i = 0; i < clickableItems.size(); i++) {
+			int key = e.getKeyCode();
+			if (key == KeyEvent.VK_LEFT)
+				System.out.println("hi");
+//				clickableItems.get(i).move(-1, 0);
+			if (key == KeyEvent.VK_RIGHT)
+				clickableItems.get(i).move(1, 0);
+			if (key == KeyEvent.VK_UP)
+				clickableItems.get(i).move(0, -1);
+			if (key == KeyEvent.VK_DOWN)
+				clickableItems.get(i).move(0, 1);
+		}
 	}
 
 	@Override
