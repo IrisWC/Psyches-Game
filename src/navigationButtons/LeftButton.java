@@ -9,10 +9,10 @@ import Core.Game;
 
 public class LeftButton extends JButton{
 	
-	public LeftButton(ActionListener p) {
+	public LeftButton(JPanel p) {
 		this.setBounds(-5, -5, 100, Game.HEIGHT);
-		this.addActionListener(p);
-		((JPanel) p).add(this);
+		this.addActionListener((ActionListener) p);
+		p.add(this);
 	}
 
 }

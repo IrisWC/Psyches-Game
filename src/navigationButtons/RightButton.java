@@ -9,10 +9,10 @@ import Core.Game;
 
 public class RightButton extends JButton{
 	
-	public RightButton(ActionListener p) {
+	public RightButton(JPanel p) {
 		this.setBounds(Game.WIDTH-95, -5, 100, Game.HEIGHT);
-		this.addActionListener(p);
-		((JPanel) p).add(this);
+		this.addActionListener((ActionListener) p);
+		p.add(this);
 	}
 
 }
