@@ -26,8 +26,13 @@ public class BathroomSide extends JPanel implements ActionListener {
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
 		
-		door = new JButton("door");
+		ImageIcon doorIcon = new ImageIcon("img/bathroom door.png");
+		Image doorModified = doorIcon.getImage().getScaledInstance(200, 350, Image.SCALE_SMOOTH);
+		door = new JButton(new ImageIcon(doorModified));
 		door.setBounds(500, 100, 200, 350);
+		door.setOpaque(false);
+		door.setContentAreaFilled(false);
+		door.setBorderPainted(false);
 		door.addActionListener(this);
 		add(door);
 		
