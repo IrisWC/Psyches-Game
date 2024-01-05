@@ -46,9 +46,9 @@ public class BedSide extends JPanel implements ActionListener{
         add(bed);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(850, 850, Image.SCALE_SMOOTH);
+		Image bedroomModified = bedroom.getImage().getScaledInstance(1600, 900, Image.SCALE_SMOOTH);
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 0, 850, 850);
+		background.setBounds(0, 0, 1600, 900);
         add(background);
 		
 //		JPanel p = new JPanel();
