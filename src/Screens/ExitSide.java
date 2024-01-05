@@ -36,15 +36,29 @@ public class ExitSide extends JPanel implements ActionListener {
 		door.setBounds(600, 100, 200, 350);
 		door.setOpaque(false);
 		door.setContentAreaFilled(false);
-//		door.setBorderPainted(false);
+		door.setBorderPainted(false);
 		door.addActionListener(this);
 		add(door);
-
 		
-		JButton title = new JButton("Exit Side");
-		title.setBounds(200, 300, 300, 300);
-		title.addActionListener(this);
-        add(title);
+		ImageIcon closetIcon = new ImageIcon("img/furniture/closet.png");
+		Image closetModified = closetIcon.getImage().getScaledInstance(200, 400, Image.SCALE_SMOOTH);
+		JButton closet = new JButton(new ImageIcon(closetModified));
+		closet.setBounds(150, 150, 200, 400);
+		closet.setOpaque(false);
+		closet.setContentAreaFilled(false);
+		closet.setBorderPainted(false);
+		closet.addActionListener(this);
+        add(closet);
+        
+        ImageIcon paintingIcon = new ImageIcon("img/paintings/girl with a pearl earing.png");
+		Image paintingModified = paintingIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+		JButton painting = new JButton(new ImageIcon(paintingModified));
+		painting.setBounds(400, 200, 150, 150);
+		painting.setOpaque(false);
+		painting.setContentAreaFilled(false);
+		painting.setBorderPainted(false);
+		painting.addActionListener(this);
+        add(painting);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);

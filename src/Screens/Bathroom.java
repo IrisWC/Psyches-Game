@@ -36,7 +36,7 @@ public class Bathroom extends JPanel implements ActionListener {
 		ImageIcon toiletIcon = new ImageIcon("img/bathroom/toilet.png");
 		Image toiletModified = toiletIcon.getImage().getScaledInstance(150, 200, Image.SCALE_SMOOTH);
 		JButton toilet = new JButton(new ImageIcon(toiletModified));
-		toilet.setBounds(600, 300, 150, 200);
+		toilet.setBounds(600, 350, 150, 200);
 		toilet.setOpaque(false);
 		toilet.setContentAreaFilled(false);
 		toilet.setBorderPainted(false);
@@ -62,6 +62,16 @@ public class Bathroom extends JPanel implements ActionListener {
 		mirror.setBorderPainted(false);
 		mirror.addActionListener(this);
         add(mirror);
+       
+        ImageIcon showerIcon = new ImageIcon("img/bathroom/shower.png");
+		Image showerModified = showerIcon.getImage().getScaledInstance(200, 400, Image.SCALE_SMOOTH);
+		JButton shower = new JButton(new ImageIcon(showerModified));
+		shower.setBounds(800, 150, 200, 400);
+		shower.setOpaque(false);
+		shower.setContentAreaFilled(false);
+		shower.setBorderPainted(false);
+		shower.addActionListener(this);
+        add(shower);
         
         ImageIcon bedroom = new ImageIcon("img/Bathroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
