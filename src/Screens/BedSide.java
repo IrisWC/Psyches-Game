@@ -52,6 +52,16 @@ public class BedSide extends JPanel implements ActionListener{
 		bed.addActionListener(this);
         add(bed);
         
+        ImageIcon paintingIcon = new ImageIcon("img/furniture/starry night.png");
+		Image paintingModified = paintingIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+		JButton painting = new JButton(new ImageIcon(paintingModified));
+		painting.setBounds(425, 50, 200, 200);
+		painting.setOpaque(false);
+		painting.setContentAreaFilled(false);
+		painting.setBorderPainted(false);
+		painting.addActionListener(this);
+        add(painting);
+        
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
