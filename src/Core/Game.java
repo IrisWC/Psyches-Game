@@ -9,6 +9,7 @@ import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -69,6 +70,7 @@ public class Game extends JFrame {
 //		switchScreen("bedSide");
 //		furniture = new ArrayList<Furniture>();
 //		addFurniture();
+		
 
 	}
 	
