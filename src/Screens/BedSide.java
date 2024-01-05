@@ -31,6 +31,7 @@ public class BedSide extends JPanel implements ActionListener{
 		JLabel label = new JLabel(background);
 		label.setSize(850, 850);
 		label.setLocation(0, 0);
+		label.setBounds(0, 0, 850, 850);
 		
 		JButton leftButton = new JButton("left");
 		leftButton.setBounds(0, 0, 100, 850);
