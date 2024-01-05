@@ -10,7 +10,7 @@ import javax.swing.*;
 public class BackpackButton extends JButton{
 	
 	public BackpackButton(JPanel p) {
-		ImageIcon bagIcon = new ImageIcon("img/backpack.png");
+		ImageIcon bagIcon = new ImageIcon("img/Backpack.png");
 		Image bagModified = bagIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 		this.setIcon(new ImageIcon(bagModified));
 		this.setBounds(875, 20, 65, 65);
