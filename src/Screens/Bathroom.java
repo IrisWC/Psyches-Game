@@ -22,7 +22,10 @@ public class Bathroom extends JPanel implements ActionListener {
 		setLayout(null);
 		
 		exit = new JButton();
-		exit.setBounds(-5, 750, Game.WIDTH+10, 100);
+		exit.setBounds(0, Game.HEIGHT-100, Game.WIDTH, 100);
+		exit.setBackground(new Color(55,50,45));
+		exit.setOpaque(true);
+		exit.setBorderPainted(false);
 		exit.addActionListener(this);
 		add(exit);
 		
