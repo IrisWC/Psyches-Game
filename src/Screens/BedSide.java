@@ -140,10 +140,11 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			dialogueBox.setEnabled(false);
 			dialogueBox.setVisible(false);
 		}
-		for (int i = 0; i < clickableItems.size(); i++) {
-			if(e.getSource() == clickableItems.get(i))
-				clickableItems.get(i).click();
-		}
+//		for (int i = 0; i < clickableItems.size(); i++) {
+//			if(e.getSource() == clickableItems.get(i))
+//				clickableItems.get(i).click();
+//		}
+		System.out.println("action performed");
 	}
 
 	@Override
