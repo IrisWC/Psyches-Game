@@ -36,9 +36,9 @@ public class ExitSide extends JPanel implements ActionListener {
         add(title);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(850, 850, Image.SCALE_SMOOTH);
+		Image bedroomModified = bedroom.getImage().getScaledInstance(BACKGROUND_WIDTH, BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 0, 850, 850);
+		background.setBounds(0, 0, BACKGROUND_WIDTH, BACKGROUND_HEIGHT);
         add(background);
 	}
 
