@@ -23,25 +23,37 @@ public class BedSide extends JPanel implements ActionListener{
 		this.width = width;
 		this.height = height;
 		
-		setLayout(null); 
-
-	    JButton button = new JButton();
-	    button.setBounds(300, 40, 500, 30);
-	    button.addActionListener(this);
-	    add(button);
+		setLayout(null);
+		
+		JButton leftButton = new JButton("left");
+		leftButton.setBounds(0, 0, 100, 850);
+		leftButton.addActionListener(this);
+		add(leftButton);
+		
+		JButton rightButton = new JButton("right");
+		rightButton.setBounds(750, 0, 100, 850);
+		rightButton.addActionListener(this);
+		add(rightButton);
+		
+		ImageIcon bedIcon = new ImageIcon("img/bed.png");
+		Image bedModified = bedIcon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+		JButton bed = new JButton(new ImageIcon(bedModified));
+		bed.setBounds(300, 300, 300, 300);
+		bed.addActionListener(this);
+        add(bed);
 		
 //		JPanel p = new JPanel();
 //		GridLayout gl = new GridLayout();
-//		this.setLayout(gl);
+//		p.setLayout(gl);
 //		
-		ImageIcon background = new ImageIcon("squares/yellow.png");
-		JLabel label = new JLabel(background);
-		label.setSize(200, 600);
-		label.setLocation(200, 500);
-		add(label);
+//		ImageIcon background = new ImageIcon("squares/yellow.png");
+//		JLabel label = new JLabel(background);
+//		label.setSize(850, 850);
+//		label.setLocation(0, 0);
+//		label.setBounds(0, 0, 850, 850);
 //		
 //		JButton leftButton = new JButton("left");
-//		leftButton.setBounds(200, 0, 100, 850);
+//		leftButton.setBounds(0, 0, 100, 850);
 //		leftButton.setOpaque(false);
 //		leftButton.setMargin(new Insets(0, 0, 0, 0));
 //		leftButton.addActionListener(this);
@@ -75,7 +87,7 @@ public class BedSide extends JPanel implements ActionListener{
 		AffineTransform at = g2.getTransform();
 		g2.scale(ratioX, ratioY);
 		
-		g.drawImage(new ImageIcon("img/bed.png").getImage(), 300, 300, 300, 300, this);
+//		g.drawImage(new ImageIcon("img/bed.png").getImage(), 300, 300, 300, 300, this);
 		
 //		JButton bed = new JButton(new ImageIcon("img//bed.png"));
 //		p.add(bed);
