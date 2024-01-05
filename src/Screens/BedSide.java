@@ -25,12 +25,12 @@ public class BedSide extends JPanel implements ActionListener{
 		
 		setLayout(null);
 		
-		JButton leftButton = new JButton("left");
+		leftButton = new JButton("left");
 		leftButton.setBounds(0, 0, 100, 850);
 		leftButton.addActionListener(this);
 		add(leftButton);
 		
-		JButton rightButton = new JButton("right");
+		rightButton = new JButton("right");
 		rightButton.setBounds(750, 0, 100, 850);
 		rightButton.addActionListener(this);
 		add(rightButton);
