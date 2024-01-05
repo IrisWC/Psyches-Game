@@ -65,6 +65,7 @@ public class Game extends JFrame implements WindowListener{
 		cardPanel.add(bathroom, "bathroom");
 		
 		add(cardPanel);
+		addKeyListener(bedSide);
 		
 		setVisible(true);
 		

@@ -27,6 +27,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		this.height = height;
 		
 		setLayout(null);
+		setFocusable(true);
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
@@ -148,13 +149,13 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("key typed");
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("key pressed");
 //		for (int i = 0; i < clickableItems.size(); i++) {
 //			int key = e.getKeyCode();
 //			if (key == KeyEvent.VK_LEFT)
