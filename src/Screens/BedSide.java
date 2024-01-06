@@ -49,8 +49,8 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		pickupableItems = new ArrayList<PickupableItem>();
 		
 		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 270, 265, 495, 495);
-		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 400, 20, 242, 242);
-		ClickableItem gwpe = new ClickableItem(this, "img/paintings/girl with a pearl earing.png", 780, 100, 150, 150);
+		starryNight = new ClickableItem(this, "img/paintings/The Starry Night.png", 470, 5, 260, 260);
+		ClickableItem gwpe = new ClickableItem(this, "img/paintings/Girl With a Pearl Earing.png", 255, 30, 178, 178);
 		
 		clickableItems.add(bed);
 		clickableItems.add(starryNight);
@@ -60,6 +60,8 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		// for testing the location of images, they are not buttons
 //		clickableItems.add(new ClickableItem(this, "img/furniture/bedside table.png", 790, 325, 206, 206));
 //		clickableItems.add(new ClickableItem(this, "img/furniture/closet.png", -40, 35, 256, 513));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/cat.png", 820, 95, 144, 216));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/castle.png", 770, -140, 281, 228));
 		
 		
 		// pick up something
@@ -101,6 +103,8 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
 		g.drawImage(new ImageIcon("img/furniture/bedside table.png").getImage(), 790, 325, 206, 206, this);
 		g.drawImage(new ImageIcon("img/furniture/closet.png").getImage(), -40, 35, 256, 513, this);
+		g.drawImage(new ImageIcon("img/paintings/cat.png").getImage(), 820, 95, 144, 216, this);
+		g.drawImage(new ImageIcon("img/paintings/castle.png").getImage(), 770, -140, 281, 228, this);
 		
 	}
 	

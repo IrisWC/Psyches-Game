@@ -37,7 +37,14 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		clickableItems = new ArrayList<ClickableItem>();
 		
 		ClickableItem piano = new ClickableItem(this, "img/furniture/piano.png", 260, 265, 512, 432);
+		ClickableItem composition = new ClickableItem(this, "img/paintings/Composition.png", 625, 95, 160, 160);
+		ClickableItem scream = new ClickableItem(this, "img/paintings/The Scream.png", 250, 95, 150, 160);
+		ClickableItem splat = new ClickableItem(this, "img/paintings/splat.png", 430, 95, 160, 160);
+		
 		clickableItems.add(piano);
+		clickableItems.add(composition);
+		clickableItems.add(scream);
+		clickableItems.add(splat);
 		
 		
 		// for testing the location of images, they are not buttons

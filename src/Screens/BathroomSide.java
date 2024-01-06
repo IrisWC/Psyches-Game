@@ -40,14 +40,19 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		
 		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 225, 475, 206, 206);
 		door = new ClickableItem(this, "img/bathroom door.png", 505, 110, 273, 513);
+		ClickableItem cat = new ClickableItem(this, "img/paintings/cat.png", 255, 245, 144, 216);
+		ClickableItem castle = new ClickableItem(this, "img/paintings/castle.png", 200, 10, 281, 228);
 		
 		clickableItems.add(table);
 		clickableItems.add(door);
+		clickableItems.add(cat);
+		clickableItems.add(castle);
 		
 		
 		// for testing the location of images, they are not buttons
 //		clickableItems.add(new ClickableItem(this, "img/furniture/bed.png", -295, 415, 495, 495));
 //		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", 895, 475, 512, 432));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/The Starry Night.png", -95, 155, 260, 260));
 		
 	}
 	
@@ -57,6 +62,7 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, 150, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
 		g.drawImage(new ImageIcon("img/furniture/bed.png").getImage(), -295, 415, 495, 495, this);
 		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), 895, 475, 512, 432, this);
+		g.drawImage(new ImageIcon("img/paintings/The Starry Night.png").getImage(), -95, 155, 260, 260, this);
 		
 	}
 
