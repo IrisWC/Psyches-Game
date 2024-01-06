@@ -14,7 +14,7 @@ import navigationButtons.BackpackButton;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
-public class BathroomSide extends JPanel implements ActionListener, KeyListener {
+public class BathroomSide extends JPanel implements ActionListener, KeyListener, WindowListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -76,6 +76,25 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 			mainCore.switchScreen("bathroom");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		if(e.getSource() == clickableItems.get(0)) {
+			JFrame passcodeWindow = new JFrame();
+			passcodeWindow.setResizable(false);
+			passcodeWindow.setBounds(1100, 200, 400, 400);
+			passcodeWindow.addWindowListener(this);
+			
+			JPanel passcodePanel = new JPanel();
+			
+			JTextField passcodeInput = new JTextField(4);
+			JButton submitButton = new JButton("submit");
+			submitButton.setBounds(50, 200, 300, 100);
+
+			passcodePanel.add(passcodeInput);
+			passcodePanel.add(submitButton);
+			
+			passcodeWindow.add(passcodePanel);
+			
+			passcodeWindow.setVisible(true);
+		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))
@@ -114,6 +133,48 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
