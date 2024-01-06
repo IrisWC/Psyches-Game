@@ -44,11 +44,15 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
-		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 300, 270, 450, 450);
+		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 270, 265, 495, 495);
 		clickableItems.add(bed);
 		
-		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 425, 50, 200, 200);
+		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 400, 20, 242, 242);
 		clickableItems.add(starryNight);
+		
+		
+		// pick up something
+		PickupableItem square = new PickupableItem(this, "squares/yellow.png", 250, 30, 90, 90);
 		
 //        dialogueBox = new JButton("painting clue");
 //		dialogueBox.setBounds(300, 300, 300, 300);
@@ -79,6 +83,8 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 
 		AffineTransform at = g2.getTransform();
 		g2.scale(ratioX, ratioY);
+		
+		
 		
 //		g.drawImage(new ImageIcon("img/bed.png").getImage(), 300, 300, 300, 300, this);
 		

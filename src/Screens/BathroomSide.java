@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import Assets.ClickableItem;
+import Assets.PickupableItem;
 
 import java.awt.event.*;
 
