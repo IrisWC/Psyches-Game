@@ -12,7 +12,7 @@ public class LeftButton extends JButton{
 	
 	public LeftButton(JPanel p) {
 		this.setBounds(0, 0, 100, Game.HEIGHT);
-		this.setBackground(new Color(55,50,45));
+		this.setBackground(new Color(50,47,48));
 		this.setOpaque(true);
 		this.setBorderPainted(false);
 		this.addActionListener((ActionListener) p);

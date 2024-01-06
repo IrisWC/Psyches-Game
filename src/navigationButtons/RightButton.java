@@ -12,7 +12,7 @@ public class RightButton extends JButton{
 	
 	public RightButton(JPanel p) {
 		this.setBounds(Game.WIDTH-100, 0, 100, Game.HEIGHT);
-		this.setBackground(new Color(55,50,45));
+		this.setBackground(new Color(50,47,48));
 		this.setOpaque(true);
 		this.setBorderPainted(false);
 		this.addActionListener((ActionListener) p);

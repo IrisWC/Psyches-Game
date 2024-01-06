@@ -29,13 +29,14 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		
 		exit = new JButton();
 		exit.setBounds(0, Game.HEIGHT-100, Game.WIDTH, 100);
-		exit.setBackground(new Color(55,50,45));
+		exit.setBackground(new Color(50,47,48));
 		exit.setOpaque(true);
 		exit.setBorderPainted(false);
 		exit.addActionListener(this);
 		add(exit);
 		
 		backpackButton = new BackpackButton(this);
+		((BackpackButton) backpackButton).setX(Game.WIDTH-75);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
