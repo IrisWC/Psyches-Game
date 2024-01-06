@@ -28,6 +28,7 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		this.mainCore = mainCore;
 		this.width = width;
 		this.height = height;
+		this.setBackground(new Color(235,224,186));
 		
 		setLayout(null);
 		
@@ -37,21 +38,21 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
-		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 200, 350, 150, 150);
-		door = new ClickableItem(this, "img/bathroom door.png", 600, 100, 200, 350);
+		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 255, 455, 199, 199);
+		door = new ClickableItem(this, "img/bathroom door.png", 600, 160, 244, 462);
 		
 		clickableItems.add(table);
 		clickableItems.add(door);
 		
-		JButton title = new JButton("Bathroom Side");
-		title.setBounds(150, 300, 300, 300);
-		title.addActionListener(this);
-        add(title);
+//		JButton title = new JButton("Bathroom Side");
+//		title.setBounds(150, 300, 300, 300);
+//		title.addActionListener(this);
+//        add(title);
         
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
+		background.setBounds(0, 150, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
         add(background);
 	}
 

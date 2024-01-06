@@ -26,6 +26,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		this.mainCore = mainCore;
 		this.width = width;
 		this.height = height;
+		this.setBackground(new Color(235,224,186));
 		
 		setLayout(null);
 		
@@ -36,9 +37,9 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
-		ClickableItem door = new ClickableItem(this, "img/exit door.png", 600, 100, 200, 350);
-		ClickableItem closet = new ClickableItem(this, "img/furniture/closet.png", 150, 150, 200, 400);
-		ClickableItem gwpe = new ClickableItem(this, "img/paintings/girl with a pearl earing.png", 400, 200, 150, 150);
+		ClickableItem door = new ClickableItem(this, "img/exit door.png", 145, 105, 233, 467);
+		ClickableItem closet = new ClickableItem(this, "img/furniture/closet.png", 660, 155, 252, 507);
+		ClickableItem gwpe = new ClickableItem(this, "img/paintings/girl with a pearl earing.png", 430, 240, 150, 150);
 		
 		clickableItems.add(door);
 		clickableItems.add(closet);
@@ -47,7 +48,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
         ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
 		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
 		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
+		background.setBounds(0, 100, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
         add(background);
 	}
 
