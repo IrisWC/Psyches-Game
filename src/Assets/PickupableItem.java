@@ -1,6 +1,6 @@
 package Assets;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class PickupableItem extends ClickableItem{
 

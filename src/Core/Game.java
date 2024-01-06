@@ -58,7 +58,13 @@ public class Game extends JFrame implements WindowListener{
 		pianoSide = new PianoSide(this, WIDTH, HEIGHT);
 		bathroom = new Bathroom(this, WIDTH, HEIGHT);
 		
-		inventory.add(new PickupableItem(bedSide, "blank", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
 		
 //		cardPanel.add(menu, "menu");
 		cardPanel.add(bedSide, "bedSide");
@@ -104,8 +110,8 @@ public class Game extends JFrame implements WindowListener{
 			inventoryPanel.setLayout(gl);
 			
 			for(int i = 0; i < inventory.size(); i++) {
-				JButton item = new JButton();
-				item.setBounds(0, 0, 100, 100);
+				JButton item = new JButton(inventory.get(i).getImage());
+				item.setBounds(i%4 * 100, i/4 * 100, 100, 100);
 				inventoryWindow.add(item);
 			}
 			
