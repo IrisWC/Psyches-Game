@@ -19,7 +19,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 	private ClickableItem starryNight;
 //	private JPanel p;
 	private ArrayList<ClickableItem> clickableItems;
-	
+	private ArrayList<PickupableItem> pickupableItems;
 	
 	public BedSide(Game mainCore, int width, int height) {
 		super();
@@ -46,6 +46,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		
 		
 		clickableItems = new ArrayList<ClickableItem>();
+		pickupableItems = new ArrayList<PickupableItem>();
 		
 		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 270, 265, 495, 495);
 		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 400, 20, 242, 242);
@@ -56,6 +57,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		
 		// pick up something
 		PickupableItem square = new PickupableItem(this, "squares/yellow.png", 250, 30, 90, 90);
+		pickupableItems.add(square);
 		
 //        dialogueBox = new JButton("painting clue");
 //		dialogueBox.setBounds(300, 300, 300, 300);
@@ -145,6 +147,12 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))
 				clickableItems.get(i).click();
+		}
+		for(int i = 0; i < pickupableItems.size(); i++) {
+			if(e.getSource() == pickupableItems.get(i)) {
+				mainCore.addToBackpack(pickupableItems.get(i));
+				pickupableItems.get(i).setVisible(false);
+			}
 		}
 		mainCore.requestFocusInWindow();
 //		System.out.println("action performed");

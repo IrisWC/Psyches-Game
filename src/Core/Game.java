@@ -120,6 +120,10 @@ public class Game extends JFrame implements WindowListener{
 			inventoryOpen = true;
 		} 
 	}
+	
+	public void addToBackpack(PickupableItem item) {
+		inventory.add(item);
+	}
 
 	@Override
 	public void windowOpened(WindowEvent e) {
