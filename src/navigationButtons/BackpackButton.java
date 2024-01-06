@@ -20,5 +20,9 @@ public class BackpackButton extends JButton{
 		this.addActionListener((ActionListener) p);
 		p.add(this);
 	}
+	
+	public void setCoordinates(int x, int y) {
+		
+	}
 
 }

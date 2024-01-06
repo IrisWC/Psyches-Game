@@ -7,6 +7,7 @@ import Assets.ClickableItem;
 import Assets.PickupableItem;
 
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import Core.Game;
 import navigationButtons.BackpackButton;
@@ -17,7 +18,10 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, door, backpackButton;
+	private JButton leftButton, rightButton, backpackButton;
+	private ClickableItem door;
+	
+	private ArrayList<ClickableItem> clickableItems;
 	
 	public BathroomSide(Game mainCore, int width, int height) {
 		super();
@@ -31,8 +35,13 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
 		
+		clickableItems = new ArrayList<ClickableItem>();
+		
 		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 200, 350, 150, 150);
 		door = new ClickableItem(this, "img/bathroom door.png", 600, 100, 200, 350);
+		
+		clickableItems.add(table);
+		clickableItems.add(door);
 		
 		JButton title = new JButton("Bathroom Side");
 		title.setBounds(150, 300, 300, 300);
@@ -57,6 +66,13 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		
+		for (int i = 0; i < clickableItems.size(); i++) {
+			if(e.getSource() == clickableItems.get(i))
+				clickableItems.get(i).click();
+		}
+		
+		mainCore.requestFocusInWindow();
+		
 	}
 
 	@Override
@@ -68,7 +84,21 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < clickableItems.size(); i++) {
+			int key = e.getKeyCode();
+			if (key == KeyEvent.VK_LEFT)
+				clickableItems.get(i).move(-5, 0);
+			if (key == KeyEvent.VK_RIGHT)
+				clickableItems.get(i).move(5, 0);
+			if (key == KeyEvent.VK_UP)
+				clickableItems.get(i).move(0, -5);
+			if (key == KeyEvent.VK_DOWN)
+				clickableItems.get(i).move(0, 5);
+			if (key == KeyEvent.VK_0)
+				clickableItems.get(i).resize(1.1);
+			if (key == KeyEvent.VK_9)
+				clickableItems.get(i).resize(0.9);
+		}
 	}
 
 	@Override

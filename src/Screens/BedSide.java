@@ -45,9 +45,9 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		clickableItems = new ArrayList<ClickableItem>();
 		
 		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 270, 265, 495, 495);
-		clickableItems.add(bed);
-		
 		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 400, 20, 242, 242);
+		
+		clickableItems.add(bed);
 		clickableItems.add(starryNight);
 		
 		
