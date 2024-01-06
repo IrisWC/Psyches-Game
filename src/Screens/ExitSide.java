@@ -13,11 +13,13 @@ import navigationButtons.BackpackButton;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
-public class ExitSide extends JPanel implements ActionListener, KeyListener {
+public class ExitSide extends JPanel implements ActionListener, KeyListener, WindowListener {
 
 	private Game mainCore;
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton, door;
+	private PasscodeWindow doorCode;
+	private boolean doorCodeOpen;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -34,6 +36,8 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
 		
+		doorCode = new PasscodeWindow(this);
+		doorCodeOpen = false;
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -67,6 +71,12 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 			mainCore.switchScreen("bedSide");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		if(e.getSource() == clickableItems.get(0)) {
+			if(!doorCodeOpen) {
+				doorCode.setVisible(true);
+				doorCodeOpen = true;
+			}
+		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))
@@ -105,6 +115,50 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		if(e.getSource() == doorCode) {
+			doorCodeOpen = false;
+		}
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

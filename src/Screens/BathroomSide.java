@@ -22,7 +22,7 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 	private ClickableItem door;
 	private boolean doorUnlocked;
 	private boolean tableCodeOpen, doorCodeOpen;
-	private JFrame tableCode, doorCode;
+	private PasscodeWindow tableCode, doorCode;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
