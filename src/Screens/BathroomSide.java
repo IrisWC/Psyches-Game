@@ -20,6 +20,9 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton;
 	private ClickableItem door;
+	private boolean doorUnlocked;
+	private boolean tableCodeOpen, doorCodeOpen;
+	private JFrame tableCode, doorCode;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -31,6 +34,32 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		this.setBackground(new Color(235,224,186));
 		
 		setLayout(null);
+		
+		tableCode = new JFrame();
+		tableCode.setResizable(false);
+		tableCode.setBounds(1100, 200, 400, 400);
+		tableCode.addWindowListener(this);
+		JPanel tablePanel = new JPanel();
+		JTextField tableInput = new JTextField(10);
+		JButton tableSubmit = new JButton("submit");
+		tablePanel.add(tableInput);
+		tablePanel.add(tableSubmit);
+		tableCode.add(tablePanel);
+		
+		doorCode = new JFrame();
+		doorCode.setResizable(false);
+		doorCode.setBounds(1100, 200, 400, 400);
+		doorCode.addWindowListener(this);
+		JPanel doorPanel = new JPanel();
+		JTextField doorInput = new JTextField(10);
+		JButton doorSubmit = new JButton("submit");
+		doorPanel.add(doorInput);
+		doorPanel.add(doorSubmit);
+		doorCode.add(doorPanel);
+		
+		tableCodeOpen = false;
+		doorCodeOpen = false;
+		doorUnlocked = false;
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
@@ -72,28 +101,23 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 			mainCore.switchScreen("bedSide");
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("pianoSide");
-		if(e.getSource() == door)
-			mainCore.switchScreen("bathroom");
+		if(e.getSource() == door) {
+			if(doorUnlocked)
+				mainCore.switchScreen("bathroom");
+			else {
+				if(!doorCodeOpen) {
+					doorCode.setVisible(true);
+					doorCodeOpen = true;
+				}
+			}
+		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
-			JFrame passcodeWindow = new JFrame();
-			passcodeWindow.setResizable(false);
-			passcodeWindow.setBounds(1100, 200, 400, 400);
-			passcodeWindow.addWindowListener(this);
-			
-			JPanel passcodePanel = new JPanel();
-			
-			JTextField passcodeInput = new JTextField(4);
-			JButton submitButton = new JButton("submit");
-			submitButton.setBounds(50, 200, 300, 100);
-
-			passcodePanel.add(passcodeInput);
-			passcodePanel.add(submitButton);
-			
-			passcodeWindow.add(passcodePanel);
-			
-			passcodeWindow.setVisible(true);
+			if(!tableCodeOpen) {
+				tableCode.setVisible(true);
+				tableCodeOpen = true;
+			}
 		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {
@@ -145,7 +169,10 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource() == tableCode)
+			tableCodeOpen = false;
+		if(e.getSource() == doorCode)
+			doorCodeOpen = false;
 		
 	}
 
