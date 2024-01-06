@@ -57,13 +57,16 @@ public class ClickableItem extends JButton {
 		if (clicked) {
 			this.x += x;
 			this.y += y;
+			this.setBounds(this.x, this.y, w, h);
 		}
 	}
 	
-	public void resize(int w, int h) {
+	public void resize(double scale) {
 		if (clicked) {
-			this.w *= w;
-			this.y *= h;
+			this.w*=scale;
+			this.h*=scale;
+			this.setBounds(x, y, w, h);
+			this.setIcon(new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH)));
 		}
 	}
 

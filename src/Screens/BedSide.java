@@ -20,6 +20,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //	private JPanel p;
 	private ArrayList<ClickableItem> clickableItems;
 	
+	
 	public BedSide(Game mainCore, int width, int height) {
 		super();
 		this.mainCore = mainCore;
@@ -40,15 +41,6 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
         dialogueBox.setEnabled(false);
 		dialogueBox.setVisible(false);
 		
-//		ImageIcon bedIcon = new ImageIcon("img/furniture/bed.png");
-//		Image bedModified = bedIcon.getImage().getScaledInstance(450, 450, Image.SCALE_SMOOTH);
-//		JButton bed = new JButton(new ImageIcon(bedModified));
-//		bed.setBounds(300, 270, 450, 450);
-//		bed.setOpaque(false);
-//		bed.setContentAreaFilled(false);
-//		bed.setBorderPainted(false);
-//		bed.addActionListener(this);
-//        add(bed);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -112,6 +104,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 				e.printStackTrace();
 			}
 			
+			
 		}
 	}
 
@@ -140,35 +133,38 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			dialogueBox.setEnabled(false);
 			dialogueBox.setVisible(false);
 		}
-//		for (int i = 0; i < clickableItems.size(); i++) {
-//			if(e.getSource() == clickableItems.get(i))
-//				clickableItems.get(i).click();
-//		}
+		for (int i = 0; i < clickableItems.size(); i++) {
+			if(e.getSource() == clickableItems.get(i))
+				clickableItems.get(i).click();
+		}
 		mainCore.requestFocusInWindow();
-		System.out.println("action performed");
+//		System.out.println("action performed");
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("key typed");
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("key pressed");
-//		for (int i = 0; i < clickableItems.size(); i++) {
-//			int key = e.getKeyCode();
-//			if (key == KeyEvent.VK_LEFT)
-//				clickableItems.get(i).move(-1, 0);
-//			if (key == KeyEvent.VK_RIGHT)
-//				clickableItems.get(i).move(1, 0);
-//			if (key == KeyEvent.VK_UP)
-//				clickableItems.get(i).move(0, -1);
-//			if (key == KeyEvent.VK_DOWN)
-//				clickableItems.get(i).move(0, 1);
-//		}
+		for (int i = 0; i < clickableItems.size(); i++) {
+			int key = e.getKeyCode();
+			if (key == KeyEvent.VK_LEFT)
+				clickableItems.get(i).move(-1, 0);
+			if (key == KeyEvent.VK_RIGHT)
+				clickableItems.get(i).move(1, 0);
+			if (key == KeyEvent.VK_UP)
+				clickableItems.get(i).move(0, -1);
+			if (key == KeyEvent.VK_DOWN)
+				clickableItems.get(i).move(0, 1);
+			if (key == KeyEvent.VK_0)
+				clickableItems.get(i).resize(1.1);
+			if (key == KeyEvent.VK_9)
+				clickableItems.get(i).resize(0.9);
+		}
 		
 	}
 
