@@ -35,27 +35,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		
 		setLayout(null);
 		
-		tableCode = new JFrame();
-		tableCode.setResizable(false);
-		tableCode.setBounds(1100, 200, 400, 400);
-		tableCode.addWindowListener(this);
-		JPanel tablePanel = new JPanel();
-		JTextField tableInput = new JTextField(10);
-		JButton tableSubmit = new JButton("submit");
-		tablePanel.add(tableInput);
-		tablePanel.add(tableSubmit);
-		tableCode.add(tablePanel);
-		
-		doorCode = new JFrame();
-		doorCode.setResizable(false);
-		doorCode.setBounds(1100, 200, 400, 400);
-		doorCode.addWindowListener(this);
-		JPanel doorPanel = new JPanel();
-		JTextField doorInput = new JTextField(10);
-		JButton doorSubmit = new JButton("submit");
-		doorPanel.add(doorInput);
-		doorPanel.add(doorSubmit);
-		doorCode.add(doorPanel);
+		tableCode = new PasscodeWindow(this);
+		doorCode = new PasscodeWindow(this);
 		
 		tableCodeOpen = false;
 		doorCodeOpen = false;
