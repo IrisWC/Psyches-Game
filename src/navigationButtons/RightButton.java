@@ -14,8 +14,8 @@ public class RightButton extends JButton{
 	
 	public RightButton(JPanel p) {
 		this.setBounds(Game.WIDTH-100, 0, 100, Game.HEIGHT);
-		ImageIcon arrowIcon = new ImageIcon("img/rightarrow.png");
-		Image arrowModified = arrowIcon.getImage().getScaledInstance(48, 80, Image.SCALE_SMOOTH);
+		ImageIcon arrowIcon = new ImageIcon("img/signs/rightarrow.png");
+		Image arrowModified = arrowIcon.getImage().getScaledInstance(45, 75, Image.SCALE_SMOOTH);
 		this.setIcon(new ImageIcon(arrowModified));
 		this.setBackground(new Color(50,47,48));
 		this.setOpaque(true);

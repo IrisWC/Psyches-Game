@@ -50,13 +50,20 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		
 		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 270, 265, 495, 495);
 		starryNight = new ClickableItem(this, "img/paintings/starry night.png", 400, 20, 242, 242);
+		ClickableItem gwpe = new ClickableItem(this, "img/paintings/girl with a pearl earing.png", 780, 100, 150, 150);
 		
 		clickableItems.add(bed);
 		clickableItems.add(starryNight);
+		clickableItems.add(gwpe);
+		
+		
+		// for testing the location of images, they are not buttons
+//		clickableItems.add(new ClickableItem(this, "img/furniture/bedside table.png", 790, 325, 206, 206));
+//		clickableItems.add(new ClickableItem(this, "img/furniture/closet.png", -40, 35, 256, 513));
 		
 		
 		// pick up something
-		PickupableItem square = new PickupableItem(this, "squares/yellow.png", 250, 30, 90, 90);
+		PickupableItem square = new PickupableItem(this, "squares/yellow.png", 120, 700, 90, 90);
 		pickupableItems.add(square);
 		
 //        dialogueBox = new JButton("painting clue");
@@ -67,42 +74,34 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //		dialogueBox.addActionListener(this);
 ////		dialogueBox.setEnabled(false);	
         
-        ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
-		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
-        add(background);
+//        ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
+//		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
+//		JLabel background = new JLabel(new ImageIcon(bedroomModified));
+//		background.setBounds(0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
+//        add(background);
         
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		Graphics2D g2 = (Graphics2D)g;
-
-		int width = getWidth();
-		int height = getHeight();
-
-		double ratioX = (double)width/this.width;
-		double ratioY = (double)height/this.height;
-
-		AffineTransform at = g2.getTransform();
-		g2.scale(ratioX, ratioY);
-		
-		
-		
-//		g.drawImage(new ImageIcon("img/bed.png").getImage(), 300, 300, 300, 300, this);
-		
-//		JButton bed = new JButton(new ImageIcon("img//bed.png"));
-//		p.add(bed);
-//	    bed.setBounds(getWidth()/2, getHeight()/2, 300, 300);
-//	    bed.setOpaque(false);
-//	    bed.setContentAreaFilled(false);
-//	    bed.setBorderPainted(false);
+//		Graphics2D g2 = (Graphics2D)g;
+//
+//		int width = getWidth();
+//		int height = getHeight();
+//
+//		double ratioX = (double)width/this.width;
+//		double ratioY = (double)height/this.height;
+//
+//		AffineTransform at = g2.getTransform();
+//		g2.scale(ratioX, ratioY);
 //		
-//		add(p);
+//		g2.setTransform(at);
 		
-		g2.setTransform(at);
+		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
+		g.drawImage(new ImageIcon("img/furniture/bedside table.png").getImage(), 790, 325, 206, 206, this);
+		g.drawImage(new ImageIcon("img/furniture/closet.png").getImage(), -40, 35, 256, 513, this);
+		
 	}
 	
 	public void run() {

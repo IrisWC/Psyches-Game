@@ -29,6 +29,9 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		
 		exit = new JButton();
 		exit.setBounds(0, Game.HEIGHT-100, Game.WIDTH, 100);
+		ImageIcon arrowIcon = new ImageIcon("img/downarrow.png");
+		Image arrowModified = arrowIcon.getImage().getScaledInstance(48, 80, Image.SCALE_SMOOTH);
+		exit.setIcon(new ImageIcon(arrowModified));
 		exit.setBackground(new Color(50,47,48));
 		exit.setOpaque(true);
 		exit.setBorderPainted(false);
@@ -50,12 +53,13 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		clickableItems.add(mirror);
 		clickableItems.add(shower);
 		
-        
-        ImageIcon bathroom = new ImageIcon("img/Bathroom.png");
-		Image bathroomModified = bathroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
-		JLabel background = new JLabel(new ImageIcon(bathroomModified));
-		background.setBounds(-140, -50, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
-        add(background);
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		g.drawImage(new ImageIcon("img/Bathroom.png").getImage(), -140, -50, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
+		
 	}
 
 	@Override

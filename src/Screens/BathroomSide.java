@@ -38,22 +38,26 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
-		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 255, 455, 199, 199);
-		door = new ClickableItem(this, "img/bathroom door.png", 600, 160, 244, 462);
+		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 225, 475, 206, 206);
+		door = new ClickableItem(this, "img/bathroom door.png", 505, 110, 273, 513);
 		
 		clickableItems.add(table);
 		clickableItems.add(door);
 		
-//		JButton title = new JButton("Bathroom Side");
-//		title.setBounds(150, 300, 300, 300);
-//		title.addActionListener(this);
-//        add(title);
-        
-        ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
-		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 150, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
-        add(background);
+		
+		// for testing the location of images, they are not buttons
+//		clickableItems.add(new ClickableItem(this, "img/furniture/bed.png", -295, 415, 495, 495));
+//		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", 895, 475, 512, 432));
+		
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, 150, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
+		g.drawImage(new ImageIcon("img/furniture/bed.png").getImage(), -295, 415, 495, 495, this);
+		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), 895, 475, 512, 432, this);
+		
 	}
 
 	@Override

@@ -14,8 +14,8 @@ public class LeftButton extends JButton{
 	
 	public LeftButton(JPanel p) {
 		this.setBounds(0, 0, 100, Game.HEIGHT);
-		ImageIcon arrowIcon = new ImageIcon("img/leftarrow.png");
-		Image arrowModified = arrowIcon.getImage().getScaledInstance(48, 80, Image.SCALE_SMOOTH);
+		ImageIcon arrowIcon = new ImageIcon("img/signs/leftarrow.png");
+		Image arrowModified = arrowIcon.getImage().getScaledInstance(45, 75, Image.SCALE_SMOOTH);
 		this.setIcon(new ImageIcon(arrowModified));
 		this.setBackground(new Color(50,47,48));
 		this.setOpaque(true);

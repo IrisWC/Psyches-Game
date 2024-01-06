@@ -37,19 +37,26 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
-		ClickableItem door = new ClickableItem(this, "img/exit door.png", 145, 105, 233, 467);
-		ClickableItem closet = new ClickableItem(this, "img/furniture/closet.png", 660, 155, 252, 507);
-		ClickableItem gwpe = new ClickableItem(this, "img/paintings/girl with a pearl earing.png", 430, 240, 150, 150);
+		ClickableItem door = new ClickableItem(this, "img/exit door.png", 290, 60, 256, 513);
+		ClickableItem closet = new ClickableItem(this, "img/furniture/closet.png", 590, 130, 256, 513);
 		
 		clickableItems.add(door);
 		clickableItems.add(closet);
-		clickableItems.add(gwpe);
-        
-        ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
-		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, 100, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
-        add(background);
+		
+		
+		// for testing the location of images, they are not buttons
+//		clickableItems.add(new ClickableItem(this, "img/furniture/bed.png", 900, 365, 495, 495));
+//		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", -340, 425, 512, 432));
+		
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, 100, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
+		g.drawImage(new ImageIcon("img/furniture/bed.png").getImage(), 900, 365, 495, 495, this);
+		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), -340, 425, 512, 432, this);
+		
 	}
 
 	@Override

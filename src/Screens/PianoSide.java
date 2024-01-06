@@ -36,14 +36,23 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
-		ClickableItem piano = new ClickableItem(this, "img/furniture/piano.png", 235, 240, 564, 475);
+		ClickableItem piano = new ClickableItem(this, "img/furniture/piano.png", 260, 265, 512, 432);
 		clickableItems.add(piano);
+		
+		
+		// for testing the location of images, they are not buttons
+//		clickableItems.add(new ClickableItem(this, "img/bathroom door.png", -130, -100, 273, 513));
+//		clickableItems.add(new ClickableItem(this, "img/exit door.png", 890, -100, 256, 513));
         
-        ImageIcon bedroom = new ImageIcon("img/Bedroom.png");
-		Image bedroomModified = bedroom.getImage().getScaledInstance(Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, Image.SCALE_SMOOTH);
-		JLabel background = new JLabel(new ImageIcon(bedroomModified));
-		background.setBounds(0, -100, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT);
-        add(background);
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, -60, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
+		g.drawImage(new ImageIcon("img/bathroom door.png").getImage(), -130, -100, 273, 513, this);
+		g.drawImage(new ImageIcon("img/exit door.png").getImage(), 890, -100, 256, 513, this);
+		
 	}
 
 	@Override
