@@ -34,8 +34,11 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
 		
-		dialogueBox = new JButton("painting clue");
+		ImageIcon dialogueIcon = new ImageIcon("img/clues/starry night clue.png");
+		Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
+		dialogueBox = new JButton(new ImageIcon(dialogueModified));
 		dialogueBox.setBounds(125, 550, 800, 200);
+		dialogueBox.setBorderPainted(false);
 		dialogueBox.addActionListener(this);
         add(dialogueBox);
         dialogueBox.setEnabled(false);
