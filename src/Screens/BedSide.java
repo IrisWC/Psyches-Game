@@ -144,6 +144,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //			if(e.getSource() == clickableItems.get(i))
 //				clickableItems.get(i).click();
 //		}
+		mainCore.requestFocusInWindow();
 		System.out.println("action performed");
 	}
 
