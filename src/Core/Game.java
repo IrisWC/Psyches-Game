@@ -33,7 +33,7 @@ public class Game extends JFrame implements WindowListener{
 	
 	private boolean inventoryOpen;
 	
-//	private ArrayList<Furniture> furniture;
+	private ArrayList<PickupableItem> inventory;
 	
 	public Game() {
 		super();
@@ -49,6 +49,7 @@ public class Game extends JFrame implements WindowListener{
 //		container.setLayout(cl);
 		
 		inventoryOpen = false;
+		inventory = new ArrayList<PickupableItem>();
 		
 		menu = new MenuScreen(this, WIDTH, HEIGHT);
 		bedSide = new BedSide(this, WIDTH, HEIGHT);
@@ -56,6 +57,8 @@ public class Game extends JFrame implements WindowListener{
 		bathroomSide = new BathroomSide(this, WIDTH, HEIGHT);
 		pianoSide = new PianoSide(this, WIDTH, HEIGHT);
 		bathroom = new Bathroom(this, WIDTH, HEIGHT);
+		
+		inventory.add(new PickupableItem(bedSide, "blank", 0, 0, 100, 100));
 		
 //		cardPanel.add(menu, "menu");
 		cardPanel.add(bedSide, "bedSide");
@@ -95,8 +98,19 @@ public class Game extends JFrame implements WindowListener{
 			inventoryWindow.setResizable(false);
 			inventoryWindow.setBounds(1100, 200, 400, 400);
 			inventoryWindow.addWindowListener(this);
-			inventoryWindow.setVisible(true);
 			
+			JPanel inventoryPanel = new JPanel();
+			GridLayout gl = new GridLayout();
+			inventoryPanel.setLayout(gl);
+			
+			for(int i = 0; i < inventory.size(); i++) {
+				JButton item = new JButton();
+				item.setBounds(0, 0, 100, 100);
+				inventoryWindow.add(item);
+			}
+			
+			inventoryWindow.add(inventoryPanel);
+			inventoryWindow.setVisible(true);
 			inventoryOpen = true;
 		} 
 	}
