@@ -98,12 +98,16 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 			dialogueBox.setVisible(false);
 		}
 		if(e.getSource() == door) {
+			System.out.println("door clicked");
+			System.out.println("unlocked: " + doorCode.isUnlocked());
 			if(doorCode.isUnlocked()) {
+				System.out.println("door is unlocked");
 				mainCore.switchScreen("bathroom");
 				dialogueBox.setEnabled(false);
 				dialogueBox.setVisible(false);
 			}
 			else {
+				System.out.println("door is locked");
 				doorCode.unlock();
 			}
 		}
@@ -170,13 +174,13 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 	public void windowClosing(WindowEvent e) {
 		if(e.getSource() == tableCode)
 			tableCode.setStatus(false);
-		if(e.getSource() == doorCode) {
-//			String codeInput = doorCode.getCodeInput();
-//			if(codeInput.equals("30491")) {
-//				doorUnlocked = true;
-//			}
-			doorCode.setStatus(false);
-		}
+//		if(e.getSource() == doorCode) {
+////			String codeInput = doorCode.getCodeInput();
+////			if(codeInput.equals("30491")) {
+////				doorUnlocked = true;
+////			}
+//			doorCode.setStatus(false);
+//		}
 	}
 
 	@Override
