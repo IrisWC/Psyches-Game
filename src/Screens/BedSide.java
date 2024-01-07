@@ -61,7 +61,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //		clickableItems.add(new ClickableItem(this, "img/furniture/bedside table.png", 790, 325, 206, 206));
 //		clickableItems.add(new ClickableItem(this, "img/furniture/closet.png", -40, 35, 256, 513));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/cat.png", 820, 95, 144, 216));
-//		clickableItems.add(new ClickableItem(this, "img/paintings/castle.png", 770, -140, 281, 228));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/castle.png", 760, -160, 288, 234));
 		
 		
 		// pick up something
@@ -104,7 +104,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		g.drawImage(new ImageIcon("img/furniture/bedside table.png").getImage(), 790, 325, 206, 206, this);
 		g.drawImage(new ImageIcon("img/furniture/closet.png").getImage(), -40, 35, 256, 513, this);
 		g.drawImage(new ImageIcon("img/paintings/cat.png").getImage(), 820, 95, 144, 216, this);
-		g.drawImage(new ImageIcon("img/paintings/castle.png").getImage(), 770, -140, 281, 228, this);
+		g.drawImage(new ImageIcon("img/paintings/castle.png").getImage(), 760, -160, 288, 234, this);
 		
 	}
 	

@@ -51,12 +51,16 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		ClickableItem table = new ClickableItem(this, "img/furniture/bedside table.png", 225, 475, 206, 206);
 		door = new ClickableItem(this, "img/bathroom door.png", 505, 110, 273, 513);
 		ClickableItem cat = new ClickableItem(this, "img/paintings/cat.png", 255, 245, 144, 216);
-		ClickableItem castle = new ClickableItem(this, "img/paintings/castle.png", 200, 10, 281, 228);
+		ClickableItem castle = new ClickableItem(this, "img/paintings/castle.png", 195, -10, 288, 234);
+		ClickableItem people = new ClickableItem(this, "img/paintings/people.png", 805, 35, 320, 160);
+		ClickableItem spots = new ClickableItem(this, "img/paintings/spots.png", 510, -35, 248, 123);
 		
 		clickableItems.add(table);
 		clickableItems.add(door);
 		clickableItems.add(cat);
 		clickableItems.add(castle);
+		clickableItems.add(people);
+		clickableItems.add(spots);
 		
 		
 		// for testing the location of images, they are not buttons
@@ -64,7 +68,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 //		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", 895, 475, 512, 432));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/The Starry Night.png", -95, 155, 260, 260));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/splat.png", 850, 260, 160, 160));
-//		clickableItems.add(new ClickableItem(this, "img/paintings/spots.png", 805, 35, 320, 160));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/people.png", 805, 35, 320, 160));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/square canvas.png", -40, -45, 160, 160));
 		
 	}
 	
@@ -76,7 +81,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), 895, 475, 512, 432, this);
 		g.drawImage(new ImageIcon("img/paintings/The Starry Night.png").getImage(), -95, 155, 260, 260, this);
 		g.drawImage(new ImageIcon("img/paintings/splat.png").getImage(), 850, 260, 160, 160, this);
-		g.drawImage(new ImageIcon("img/paintings/spots.png").getImage(), 805, 35, 320, 160, this);
+//		g.drawImage(new ImageIcon("img/paintings/people.png").getImage(), 805, 35, 320, 160, this);
+		g.drawImage(new ImageIcon("img/paintings/square canvas.png").getImage(), -40, -45, 160, 160, this);
 	}
 
 	@Override
