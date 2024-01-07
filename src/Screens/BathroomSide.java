@@ -90,13 +90,22 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == leftButton)
+		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("bedSide");
-		if(e.getSource() == rightButton)
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
+		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("pianoSide");
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
 		if(e.getSource() == door) {
-			if(doorUnlocked)
+			if(doorUnlocked) {
 				mainCore.switchScreen("bathroom");
+				dialogueBox.setEnabled(false);
+				dialogueBox.setVisible(false);
+			}
 			else {
 				if(!doorCodeOpen) {
 					doorCode.setVisible(true);

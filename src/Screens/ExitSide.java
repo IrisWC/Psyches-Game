@@ -82,10 +82,16 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == leftButton)
+		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("pianoSide");
-		if(e.getSource() == rightButton)
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
+		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("bedSide");
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
@@ -145,6 +151,10 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void closeCodeWindow(PasscodeWindow pw) {
+		pw.dispatchEvent(new WindowEvent(pw, WindowEvent.WINDOW_CLOSING));
 	}
 
 	@Override

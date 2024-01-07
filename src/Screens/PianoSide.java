@@ -66,10 +66,16 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == leftButton)
+		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("bathroomSide");
-		if(e.getSource() == rightButton)
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
+		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("exitSide");
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {

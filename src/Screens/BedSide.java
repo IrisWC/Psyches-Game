@@ -115,10 +115,16 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == leftButton)
+		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("exitSide");
-		if(e.getSource() == rightButton)
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
+		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("bathroomSide");
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == starryNight) {

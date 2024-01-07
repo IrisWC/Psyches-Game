@@ -1,5 +1,7 @@
 package Screens;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
@@ -7,9 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PasscodeWindow extends JFrame {
+public class PasscodeWindow extends JFrame implements ActionListener {
 	
 	private JTextField input;
+	private JButton submitButton;
 
 	public PasscodeWindow(WindowListener wl) {
 		super();
@@ -20,7 +23,7 @@ public class PasscodeWindow extends JFrame {
 		
 		JPanel p = new JPanel();
 		input = new JTextField(10);
-		JButton submitButton = new JButton("submit");
+		submitButton = new JButton("submit");
 		p.add(input);
 		p.add(submitButton);
 		this.add(p);
@@ -28,5 +31,12 @@ public class PasscodeWindow extends JFrame {
 	
 	public String getCodeInput() {
 		return input.getText();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == submitButton) {
+//			this.dispatchEventToSelf(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+		}
 	}
 }
