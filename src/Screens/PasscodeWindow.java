@@ -15,11 +15,13 @@ public class PasscodeWindow extends JFrame implements ActionListener {
 	private JTextField input;
 	private JButton submitButton;
 	private boolean unlocked;
+	private String correctCode;
 
-	public PasscodeWindow(WindowListener wl) {
+	public PasscodeWindow(WindowListener wl, String correctCode) {
 		super();
 		
 		unlocked = false;
+		this.correctCode = correctCode;
 		
 		this.setResizable(false);
 		this.setBounds(1100, 200, 400, 400);
@@ -37,7 +39,6 @@ public class PasscodeWindow extends JFrame implements ActionListener {
 	
 	public void unlock() {
 		this.setVisible(true);
-		unlocked = true;
 	}
 	
 	public boolean isUnlocked() {
@@ -56,6 +57,9 @@ public class PasscodeWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == submitButton) {
 //			this.dispatchEventToSelf(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+			if(input.getText().equals(correctCode)) { 
+				unlocked = true;
+			}
 			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 //			setVisible(false);
 //			dispose();

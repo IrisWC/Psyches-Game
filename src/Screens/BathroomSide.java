@@ -22,7 +22,7 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 	private JButton leftButton, rightButton, backpackButton;
 	private DialogueBox dialogueBox;
 	private ClickableItem door;
-	private boolean doorUnlocked;
+//	private boolean doorUnlocked;
 	private PasscodeWindow tableCode, doorCode;
 	
 	private ArrayList<ClickableItem> clickableItems;
@@ -36,10 +36,10 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		
 		setLayout(null);
 		
-		tableCode = new PasscodeWindow(this);
-		doorCode = new PasscodeWindow(this);
+		tableCode = new PasscodeWindow(this, "");
+		doorCode = new PasscodeWindow(this, "30491");
 		
-		doorUnlocked = false;
+//		doorUnlocked = false;
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
@@ -98,15 +98,13 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 			dialogueBox.setVisible(false);
 		}
 		if(e.getSource() == door) {
-			if(doorUnlocked) {
+			if(doorCode.isUnlocked()) {
 				mainCore.switchScreen("bathroom");
 				dialogueBox.setEnabled(false);
 				dialogueBox.setVisible(false);
 			}
 			else {
-				if(!doorCode.isUnlocked()) {
-					doorCode.unlock();
-				}
+				doorCode.unlock();
 			}
 		}
 		if(e.getSource() == backpackButton)
@@ -173,10 +171,10 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		if(e.getSource() == tableCode)
 			tableCode.setStatus(false);
 		if(e.getSource() == doorCode) {
-			String codeInput = doorCode.getCodeInput();
-			if(codeInput.equals("30491")) {
-				doorUnlocked = true;
-			}
+//			String codeInput = doorCode.getCodeInput();
+//			if(codeInput.equals("30491")) {
+//				doorUnlocked = true;
+//			}
 			doorCode.setStatus(false);
 		}
 	}

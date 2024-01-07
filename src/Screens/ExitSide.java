@@ -38,7 +38,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
 		
-		doorCode = new PasscodeWindow(this);
+		doorCode = new PasscodeWindow(this, "Mwahahaha");
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
