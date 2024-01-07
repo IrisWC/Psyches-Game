@@ -37,9 +37,9 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		clickableItems = new ArrayList<ClickableItem>();
 		
 		ClickableItem piano = new ClickableItem(this, "img/furniture/piano.png", 260, 265, 512, 432);
-		ClickableItem composition = new ClickableItem(this, "img/paintings/Composition.png", 625, 95, 160, 160);
-		ClickableItem scream = new ClickableItem(this, "img/paintings/The Scream.png", 250, 95, 150, 160);
-		ClickableItem splat = new ClickableItem(this, "img/paintings/splat.png", 430, 95, 160, 160);
+		ClickableItem composition = new ClickableItem(this, "img/paintings/Composition.png", 660, 50, 160, 160);
+		ClickableItem scream = new ClickableItem(this, "img/paintings/The Scream.png", 440, 48, 153, 163);
+		ClickableItem splat = new ClickableItem(this, "img/paintings/splat.png", 216, 50, 160, 160);
 		
 		clickableItems.add(piano);
 		clickableItems.add(composition);
@@ -50,6 +50,9 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		// for testing the location of images, they are not buttons
 //		clickableItems.add(new ClickableItem(this, "img/bathroom door.png", -130, -100, 273, 513));
 //		clickableItems.add(new ClickableItem(this, "img/exit door.png", 890, -100, 256, 513));
+		
+		
+//		clickableItems.add(new ClickableItem(this, "img/paintings/creature&woods.png", 355, -85, 320, 160));
         
 	}
 	
