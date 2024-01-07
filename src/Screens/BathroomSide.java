@@ -86,14 +86,14 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		if(e.getSource() == rightButton)
 			mainCore.switchScreen("pianoSide");
 		if(e.getSource() == door) {
-			if(doorUnlocked)
+//			if(doorUnlocked)
 				mainCore.switchScreen("bathroom");
-			else {
-				if(!doorCodeOpen) {
-					doorCode.setVisible(true);
-					doorCodeOpen = true;
-				}
-			}
+//			else {
+//				if(!doorCodeOpen) {
+//					doorCode.setVisible(true);
+//					doorCodeOpen = true;
+//				}
+//			}
 		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();

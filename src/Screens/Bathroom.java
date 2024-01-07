@@ -43,22 +43,24 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
-		ClickableItem toilet = new ClickableItem(this, "img/bathroom/toilet.png", 370, 255, 156, 268);
-		ClickableItem sink = new ClickableItem(this, "img/bathroom/sink.png", 585, 305, 447, 229);
-		ClickableItem mirror = new ClickableItem(this, "img/bathroom/mirror.png", 630, 120, 352, 176);
-		ClickableItem shower = new ClickableItem(this, "img/bathroom/shower.png", 0, 45, 287, 574);
+		ClickableItem toilet = new ClickableItem(this, "img/bathroom/toilet.png", 370, 305, 156, 268);
+		ClickableItem sink = new ClickableItem(this, "img/bathroom/sink.png", 585, 355, 447, 229);
+		ClickableItem mirror = new ClickableItem(this, "img/bathroom/mirror.png", 630, 160, 352, 176);
+		ClickableItem shower = new ClickableItem(this, "img/bathroom/shower.png", 0, 40, 287, 574);
+		ClickableItem sd = new ClickableItem(this, "img/paintings/inspiredbySalvadorDali.png", 330, 20, 260, 260);
 		
 		clickableItems.add(toilet);
 		clickableItems.add(sink);
 		clickableItems.add(mirror);
 		clickableItems.add(shower);
+		clickableItems.add(sd);
 		
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		g.drawImage(new ImageIcon("img/Bathroom.png").getImage(), -140, -50, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
+		g.drawImage(new ImageIcon("img/Bathroom.png").getImage(), -140, 0, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
 		
 	}
 

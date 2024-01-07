@@ -50,9 +50,6 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		// for testing the location of images, they are not buttons
 //		clickableItems.add(new ClickableItem(this, "img/bathroom door.png", -130, -100, 273, 513));
 //		clickableItems.add(new ClickableItem(this, "img/exit door.png", 890, -100, 256, 513));
-		
-		
-//		clickableItems.add(new ClickableItem(this, "img/paintings/creature&woods.png", 355, -85, 320, 160));
         
 	}
 	
