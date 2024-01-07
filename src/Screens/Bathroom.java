@@ -15,7 +15,7 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton exit, backpackButton;
+	private JButton exit, backpackButton, dialogueBox;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -37,6 +37,14 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		exit.setBorderPainted(false);
 		exit.addActionListener(this);
 		add(exit);
+		
+		dialogueBox = new JButton();
+		dialogueBox.setBounds(125, 550, 800, 200);
+		dialogueBox.setBorderPainted(false);
+		dialogueBox.addActionListener(this);
+        add(dialogueBox);
+        dialogueBox.setEnabled(false);
+		dialogueBox.setVisible(false);
 		
 		backpackButton = new BackpackButton(this);
 		((BackpackButton) backpackButton).setX(Game.WIDTH-75);
@@ -70,6 +78,10 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 			mainCore.switchScreen("bathroomSide");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		if(e.getSource() == dialogueBox) {
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))

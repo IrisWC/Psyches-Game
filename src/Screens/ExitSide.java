@@ -17,7 +17,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton, door;
+	private JButton leftButton, rightButton, backpackButton, door, dialogueBox;
 	private PasscodeWindow doorCode;
 	private boolean doorCodeOpen;
 	
@@ -35,6 +35,14 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
+		
+		dialogueBox = new JButton();
+		dialogueBox.setBounds(125, 550, 800, 200);
+		dialogueBox.setBorderPainted(false);
+		dialogueBox.addActionListener(this);
+        add(dialogueBox);
+        dialogueBox.setEnabled(false);
+		dialogueBox.setVisible(false);
 		
 		doorCode = new PasscodeWindow(this);
 		doorCodeOpen = false;
@@ -90,6 +98,10 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 				doorCode.setVisible(true);
 				doorCodeOpen = true;
 			}
+		}
+		if(e.getSource() == dialogueBox) {
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
 		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {

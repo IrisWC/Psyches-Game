@@ -18,7 +18,7 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton;
+	private JButton leftButton, rightButton, backpackButton, dialogueBox;
 	private ClickableItem door;
 	private boolean doorUnlocked;
 	private boolean tableCodeOpen, doorCodeOpen;
@@ -45,6 +45,14 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
+		
+		dialogueBox = new JButton();
+		dialogueBox.setBounds(125, 550, 800, 200);
+		dialogueBox.setBorderPainted(false);
+		dialogueBox.addActionListener(this);
+        add(dialogueBox);
+        dialogueBox.setEnabled(false);
+		dialogueBox.setVisible(false);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -108,6 +116,10 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 				tableCode.setVisible(true);
 				tableCodeOpen = true;
 			}
+		}
+		if(e.getSource() == dialogueBox) {
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
 		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {
