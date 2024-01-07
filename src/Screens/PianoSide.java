@@ -17,7 +17,7 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton;
+	private JButton leftButton, rightButton, backpackButton, dialogueBox;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -33,6 +33,13 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
 		
+		dialogueBox = new JButton();
+		dialogueBox.setBounds(125, 550, 800, 200);
+		dialogueBox.setBorderPainted(false);
+		dialogueBox.addActionListener(this);
+        add(dialogueBox);
+        dialogueBox.setEnabled(false);
+		dialogueBox.setVisible(false);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -70,6 +77,17 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 			mainCore.switchScreen("exitSide");
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		if(e.getSource() == clickableItems.get(0)) {
+			ImageIcon dialogueIcon = new ImageIcon("img/clues/Piano Clue.png");
+			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
+			dialogueBox.setIcon(new ImageIcon(dialogueModified));
+			dialogueBox.setEnabled(true);
+			dialogueBox.setVisible(true);
+		}
+		if(e.getSource() == dialogueBox) {
+			dialogueBox.setEnabled(false);
+			dialogueBox.setVisible(false);
+		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))
