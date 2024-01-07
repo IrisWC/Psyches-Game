@@ -20,7 +20,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton, door;
 	private DialogueBox dialogueBox;
-	private LockWindow doorCode;
+	private PasscodeWindow doorCode;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -38,7 +38,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
 		
-		doorCode = new LockWindow("Mwahahaha");
+		doorCode = new PasscodeWindow("Mwahahaha");
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -76,7 +76,8 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		g.drawImage(new ImageIcon("img/paintings/Composition with RBY.png").getImage(), 60, 210, 160, 160, this);
 //		g.drawImage(new ImageIcon("img/paintings/landscape.png").getImage(), -60, -15, 320, 160, this);
 //		g.drawImage(new ImageIcon("img/paintings/rectangle canvas.png").getImage(), 290, -90, 256, 127, this);
-		g.drawImage(new ImageIcon("img/pillow/pink pillow.png").getImage(), 540, 655, 110, 120, this);
+		if (clickableItems.get(1).gotClue())
+			g.drawImage(new ImageIcon("img/pillow/pink pillow.png").getImage(), 540, 655, 110, 120, this);
 		
 	}
 
@@ -92,12 +93,17 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		
 		if(e.getSource() == clickableItems.get(0)) {
 			if(doorCode.isUnlocked()) {
 				mainCore.switchScreen("winPage");
 			} else {
 				doorCode.unlock();
 			}
+		}
+		if(e.getSource() == clickableItems.get(1)) {
+			if (!clickableItems.get(1).gotClue())
+				clickableItems.get(1).getClue();
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();

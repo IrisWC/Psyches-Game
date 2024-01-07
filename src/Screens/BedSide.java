@@ -52,7 +52,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //		clickableItems.add(new ClickableItem(this, "img/furniture/closet.png", -40, 35, 256, 513));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/cat.png", 820, 95, 144, 216));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/castle.png", 760, -160, 288, 234));
-//		clickableItems.add(new ClickableItem(this, "img/pillow/gray pillow.png", 200, 655, 120, 110));
+//		clickableItems.add(new ClickableItem(this, "img/pillow/gray pillow.png", 160, 655, 120, 110));
 		
 		
 		// pick up something
@@ -97,7 +97,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		g.drawImage(new ImageIcon("img/paintings/cat.png").getImage(), 820, 95, 144, 216, this);
 		g.drawImage(new ImageIcon("img/paintings/castle.png").getImage(), 760, -160, 288, 234, this);
 		if (clickableItems.get(0).gotClue())
-			g.drawImage(new ImageIcon("img/pillow/gray pillow.png").getImage(), 200, 655, 120, 110, this);
+			g.drawImage(new ImageIcon("img/pillow/gray pillow.png").getImage(), 160, 655, 120, 110, this);
 		
 	}
 	
@@ -129,7 +129,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			mainCore.openInventory();
 		
 		if(e.getSource() == clickableItems.get(0)) {
-			dialogueBox.setDialogue("img/dialogue/Bed Dialogue.png");
+//			dialogueBox.setDialogue("img/dialogue/Bed Dialogue.png"); // this line
 			if (!clickableItems.get(0).gotClue())
 				clickableItems.get(0).getClue();
 		}

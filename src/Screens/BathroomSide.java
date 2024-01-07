@@ -23,7 +23,7 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 	private DialogueBox dialogueBox;
 	private ClickableItem door;
 //	private boolean doorUnlocked;
-	private LockWindow tableCode, doorCode;
+	private PasscodeWindow tableCode, doorCode;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -36,8 +36,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 		
 		setLayout(null);
 		
-		tableCode = new LockWindow("");
-		doorCode = new LockWindow("111");
+		tableCode = new PasscodeWindow("");
+		doorCode = new PasscodeWindow("111");
 		
 //		doorUnlocked = false;
 		
