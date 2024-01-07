@@ -15,7 +15,7 @@ import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
-public class BathroomSide extends JPanel implements ActionListener, KeyListener, WindowListener {
+public class BathroomSide extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -36,8 +36,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		
 		setLayout(null);
 		
-		tableCode = new PasscodeWindow(this, "");
-		doorCode = new PasscodeWindow(this, "30491");
+		tableCode = new PasscodeWindow("");
+		doorCode = new PasscodeWindow("30491");
 		
 //		doorUnlocked = false;
 		
@@ -104,7 +104,6 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 				dialogueBox.setVisible(false);
 			}
 			else {
-				System.out.println("door is locked");
 				doorCode.unlock();
 			}
 		}
@@ -161,52 +160,4 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		
 	}
 
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-//		if(e.getSource() == tableCode)
-//			tableCode.setStatus(false);
-//		if(e.getSource() == doorCode) {
-////			String codeInput = doorCode.getCodeInput();
-////			if(codeInput.equals("30491")) {
-////				doorUnlocked = true;
-////			}
-//			doorCode.setStatus(false);
-//		}
-	}
-
-	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

@@ -14,7 +14,7 @@ import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
-public class ExitSide extends JPanel implements ActionListener, KeyListener, WindowListener {
+public class ExitSide extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -38,7 +38,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
 		
-		doorCode = new PasscodeWindow(this, "Mwahahaha");
+		doorCode = new PasscodeWindow("Mwahahaha");
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -141,58 +141,6 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public void closeCodeWindow(PasscodeWindow pw) {
-		pw.dispatchEvent(new WindowEvent(pw, WindowEvent.WINDOW_CLOSING));
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-//		if(e.getSource() == doorCode) {
-//			String codeInput = doorCode.getCodeInput();
-//			if(codeInput.equals("Mwahahaha")) {
-//				mainCore.switchScreen("winPage");
-//			}
-//			doorCode.setStatus(false);
-//		}
-		
-	}
-
-	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
