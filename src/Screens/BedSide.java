@@ -34,9 +34,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		rightButton = new RightButton(this);
 		backpackButton = new BackpackButton(this);
 		
-		ImageIcon dialogueIcon = new ImageIcon("img/clues/starry night clue.png");
-		Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
-		dialogueBox = new JButton(new ImageIcon(dialogueModified));
+		dialogueBox = new JButton();
 		dialogueBox.setBounds(125, 550, 800, 200);
 		dialogueBox.setBorderPainted(false);
 		dialogueBox.addActionListener(this);
@@ -132,6 +130,9 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			mainCore.openInventory();
 		if(e.getSource() == starryNight) {
 //			System.out.println("starryNight clicked");
+			ImageIcon dialogueIcon = new ImageIcon("img/clues/Starry Night Clue.png");
+			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
+			dialogueBox.setIcon(new ImageIcon(dialogueModified));
 			dialogueBox.setEnabled(true);
 			dialogueBox.setVisible(true);
 			
@@ -142,6 +143,13 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //			dialogueBox.setBorderPainted(false);
 //			dialogueBox.addActionListener(this);
 //			this.add(dialogueBox);
+		}
+		if(e.getSource() == clickableItems.get(2)) {
+			ImageIcon dialogueIcon = new ImageIcon("img/clues/Vermeer Clue.png");
+			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
+			dialogueBox.setIcon(new ImageIcon(dialogueModified));
+			dialogueBox.setEnabled(true);
+			dialogueBox.setVisible(true);
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.setEnabled(false);
