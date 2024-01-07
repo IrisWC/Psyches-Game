@@ -52,6 +52,8 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		// for testing the location of images, they are not buttons
 //		clickableItems.add(new ClickableItem(this, "img/bathroom door.png", -130, -100, 273, 513));
 //		clickableItems.add(new ClickableItem(this, "img/exit door.png", 890, -100, 256, 513));
+//		clickableItems.add(new ClickableItem(this, "img/pillow/purple pillow.png", 500, 655, 120, 110));
+//		clickableItems.add(new ClickableItem(this, "img/pillow/brown pillow.png", 135, 710, 126, 108));
         
 	}
 	
@@ -61,6 +63,8 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, -60, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
 		g.drawImage(new ImageIcon("img/bathroom door.png").getImage(), -130, -100, 273, 513, this);
 		g.drawImage(new ImageIcon("img/exit door.png").getImage(), 890, -100, 256, 513, this);
+		g.drawImage(new ImageIcon("img/pillow/purple pillow.png").getImage(), 500, 655, 108, 99, this);
+		g.drawImage(new ImageIcon("img/pillow/brown pillow.png").getImage(), 135, 710, 113, 97, this);
 		
 	}
 
@@ -77,7 +81,7 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
-			dialogueBox.setDialogue("img/dialogue/Piano Clue.png");
+			dialogueBox.setDialogue("img/dialogue/Piano Dialogue.png");
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();

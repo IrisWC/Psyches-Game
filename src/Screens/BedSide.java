@@ -17,7 +17,6 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton;
 	private DialogueBox dialogueBox;
-	private ClickableItem starryNight;
 //	private JPanel p;
 	private ArrayList<ClickableItem> clickableItems;
 	private ArrayList<PickupableItem> pickupableItems;
@@ -40,7 +39,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		pickupableItems = new ArrayList<PickupableItem>();
 		
 		ClickableItem bed = new ClickableItem(this, "img/furniture/bed.png", 270, 265, 495, 495);
-		starryNight = new ClickableItem(this, "img/paintings/The Starry Night.png", 470, 5, 260, 260);
+		ClickableItem starryNight = new ClickableItem(this, "img/paintings/The Starry Night.png", 470, 5, 260, 260);
 		ClickableItem gwpe = new ClickableItem(this, "img/paintings/Girl With a Pearl Earing.png", 255, 30, 178, 178);
 		
 		clickableItems.add(bed);
@@ -53,10 +52,11 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //		clickableItems.add(new ClickableItem(this, "img/furniture/closet.png", -40, 35, 256, 513));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/cat.png", 820, 95, 144, 216));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/castle.png", 760, -160, 288, 234));
+//		clickableItems.add(new ClickableItem(this, "img/pillow/gray pillow.png", 200, 655, 120, 110));
 		
 		
 		// pick up something
-		PickupableItem square = new PickupableItem(this, "squares/yellow.png", 120, 700, 90, 90);
+		PickupableItem square = new PickupableItem(this, "squares/yellow.png", 800, 700, 90, 90);
 		pickupableItems.add(square);
 		
 //        dialogueBox = new JButton("painting clue");
@@ -96,6 +96,8 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		g.drawImage(new ImageIcon("img/furniture/closet.png").getImage(), -40, 35, 256, 513, this);
 		g.drawImage(new ImageIcon("img/paintings/cat.png").getImage(), 820, 95, 144, 216, this);
 		g.drawImage(new ImageIcon("img/paintings/castle.png").getImage(), 760, -160, 288, 234, this);
+		if (clickableItems.get(0).gotClue())
+			g.drawImage(new ImageIcon("img/pillow/gray pillow.png").getImage(), 200, 655, 120, 110, this);
 		
 	}
 	
@@ -125,19 +127,28 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
-		if(e.getSource() == starryNight) {
-			dialogueBox.setDialogue("img/dialogue/Starry Night Clue.png");
+		
+		if(e.getSource() == clickableItems.get(0)) {
+			dialogueBox.setDialogue("img/dialogue/Bed Dialogue.png");
+			if (!clickableItems.get(0).gotClue())
+				clickableItems.get(0).getClue();
+		}
+		if(e.getSource() == clickableItems.get(1)) {
+			dialogueBox.setDialogue("img/dialogue/Starry Night Dialogue.png");
 		}
 		if(e.getSource() == clickableItems.get(2)) {
-			dialogueBox.setDialogue("img/dialogue/Vermeer Clue.png");
+			dialogueBox.setDialogue("img/dialogue/GWPE Dialogue.png");
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();
 		}
+		
+		// for testing
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))
 				clickableItems.get(i).click();
 		}
+		
 		for(int i = 0; i < pickupableItems.size(); i++) {
 			if(e.getSource() == pickupableItems.get(i)) {
 				mainCore.addToBackpack(pickupableItems.get(i));

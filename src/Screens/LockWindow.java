@@ -10,14 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PasscodeWindow extends JFrame implements ActionListener {
+public class LockWindow extends JFrame implements ActionListener {
 	
 	private JTextField input;
 	private JButton submitButton;
 	private boolean unlocked;
 	private String correctCode;
 
-	public PasscodeWindow(String correctCode) {
+	public LockWindow(String correctCode) {
 		super();
 		
 		unlocked = false;

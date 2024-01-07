@@ -20,7 +20,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton, door;
 	private DialogueBox dialogueBox;
-	private PasscodeWindow doorCode;
+	private LockWindow doorCode;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -38,7 +38,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
 		
-		doorCode = new PasscodeWindow("Mwahahaha");
+		doorCode = new LockWindow("Mwahahaha");
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -59,6 +59,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 //		clickableItems.add(new ClickableItem(this, "img/paintings/Girl With a Pearl Earing.png", 890, 125, 178, 178));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/Composition with RBY.png", 60, 210, 160, 160));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/landscape.png", -60, -15, 320, 160));
+//		clickableItems.add(new ClickableItem(this, "img/pillow/pink pillow.png", 540, 655, 110, 120));
 		
 		//make this clickable?
 		clickableItems.add(new ClickableItem(this, "img/paintings/rectangle canvas.png", 290, -90, 256, 127));
@@ -75,6 +76,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		g.drawImage(new ImageIcon("img/paintings/Composition with RBY.png").getImage(), 60, 210, 160, 160, this);
 //		g.drawImage(new ImageIcon("img/paintings/landscape.png").getImage(), -60, -15, 320, 160, this);
 //		g.drawImage(new ImageIcon("img/paintings/rectangle canvas.png").getImage(), 290, -90, 256, 127, this);
+		g.drawImage(new ImageIcon("img/pillow/pink pillow.png").getImage(), 540, 655, 110, 120, this);
 		
 	}
 

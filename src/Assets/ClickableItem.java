@@ -12,6 +12,7 @@ public class ClickableItem extends JButton {
 	private String img;
 	private int x, y;
 	private int w, h;
+	private boolean gotClue;
 	
 	// for testing
 	private boolean clicked;
@@ -33,8 +34,18 @@ public class ClickableItem extends JButton {
 		this.addActionListener((ActionListener) p);
 		p.add(this);
 		
+		gotClue = false;
 		clicked = false;
 	}
+	
+	public void getClue() { 
+		gotClue = true;
+	}
+	
+	public boolean gotClue() {
+		return gotClue;
+	}
+	
 	
 	public void click() {
 		if (clicked) {
