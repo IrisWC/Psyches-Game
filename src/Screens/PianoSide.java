@@ -78,7 +78,7 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
-			ImageIcon dialogueIcon = new ImageIcon("img/clues/Piano Clue.png");
+			ImageIcon dialogueIcon = new ImageIcon("img/dialogue/Piano Clue.png");
 			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
 			dialogueBox.setIcon(new ImageIcon(dialogueModified));
 			dialogueBox.setEnabled(true);

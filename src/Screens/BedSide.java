@@ -130,7 +130,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			mainCore.openInventory();
 		if(e.getSource() == starryNight) {
 //			System.out.println("starryNight clicked");
-			ImageIcon dialogueIcon = new ImageIcon("img/clues/Starry Night Clue.png");
+			ImageIcon dialogueIcon = new ImageIcon("img/dialogue/Starry Night Clue.png");
 			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
 			dialogueBox.setIcon(new ImageIcon(dialogueModified));
 			dialogueBox.setEnabled(true);
@@ -145,7 +145,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 //			this.add(dialogueBox);
 		}
 		if(e.getSource() == clickableItems.get(2)) {
-			ImageIcon dialogueIcon = new ImageIcon("img/clues/Vermeer Clue.png");
+			ImageIcon dialogueIcon = new ImageIcon("img/dialogue/Vermeer Clue.png");
 			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
 			dialogueBox.setIcon(new ImageIcon(dialogueModified));
 			dialogueBox.setEnabled(true);
