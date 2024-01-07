@@ -51,6 +51,9 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		// for testing the location of images, they are not buttons
 //		clickableItems.add(new ClickableItem(this, "img/furniture/bed.png", 900, 365, 495, 495));
 //		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", -340, 425, 512, 432));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/Girl With a Pearl Earing.png", 890, 125, 178, 178));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/Composition.png", 60, 210, 160, 160));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/landscape.png", -60, -15, 320, 160));
 		
 	}
 	
@@ -60,6 +63,9 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		g.drawImage(new ImageIcon("img/Bedroom.png").getImage(), 0, 100, Game.BACKGROUND_WIDTH, Game.BACKGROUND_HEIGHT, this);
 		g.drawImage(new ImageIcon("img/furniture/bed.png").getImage(), 900, 365, 495, 495, this);
 		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), -340, 425, 512, 432, this);
+		g.drawImage(new ImageIcon("img/paintings/Girl With a Pearl Earing.png").getImage(), 890, 125, 178, 178, this);
+		g.drawImage(new ImageIcon("img/paintings/Composition.png").getImage(), 60, 210, 160, 160, this);
+		g.drawImage(new ImageIcon("img/paintings/landscape.png").getImage(), -60, -15, 320, 160, this);
 		
 	}
 

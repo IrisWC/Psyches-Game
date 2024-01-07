@@ -38,7 +38,7 @@ public class Game extends JFrame implements WindowListener{
 	public Game() {
 		super();
 		setSize(WIDTH, HEIGHT);
-		setBounds(0, 0, WIDTH, HEIGHT);
+		setBounds(200, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		

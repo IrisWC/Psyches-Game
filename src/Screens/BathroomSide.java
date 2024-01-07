@@ -63,6 +63,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 //		clickableItems.add(new ClickableItem(this, "img/furniture/bed.png", -295, 415, 495, 495));
 //		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", 895, 475, 512, 432));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/The Starry Night.png", -95, 155, 260, 260));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/splat.png", 850, 260, 160, 160));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/spots.png", 805, 35, 320, 160));
 		
 	}
 	
@@ -73,7 +75,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		g.drawImage(new ImageIcon("img/furniture/bed.png").getImage(), -295, 415, 495, 495, this);
 		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), 895, 475, 512, 432, this);
 		g.drawImage(new ImageIcon("img/paintings/The Starry Night.png").getImage(), -95, 155, 260, 260, this);
-		
+		g.drawImage(new ImageIcon("img/paintings/splat.png").getImage(), 850, 260, 160, 160, this);
+		g.drawImage(new ImageIcon("img/paintings/spots.png").getImage(), 805, 35, 320, 160, this);
 	}
 
 	@Override
