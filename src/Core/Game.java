@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class Game extends JFrame implements WindowListener{
 	
@@ -101,17 +103,25 @@ public class Game extends JFrame implements WindowListener{
 	public void openInventory() {
 		if(!inventoryOpen) {
 			JFrame inventoryWindow = new JFrame("Inventory");
+			ImageIcon bag = new ImageIcon("img/backpack.png");
+			inventoryWindow.setIconImage(bag.getImage());
+			
 			inventoryWindow.setResizable(false);
-			inventoryWindow.setBounds(1100, 200, 400, 400);
+			inventoryWindow.setBounds(1100, 200, 415, 400);
 			inventoryWindow.addWindowListener(this);
 			
 			JPanel inventoryPanel = new JPanel();
 			GridLayout gl = new GridLayout();
 			inventoryPanel.setLayout(gl);
+			inventoryPanel.setBackground(new Color(189, 123, 111));
 			
 			for(int i = 0; i < inventory.size(); i++) {
 				JButton item = new JButton(inventory.get(i).getImage());
 				item.setBounds(i%4 * 100, i/4 * 100, 100, 100);
+				item.setOpaque(false);
+				item.setContentAreaFilled(false);
+				item.setBorder(new LineBorder(Color.WHITE));
+				item.setBorderPainted(true);
 				inventoryWindow.add(item);
 			}
 			
