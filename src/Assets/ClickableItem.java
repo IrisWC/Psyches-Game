@@ -38,12 +38,10 @@ public class ClickableItem extends JButton {
 	
 	public void click() {
 		if (clicked) {
-			System.out.println("false");
 			clicked = false;
 			System.out.println(img + ": " + x + ", " + y + ", " + w + ", " + h);
 		}
 		else {
-			System.out.println("true");
 			clicked = true;
 		}
 	}

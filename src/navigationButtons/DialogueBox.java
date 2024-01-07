@@ -28,5 +28,10 @@ public class DialogueBox extends JButton {
 		this.setEnabled(true);
 		this.setVisible(true);
 	}
+	
+	public void remove() {
+		this.setEnabled(false);
+		this.setVisible(false);
+	}
 
 }

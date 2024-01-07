@@ -57,7 +57,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 //		clickableItems.add(new ClickableItem(this, "img/furniture/bed.png", 900, 365, 495, 495));
 //		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", -340, 425, 512, 432));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/Girl With a Pearl Earing.png", 890, 125, 178, 178));
-//		clickableItems.add(new ClickableItem(this, "img/paintings/Composition.png", 60, 210, 160, 160));
+//		clickableItems.add(new ClickableItem(this, "img/paintings/Composition with RBY.png", 60, 210, 160, 160));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/landscape.png", -60, -15, 320, 160));
 		
 		//make this clickable?
@@ -72,7 +72,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		g.drawImage(new ImageIcon("img/furniture/bed.png").getImage(), 900, 365, 495, 495, this);
 		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), -340, 425, 512, 432, this);
 		g.drawImage(new ImageIcon("img/paintings/Girl With a Pearl Earing.png").getImage(), 890, 125, 178, 178, this);
-		g.drawImage(new ImageIcon("img/paintings/Composition.png").getImage(), 60, 210, 160, 160, this);
+		g.drawImage(new ImageIcon("img/paintings/Composition with RBY.png").getImage(), 60, 210, 160, 160, this);
 //		g.drawImage(new ImageIcon("img/paintings/landscape.png").getImage(), -60, -15, 320, 160, this);
 //		g.drawImage(new ImageIcon("img/paintings/rectangle canvas.png").getImage(), 290, -90, 256, 127, this);
 		
@@ -82,13 +82,11 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("pianoSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("bedSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
@@ -100,8 +98,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 			}
 		}
 		if(e.getSource() == dialogueBox) {
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {

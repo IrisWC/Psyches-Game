@@ -71,15 +71,13 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == exit) {
 			mainCore.switchScreen("bathroomSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton) {
 			mainCore.openInventory();
 		}
 		if(e.getSource() == dialogueBox) {
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {

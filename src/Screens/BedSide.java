@@ -117,13 +117,11 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("exitSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("bathroomSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
@@ -134,8 +132,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			dialogueBox.setDialogue("img/dialogue/Vermeer Clue.png");
 		}
 		if(e.getSource() == dialogueBox) {
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))

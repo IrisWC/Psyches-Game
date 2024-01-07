@@ -39,7 +39,7 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		clickableItems = new ArrayList<ClickableItem>();
 		
 		ClickableItem piano = new ClickableItem(this, "img/furniture/piano.png", 260, 265, 512, 432);
-		ClickableItem composition = new ClickableItem(this, "img/paintings/Composition.png", 660, 50, 160, 160);
+		ClickableItem composition = new ClickableItem(this, "img/paintings/Composition with RBY.png", 660, 50, 160, 160);
 		ClickableItem scream = new ClickableItem(this, "img/paintings/The Scream.png", 440, 48, 153, 163);
 		ClickableItem splat = new ClickableItem(this, "img/paintings/splat.png", 216, 50, 160, 160);
 		
@@ -68,13 +68,11 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("bathroomSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("exitSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
@@ -82,8 +80,7 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 			dialogueBox.setDialogue("img/dialogue/Piano Clue.png");
 		}
 		if(e.getSource() == dialogueBox) {
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {

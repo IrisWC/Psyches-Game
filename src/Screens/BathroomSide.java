@@ -89,19 +89,16 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == leftButton) {
 			mainCore.switchScreen("bedSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == rightButton) {
 			mainCore.switchScreen("pianoSide");
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		if(e.getSource() == door) {
 			if(doorCode.isUnlocked()) {
 				mainCore.switchScreen("bathroom");
-				dialogueBox.setEnabled(false);
-				dialogueBox.setVisible(false);
+				dialogueBox.remove();
 			}
 			else {
 				doorCode.unlock();
@@ -115,8 +112,7 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 			}
 		}
 		if(e.getSource() == dialogueBox) {
-			dialogueBox.setEnabled(false);
-			dialogueBox.setVisible(false);
+			dialogueBox.remove();
 		}
 		
 		for (int i = 0; i < clickableItems.size(); i++) {
