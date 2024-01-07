@@ -10,12 +10,14 @@ import java.util.ArrayList;
 
 import Core.Game;
 import navigationButtons.BackpackButton;
+import navigationButtons.DialogueBox;
 
 public class Bathroom extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton exit, backpackButton, dialogueBox;
+	private JButton exit, backpackButton;
+	private DialogueBox dialogueBox;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -38,14 +40,7 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		exit.addActionListener(this);
 		add(exit);
 		
-		dialogueBox = new JButton();
-		dialogueBox.setBounds(125, 550, 800, 200);
-		dialogueBox.setBorderPainted(false);
-		dialogueBox.addActionListener(this);
-        add(dialogueBox);
-        dialogueBox.setEnabled(false);
-		dialogueBox.setVisible(false);
-		
+		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
 		((BackpackButton) backpackButton).setX(Game.WIDTH-75);
 		

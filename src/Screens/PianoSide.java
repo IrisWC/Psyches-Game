@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import Core.Game;
 import navigationButtons.BackpackButton;
+import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
@@ -17,7 +18,8 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton, dialogueBox;
+	private JButton leftButton, rightButton, backpackButton;
+	private DialogueBox dialogueBox;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -31,15 +33,8 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
-		
-		dialogueBox = new JButton();
-		dialogueBox.setBounds(125, 550, 800, 200);
-		dialogueBox.setBorderPainted(false);
-		dialogueBox.addActionListener(this);
-        add(dialogueBox);
-        dialogueBox.setEnabled(false);
-		dialogueBox.setVisible(false);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -78,11 +73,7 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
-			ImageIcon dialogueIcon = new ImageIcon("img/dialogue/Piano Clue.png");
-			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
-			dialogueBox.setIcon(new ImageIcon(dialogueModified));
-			dialogueBox.setEnabled(true);
-			dialogueBox.setVisible(true);
+			dialogueBox.setDialogue("img/dialogue/Piano Clue.png");
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.setEnabled(false);

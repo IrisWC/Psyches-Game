@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import Core.Game;
 import navigationButtons.BackpackButton;
+import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
@@ -17,7 +18,8 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton, door, dialogueBox;
+	private JButton leftButton, rightButton, backpackButton, door;
+	private DialogueBox dialogueBox;
 	private PasscodeWindow doorCode;
 	private boolean doorCodeOpen;
 	
@@ -34,15 +36,8 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
-		
-		dialogueBox = new JButton();
-		dialogueBox.setBounds(125, 550, 800, 200);
-		dialogueBox.setBorderPainted(false);
-		dialogueBox.addActionListener(this);
-        add(dialogueBox);
-        dialogueBox.setEnabled(false);
-		dialogueBox.setVisible(false);
 		
 		doorCode = new PasscodeWindow(this);
 		doorCodeOpen = false;

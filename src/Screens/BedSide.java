@@ -15,7 +15,8 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton, dialogueBox;
+	private JButton leftButton, rightButton, backpackButton;
+	private DialogueBox dialogueBox;
 	private ClickableItem starryNight;
 //	private JPanel p;
 	private ArrayList<ClickableItem> clickableItems;
@@ -32,16 +33,8 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
-		
-		dialogueBox = new JButton();
-		dialogueBox.setBounds(125, 550, 800, 200);
-		dialogueBox.setBorderPainted(false);
-		dialogueBox.addActionListener(this);
-        add(dialogueBox);
-        dialogueBox.setEnabled(false);
-		dialogueBox.setVisible(false);
-		
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		pickupableItems = new ArrayList<PickupableItem>();
@@ -129,27 +122,10 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == starryNight) {
-//			System.out.println("starryNight clicked");
-			ImageIcon dialogueIcon = new ImageIcon("img/dialogue/Starry Night Clue.png");
-			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
-			dialogueBox.setIcon(new ImageIcon(dialogueModified));
-			dialogueBox.setEnabled(true);
-			dialogueBox.setVisible(true);
-			
-//			dialogueBox = new JButton("staryyNight clue");
-//			dialogueBox.setBounds(300, 300, 300, 300);
-//			dialogueBox.setBackground(new Color(55,50,45));
-//			dialogueBox.setOpaque(true);
-//			dialogueBox.setBorderPainted(false);
-//			dialogueBox.addActionListener(this);
-//			this.add(dialogueBox);
+			dialogueBox.setDialogue("img/dialogue/Starry Night Clue.png");
 		}
 		if(e.getSource() == clickableItems.get(2)) {
-			ImageIcon dialogueIcon = new ImageIcon("img/dialogue/Vermeer Clue.png");
-			Image dialogueModified = dialogueIcon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
-			dialogueBox.setIcon(new ImageIcon(dialogueModified));
-			dialogueBox.setEnabled(true);
-			dialogueBox.setVisible(true);
+			dialogueBox.setDialogue("img/dialogue/Vermeer Clue.png");
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.setEnabled(false);

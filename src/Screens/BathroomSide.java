@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import Core.Game;
 import navigationButtons.BackpackButton;
+import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
 
@@ -18,7 +19,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 
 	private Game mainCore;
 	private int width, height;
-	private JButton leftButton, rightButton, backpackButton, dialogueBox;
+	private JButton leftButton, rightButton, backpackButton;
+	private DialogueBox dialogueBox;
 	private ClickableItem door;
 	private boolean doorUnlocked;
 	private boolean tableCodeOpen, doorCodeOpen;
@@ -44,15 +46,8 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener,
 		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
+		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
-		
-		dialogueBox = new JButton();
-		dialogueBox.setBounds(125, 550, 800, 200);
-		dialogueBox.setBorderPainted(false);
-		dialogueBox.addActionListener(this);
-        add(dialogueBox);
-        dialogueBox.setEnabled(false);
-		dialogueBox.setVisible(false);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
