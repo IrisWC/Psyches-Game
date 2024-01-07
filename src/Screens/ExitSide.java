@@ -93,10 +93,11 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
-			if(!doorCode.isUnlocked()) {
+			if(doorCode.isUnlocked()) {
+				mainCore.switchScreen("winPage");
+			} else {
 				doorCode.unlock();
 			}
-			
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.setEnabled(false);
@@ -156,13 +157,13 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		if(e.getSource() == doorCode) {
-			String codeInput = doorCode.getCodeInput();
-			if(codeInput.equals("Mwahahaha")) {
-				mainCore.switchScreen("winPage");
-			}
-			doorCode.setStatus(false);
-		}
+//		if(e.getSource() == doorCode) {
+//			String codeInput = doorCode.getCodeInput();
+//			if(codeInput.equals("Mwahahaha")) {
+//				mainCore.switchScreen("winPage");
+//			}
+//			doorCode.setStatus(false);
+//		}
 		
 	}
 
