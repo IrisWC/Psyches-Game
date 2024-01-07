@@ -25,6 +25,8 @@ public class PasscodeWindow extends JFrame implements ActionListener {
 		JPanel p = new JPanel();
 		input = new JTextField(10);
 		submitButton = new JButton("submit");
+		submitButton.addActionListener(this);
+		
 		p.add(input);
 		p.add(submitButton);
 		this.add(p);
@@ -39,6 +41,8 @@ public class PasscodeWindow extends JFrame implements ActionListener {
 		if(e.getSource() == submitButton) {
 //			this.dispatchEventToSelf(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+//			setVisible(false);
+//			dispose();
 		}
 	}
 }
