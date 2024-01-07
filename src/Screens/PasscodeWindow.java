@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PasscodeWindow extends JFrame {
+	
+	private JTextField input;
 
 	public PasscodeWindow(WindowListener wl) {
 		super();
@@ -17,10 +19,14 @@ public class PasscodeWindow extends JFrame {
 		this.addWindowListener(wl);
 		
 		JPanel p = new JPanel();
-		JTextField input = new JTextField(10);
+		input = new JTextField(10);
 		JButton submitButton = new JButton("submit");
 		p.add(input);
 		p.add(submitButton);
 		this.add(p);
+	}
+	
+	public String getCodeInput() {
+		return input.getText();
 	}
 }

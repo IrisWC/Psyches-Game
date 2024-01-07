@@ -98,6 +98,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 				doorCode.setVisible(true);
 				doorCodeOpen = true;
 			}
+			
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.setEnabled(false);
@@ -154,6 +155,10 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 	@Override
 	public void windowClosing(WindowEvent e) {
 		if(e.getSource() == doorCode) {
+			String codeInput = doorCode.getCodeInput();
+			if(codeInput.equals("Mwahahaha")) {
+				mainCore.switchScreen("winPage");
+			}
 			doorCodeOpen = false;
 		}
 		

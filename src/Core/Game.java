@@ -60,6 +60,11 @@ public class Game extends JFrame implements WindowListener{
 		pianoSide = new PianoSide(this, WIDTH, HEIGHT);
 		bathroom = new Bathroom(this, WIDTH, HEIGHT);
 		
+		JPanel winPage = new JPanel();
+		Image winImage = new ImageIcon("img/Win.png").getImage().getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
+		JLabel winLabel = new JLabel(new ImageIcon(winImage));
+		winPage.add(winLabel);
+		
 		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
 		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
 		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
@@ -74,6 +79,7 @@ public class Game extends JFrame implements WindowListener{
 		cardPanel.add(bathroomSide, "bathroomSide");
 		cardPanel.add(pianoSide, "pianoSide");
 		cardPanel.add(bathroom, "bathroom");
+		cardPanel.add(winPage, "winPage");
 		
 		add(cardPanel);
 		addKeyListener(bedSide);
