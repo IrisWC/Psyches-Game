@@ -21,7 +21,6 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 	private JButton leftButton, rightButton, backpackButton, door;
 	private DialogueBox dialogueBox;
 	private PasscodeWindow doorCode;
-	private boolean doorCodeOpen;
 	
 	private ArrayList<ClickableItem> clickableItems;
 	
@@ -40,7 +39,6 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		backpackButton = new BackpackButton(this);
 		
 		doorCode = new PasscodeWindow(this);
-		doorCodeOpen = false;
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -95,9 +93,8 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
-			if(!doorCodeOpen) {
-				doorCode.setVisible(true);
-				doorCodeOpen = true;
+			if(!doorCode.isUnlocked()) {
+				doorCode.unlock();
 			}
 			
 		}
@@ -164,7 +161,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener, Win
 			if(codeInput.equals("Mwahahaha")) {
 				mainCore.switchScreen("winPage");
 			}
-			doorCodeOpen = false;
+			doorCode.setStatus(false);
 		}
 		
 	}
