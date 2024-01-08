@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import Assets.ClickableItem;
+import Assets.PickupableItem;
 
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -13,15 +14,18 @@ import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
+import windows.ImgWindow;
 
-public class PianoSide extends JPanel implements ActionListener, KeyListener {
+public class PianoSide extends JPanel implements ActionListener { //, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton;
 	private DialogueBox dialogueBox;
+	private ImgWindow zoomedInPiano;
 	
 	private ArrayList<ClickableItem> clickableItems;
+	private PickupableItem compositionLetter;
 	
 	public PianoSide(Game mainCore, int width, int height) {
 		super();
@@ -36,6 +40,8 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
 		
+		zoomedInPiano = new ImgWindow(390, 400, 650, 260, "img/clue contents/zoomed in piano.png", 576, 198);
+		
 		clickableItems = new ArrayList<ClickableItem>();
 		
 		ClickableItem piano = new ClickableItem(this, "img/furniture/piano.png", 260, 265, 512, 432);
@@ -47,6 +53,8 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		clickableItems.add(composition);
 		clickableItems.add(scream);
 		clickableItems.add(splat);
+		
+		compositionLetter = new PickupableItem("img/clues/composition.png", 111, 57);
 		
 		
 		// for testing the location of images, they are not buttons
@@ -80,11 +88,19 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
+		if(e.getSource() == dialogueBox) {
+			dialogueBox.remove();
+		}
+		
 		if(e.getSource() == clickableItems.get(0)) {
-			dialogueBox.setDialogue("img/dialogue/Piano Dialogue.png");
+			zoomedInPiano.view();
 		}
 		if(e.getSource() == clickableItems.get(1)) {
-			dialogueBox.setDialogue("img/dialogue/Behind Painting Dialogue.png");
+			if (!clickableItems.get(1).gotClue()) {
+				clickableItems.get(1).getClue();
+				dialogueBox.setDialogue("img/dialogue/Behind Painting Dialogue.png");
+				mainCore.addToBackpack(compositionLetter);
+			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {
 			dialogueBox.setDialogue("img/dialogue/Scream Dialogue.png");
@@ -92,48 +108,46 @@ public class PianoSide extends JPanel implements ActionListener, KeyListener {
 		if(e.getSource() == clickableItems.get(3)) {
 			dialogueBox.setDialogue("img/dialogue/Splatter Dialogue.png");
 		}
-		if(e.getSource() == dialogueBox) {
-			dialogueBox.remove();
-		}
 		
-		for (int i = 0; i < clickableItems.size(); i++) {
-			if(e.getSource() == clickableItems.get(i))
-				clickableItems.get(i).click();
-		}
+		// for testing
+//		for (int i = 0; i < clickableItems.size(); i++) {
+//			if(e.getSource() == clickableItems.get(i))
+//				clickableItems.get(i).click();
+//		}
 		
 		mainCore.requestFocusInWindow();
 		
 	}
 
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < clickableItems.size(); i++) {
-			int key = e.getKeyCode();
-			if (key == KeyEvent.VK_LEFT)
-				clickableItems.get(i).move(-5, 0);
-			if (key == KeyEvent.VK_RIGHT)
-				clickableItems.get(i).move(5, 0);
-			if (key == KeyEvent.VK_UP)
-				clickableItems.get(i).move(0, -5);
-			if (key == KeyEvent.VK_DOWN)
-				clickableItems.get(i).move(0, 5);
-			if (key == KeyEvent.VK_0)
-				clickableItems.get(i).resize(1.1);
-			if (key == KeyEvent.VK_9)
-				clickableItems.get(i).resize(0.9);
-		}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void keyTyped(KeyEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void keyPressed(KeyEvent e) {
+//		// TODO Auto-generated method stub
+//		for (int i = 0; i < clickableItems.size(); i++) {
+//			int key = e.getKeyCode();
+//			if (key == KeyEvent.VK_LEFT)
+//				clickableItems.get(i).move(-5, 0);
+//			if (key == KeyEvent.VK_RIGHT)
+//				clickableItems.get(i).move(5, 0);
+//			if (key == KeyEvent.VK_UP)
+//				clickableItems.get(i).move(0, -5);
+//			if (key == KeyEvent.VK_DOWN)
+//				clickableItems.get(i).move(0, 5);
+//			if (key == KeyEvent.VK_0)
+//				clickableItems.get(i).resize(1.1);
+//			if (key == KeyEvent.VK_9)
+//				clickableItems.get(i).resize(0.9);
+//		}
+//	}
+//
+//	@Override
+//	public void keyReleased(KeyEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 }

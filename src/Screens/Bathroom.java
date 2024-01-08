@@ -13,7 +13,7 @@ import Core.Game;
 import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
 
-public class Bathroom extends JPanel implements ActionListener, KeyListener {
+public class Bathroom extends JPanel implements ActionListener { //, KeyListener {
 
 	private Game mainCore;
 	private int width, height;
@@ -114,35 +114,35 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		
 	}
 
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < clickableItems.size(); i++) {
-			int key = e.getKeyCode();
-			if (key == KeyEvent.VK_LEFT)
-				clickableItems.get(i).move(-5, 0);
-			if (key == KeyEvent.VK_RIGHT)
-				clickableItems.get(i).move(5, 0);
-			if (key == KeyEvent.VK_UP)
-				clickableItems.get(i).move(0, -5);
-			if (key == KeyEvent.VK_DOWN)
-				clickableItems.get(i).move(0, 5);
-			if (key == KeyEvent.VK_0)
-				clickableItems.get(i).resize(1.1);
-			if (key == KeyEvent.VK_9)
-				clickableItems.get(i).resize(0.9);
-		}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void keyTyped(KeyEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void keyPressed(KeyEvent e) {
+//		// TODO Auto-generated method stub
+//		for (int i = 0; i < clickableItems.size(); i++) {
+//			int key = e.getKeyCode();
+//			if (key == KeyEvent.VK_LEFT)
+//				clickableItems.get(i).move(-5, 0);
+//			if (key == KeyEvent.VK_RIGHT)
+//				clickableItems.get(i).move(5, 0);
+//			if (key == KeyEvent.VK_UP)
+//				clickableItems.get(i).move(0, -5);
+//			if (key == KeyEvent.VK_DOWN)
+//				clickableItems.get(i).move(0, 5);
+//			if (key == KeyEvent.VK_0)
+//				clickableItems.get(i).resize(1.1);
+//			if (key == KeyEvent.VK_9)
+//				clickableItems.get(i).resize(0.9);
+//		}
+//	}
+//
+//	@Override
+//	public void keyReleased(KeyEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 }

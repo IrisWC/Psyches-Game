@@ -14,6 +14,7 @@ import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
+import windows.PasscodeWindow;
 
 public class BathroomSide extends JPanel implements ActionListener { //, KeyListener {
 
@@ -34,14 +35,13 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		
 		setLayout(null);
 		
-		tableCode = new PasscodeWindow(300, 540, 520, 190, "DXII", "img/clue contents/bedside table hint.png", 425, 105);
-		
-		doorCode = new PasscodeWindow(555, 220, 570, 380, "2431", "img/clue contents/bathroom door hint.png", 490, 290);
-		
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
 		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
+		
+		tableCode = new PasscodeWindow(300, 540, 520, 190, "DXII", "img/clue contents/bedside table hint.png", 425, 105);
+		doorCode = new PasscodeWindow(555, 220, 570, 380, "2431", "img/clue contents/bathroom door hint.png", 490, 290);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		pickupableItems = new ArrayList<PickupableItem>();
@@ -73,7 +73,6 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 //		clickableItems.add(new ClickableItem(this, "img/furniture/piano.png", 895, 475, 512, 432));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/The Starry Night.png", -95, 155, 260, 260));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/splat.png", 850, 260, 160, 160));
-//		clickableItems.add(new ClickableItem(this, "img/paintings/people.png", 805, 35, 320, 160));
 //		clickableItems.add(new ClickableItem(this, "img/paintings/square canvas.png", -40, -45, 160, 160));
 		
 	}
@@ -86,7 +85,6 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		g.drawImage(new ImageIcon("img/furniture/piano.png").getImage(), 895, 475, 512, 432, this);
 		g.drawImage(new ImageIcon("img/paintings/The Starry Night.png").getImage(), -95, 155, 260, 260, this);
 		g.drawImage(new ImageIcon("img/paintings/splat.png").getImage(), 850, 260, 160, 160, this);
-//		g.drawImage(new ImageIcon("img/paintings/people.png").getImage(), 805, 35, 320, 160, this);
 		g.drawImage(new ImageIcon("img/paintings/square canvas.png").getImage(), -40, -45, 160, 160, this);
 	}
 
@@ -109,7 +107,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		
 		if(e.getSource() == clickableItems.get(0)) {
 			if(!tableCode.isUnlocked()) {
-				tableCode.unlock();
+				tableCode.view();
 			}
 			else {
 				if (!clickableItems.get(0).gotClue()) {
@@ -126,7 +124,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 				dialogueBox.remove();
 			}
 			else {
-				doorCode.unlock();
+				doorCode.view();
 			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {

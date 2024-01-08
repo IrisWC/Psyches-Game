@@ -87,8 +87,8 @@ public class Game extends JFrame implements WindowListener{
 //		addKeyListener(bedSide);
 		addKeyListener(exitSide);
 //		addKeyListener(bathroomSide);
-		addKeyListener(pianoSide);
-		addKeyListener(bathroom);
+//		addKeyListener(pianoSide);
+//		addKeyListener(bathroom);
 		
 		setVisible(true);
 		

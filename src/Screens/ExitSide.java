@@ -13,6 +13,7 @@ import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
+import windows.PasscodeWindow;
 
 public class ExitSide extends JPanel implements ActionListener, KeyListener {
 
@@ -98,7 +99,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 			if(doorCode.isUnlocked()) {
 				mainCore.switchScreen("winPage");
 			} else {
-				doorCode.unlock();
+				doorCode.view();
 			}
 		}
 		if(e.getSource() == clickableItems.get(1)) {
