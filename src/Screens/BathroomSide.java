@@ -154,6 +154,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		}
 		
 		if(e.getSource() == pickupableItems.get(0)) {
+			dialogueBox.setDialogue("img/dialogue/Paper on Wall Dialogue.png");
 			backpack.addToBackpack(pickupableItems.get(0));
 			pickupableItems.get(0).removeFromScreen(this);
 		}
