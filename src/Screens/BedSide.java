@@ -57,6 +57,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 		
 		// pick up something
 		PickupableItem square = new PickupableItem(this, "squares/yellow.png", 800, 700, 90, 90);
+		square.addToScreen();
 		pickupableItems.add(square);
 		
 //        dialogueBox = new JButton("painting clue");

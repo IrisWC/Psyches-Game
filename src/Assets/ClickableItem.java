@@ -79,10 +79,6 @@ public class ClickableItem extends JButton {
 		}
 	}
 	
-	public ImageIcon getImage() {
-		ImageIcon icon = new ImageIcon(this.img);
-		Image iconModified = icon.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
-		return new ImageIcon(iconModified);
-	}
+	
 
 }

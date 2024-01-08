@@ -65,13 +65,13 @@ public class Game extends JFrame implements WindowListener{
 		JLabel winLabel = new JLabel(new ImageIcon(winImage));
 		winPage.add(winLabel);
 		
-		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
-		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
-		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
-		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
-		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
-		inventory.add(new PickupableItem(bedSide, "squares/white.png", 0, 0, 100, 100));
-		inventory.add(new PickupableItem(bedSide, "squares/yellow.png", 0, 0, 100, 100));
+		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 0, 160, 160));
+		inventory.add(new PickupableItem(bedSide, "img/clues/composition.png", 0, 0, 694, 359));
+		inventory.add(new PickupableItem(bedSide, "img/clues/key.png", 0, 0, 378, 661));
+		inventory.add(new PickupableItem(bedSide, "img/clues/lemon paper.png", 0, 0, 430, 580));
+		inventory.add(new PickupableItem(bedSide, "img/clues/piano keys.png", 0, 0, 160, 160));
+		inventory.add(new PickupableItem(bedSide, "img/clues/roman numerals.png", 0, 0, 406, 614));
+		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 591, 422));
 		
 //		cardPanel.add(menu, "menu");
 		cardPanel.add(bedSide, "bedSide");
@@ -119,7 +119,8 @@ public class Game extends JFrame implements WindowListener{
 			JPanel inventoryPanel = new JPanel();
 			GridLayout gl = new GridLayout();
 			inventoryPanel.setLayout(gl);
-			inventoryPanel.setBackground(new Color(189, 123, 111));
+//			inventoryPanel.setBackground(new Color(189, 123, 111));
+			inventoryPanel.setBackground(new Color(250, 250, 250));
 			
 			for(int i = 0; i < inventory.size(); i++) {
 				JButton item = new JButton(inventory.get(i).getImage());
