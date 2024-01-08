@@ -130,8 +130,8 @@ public class Game extends JFrame implements WindowListener{
 				item.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
 				item.setOpaque(false);
 				item.setContentAreaFilled(false);
-				item.setBorder(new LineBorder(Color.WHITE));
-				item.setBorderPainted(true);
+//				item.setBorder(new LineBorder(Color.WHITE));
+//				item.setBorderPainted(true);
 				inventoryWindow.add(item);
 			}
 			
