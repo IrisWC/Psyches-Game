@@ -67,7 +67,7 @@ public class Game extends JFrame implements WindowListener{
 		JLabel winLabel = new JLabel(new ImageIcon(winImage));
 		winPage.add(winLabel);
 		
-		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 0, 160, 160));
+		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 0, 125, 125));
 		inventory.add(new PickupableItem(bedSide, "img/clues/composition.png", 0, 0, 694, 359));
 		inventory.add(new PickupableItem(bedSide, "img/clues/key.png", 0, 0, 378, 661));
 		inventory.add(new PickupableItem(bedSide, "img/clues/lemon paper.png", 0, 0, 430, 580));
