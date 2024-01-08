@@ -116,7 +116,7 @@ public class Game extends JFrame implements WindowListener{
 			inventoryWindow.setIconImage(bag.getImage());
 			
 			inventoryWindow.setResizable(false);
-			inventoryWindow.setBounds(1100, 200, 415, 400);
+			inventoryWindow.setBounds(540, 160, 385, 415);
 			inventoryWindow.addWindowListener(this);
 			
 			JPanel inventoryPanel = new JPanel();
@@ -127,7 +127,7 @@ public class Game extends JFrame implements WindowListener{
 			
 			for(int i = 0; i < inventory.size(); i++) {
 				JButton item = new JButton(inventory.get(i).getImage());
-				item.setBounds(i%4 * 100, i/4 * 100, 100, 100);
+				item.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
 				item.setOpaque(false);
 				item.setContentAreaFilled(false);
 				item.setBorder(new LineBorder(Color.WHITE));
