@@ -14,11 +14,13 @@ import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
+import windows.Backpack;
 import windows.PasscodeWindow;
 
 public class ExitSide extends JPanel implements ActionListener { //, KeyListener {
 
 	private Game mainCore;
+	private Backpack backpack;
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton, door;
 	private DialogueBox dialogueBox;
@@ -26,9 +28,10 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 	private ArrayList<ClickableItem> clickableItems;
 	private ArrayList<PickupableItem> pickupableItems;
 	
-	public ExitSide(Game mainCore, int width, int height) {
+	public ExitSide(Game mainCore, Backpack backpack, int width, int height) {
 		super();
 		this.mainCore = mainCore;
+		
 		this.width = width;
 		this.height = height;
 		this.setBackground(new Color(235,224,186));
@@ -38,7 +41,10 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
 		dialogueBox = new DialogueBox(this);
+		
+		this.backpack = backpack;
 		backpackButton = new BackpackButton(this);
+		ActionListener backpackAL = backpack.getAL();
 		
 		doorCode = new PasscodeWindow(330, 80, 690, 690, "90-23-CAGED", "img/clue contents/exit door hint.png", 600, 600);
 		
@@ -60,6 +66,9 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 		
 		pickupableItems.add(new PickupableItem("img/clues/timeline.png", 112, 80));
 		pickupableItems.add(new PickupableItem("img/clues/piano keys.png", 115, 86));
+		
+		pickupableItems.get(0).addImgWindow("img/clue contents/timeline content.png");
+		pickupableItems.get(1).addImgWindow("img/clue contents/piano keys content.png");
 		
 		
 		// for testing the location of images, they are not buttons
@@ -95,7 +104,7 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton)
-			mainCore.openInventory();
+			backpack.openInventory();
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();
 		}
@@ -115,7 +124,7 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 				if (!clickableItems.get(1).gotClue()) {
 					clickableItems.get(1).getClue();
 					dialogueBox.setDialogue("img/dialogue/Closet Unlocked Dialogue.png");
-					mainCore.addToBackpack(pickupableItems.get(1));
+					backpack.addToBackpack(pickupableItems.get(1));
 				}
 			}
 		}
@@ -123,7 +132,7 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 			if (!clickableItems.get(2).gotClue()) {
 				clickableItems.get(2).getClue();
 				dialogueBox.setDialogue("img/dialogue/Behind Painting Dialogue.png");
-				mainCore.addToBackpack(pickupableItems.get(0));
+				backpack.addToBackpack(pickupableItems.get(0));
 			}
 		}
 		if(e.getSource() == clickableItems.get(3)) {

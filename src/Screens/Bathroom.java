@@ -12,17 +12,19 @@ import java.util.ArrayList;
 import Core.Game;
 import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
+import windows.Backpack;
 
 public class Bathroom extends JPanel implements ActionListener { //, KeyListener {
 
 	private Game mainCore;
+	private Backpack backpack;
 	private int width, height;
 	private JButton exit, backpackButton;
 	private DialogueBox dialogueBox;
 	private ArrayList<ClickableItem> clickableItems;
 	private ArrayList<PickupableItem> pickupableItems;
 	
-	public Bathroom(Game mainCore, int width, int height) {
+	public Bathroom(Game mainCore, Backpack backpack, int width, int height) {
 		super();
 		this.mainCore = mainCore;
 		this.width = width;
@@ -31,6 +33,8 @@ public class Bathroom extends JPanel implements ActionListener { //, KeyListener
 		setLayout(null);
 		
 		dialogueBox = new DialogueBox(this);
+		
+		this.backpack = backpack;
 		backpackButton = new BackpackButton(this);
 		((BackpackButton) backpackButton).setX(Game.WIDTH-75);
 		
@@ -78,7 +82,7 @@ public class Bathroom extends JPanel implements ActionListener { //, KeyListener
 			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton) {
-			mainCore.openInventory();
+			backpack.openInventory();
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();
@@ -91,7 +95,7 @@ public class Bathroom extends JPanel implements ActionListener { //, KeyListener
 			if (!clickableItems.get(1).gotClue()) {
 				clickableItems.get(1).getClue();
 				dialogueBox.setDialogue("img/dialogue/Sink Dialogue.png");
-				mainCore.addToBackpack(pickupableItems.get(0));
+				backpack.addToBackpack(pickupableItems.get(0));
 			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {

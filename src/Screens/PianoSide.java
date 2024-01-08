@@ -14,11 +14,13 @@ import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
+import windows.Backpack;
 import windows.ImgWindow;
 
 public class PianoSide extends JPanel implements ActionListener { //, KeyListener {
 
 	private Game mainCore;
+	private Backpack backpack;
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton;
 	private DialogueBox dialogueBox;
@@ -27,7 +29,7 @@ public class PianoSide extends JPanel implements ActionListener { //, KeyListene
 	private ArrayList<ClickableItem> clickableItems;
 	private PickupableItem compositionLetter;
 	
-	public PianoSide(Game mainCore, int width, int height) {
+	public PianoSide(Game mainCore, Backpack backpack, int width, int height) {
 		super();
 		this.mainCore = mainCore;
 		this.width = width;
@@ -38,6 +40,8 @@ public class PianoSide extends JPanel implements ActionListener { //, KeyListene
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
 		dialogueBox = new DialogueBox(this);
+		
+		this.backpack = backpack;
 		backpackButton = new BackpackButton(this);
 		
 		zoomedInPiano = new ImgWindow(390, 400, 650, 260, "img/clue contents/zoomed in piano.png", 576, 198);
@@ -55,6 +59,7 @@ public class PianoSide extends JPanel implements ActionListener { //, KeyListene
 		clickableItems.add(splat);
 		
 		compositionLetter = new PickupableItem("img/clues/composition.png", 111, 57);
+		compositionLetter.addImgWindow("img/clue contents/composition content.png");
 		
 		
 		// for testing the location of images, they are not buttons
@@ -87,7 +92,7 @@ public class PianoSide extends JPanel implements ActionListener { //, KeyListene
 			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton)
-			mainCore.openInventory();
+			backpack.openInventory();
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();
 		}
@@ -99,7 +104,7 @@ public class PianoSide extends JPanel implements ActionListener { //, KeyListene
 			if (!clickableItems.get(1).gotClue()) {
 				clickableItems.get(1).getClue();
 				dialogueBox.setDialogue("img/dialogue/Behind Painting Dialogue.png");
-				mainCore.addToBackpack(compositionLetter);
+				backpack.addToBackpack(compositionLetter);
 			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {

@@ -14,11 +14,13 @@ import navigationButtons.BackpackButton;
 import navigationButtons.DialogueBox;
 import navigationButtons.LeftButton;
 import navigationButtons.RightButton;
+import windows.Backpack;
 import windows.PasscodeWindow;
 
 public class BathroomSide extends JPanel implements ActionListener { //, KeyListener {
 
 	private Game mainCore;
+	private Backpack backpack;
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton;
 	private DialogueBox dialogueBox;
@@ -26,7 +28,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 	private ArrayList<ClickableItem> clickableItems;
 	private ArrayList<PickupableItem> pickupableItems;
 	
-	public BathroomSide(Game mainCore, int width, int height) {
+	public BathroomSide(Game mainCore, Backpack backpack, int width, int height) {
 		super();
 		this.mainCore = mainCore;
 		this.width = width;
@@ -38,6 +40,8 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		leftButton = new LeftButton(this);
 		rightButton = new RightButton(this);
 		dialogueBox = new DialogueBox(this);
+		
+		this.backpack = backpack;
 		backpackButton = new BackpackButton(this);
 		
 		tableCode = new PasscodeWindow(300, 540, 520, 190, "DXII", "img/clue contents/bedside table hint.png", 425, 105);
@@ -62,10 +66,13 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		
 		PickupableItem romanNumerals = new PickupableItem("img/clues/roman numerals.png", 75, 113);
 		romanNumerals.addToScreen(this, 405, 395, 48, 77);
-		pickupableItems.add(romanNumerals);
 		
+		pickupableItems.add(romanNumerals);
 		pickupableItems.add(new PickupableItem("img/clues/key.png", 64, 112));
 		pickupableItems.add(new PickupableItem("img/clues/binary-decimal.png", 106, 114));
+		
+//		pickupableItems.get(0).addImgWindow("img/clue contents/roman numerals content.png");
+		pickupableItems.get(2).addImgWindow("img/clue contents/binary-decimal content.png");
 		
 		
 		// for testing the location of images, they are not buttons
@@ -99,7 +106,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton)
-			mainCore.openInventory();
+			backpack.openInventory();
 		
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();
@@ -113,8 +120,8 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 				if (!clickableItems.get(0).gotClue()) {
 					clickableItems.get(0).getClue();
 					dialogueBox.setDialogue("img/dialogue/Table Dialogue.png");
-					mainCore.addToBackpack(pickupableItems.get(1));
-					mainCore.addToBackpack(pickupableItems.get(2));
+					backpack.addToBackpack(pickupableItems.get(1));
+					backpack.addToBackpack(pickupableItems.get(2));
 				}
 			}
 		}
@@ -141,7 +148,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		}
 		
 		if(e.getSource() == pickupableItems.get(0)) {
-			mainCore.addToBackpack(pickupableItems.get(0));
+			backpack.addToBackpack(pickupableItems.get(0));
 			pickupableItems.get(0).setVisible(false);
 		}
 		

@@ -5,15 +5,37 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import windows.ImgWindow;
+
 public class PickupableItem extends JButton{
 	
 	private String img;
 	private int w, h;
+	private ImgWindow imgWindow;
+	private static final int WINDOW_X = 300;
+	private static final int WINDOW_Y = 200;
+	private static final int WINDOW_W = 700;
+	private static final int WINDOW_H = 700;
+	private static final int WINDOW_IMG_LENGTH = 600;
 
 	public PickupableItem(String img, int w, int h) { 
 		this.img = img;
 		this.w = w;
 		this.h = h;
+	}
+	
+	public void addImgWindow(String img) {
+		imgWindow = new ImgWindow(WINDOW_X, WINDOW_Y, WINDOW_W, WINDOW_H, img, WINDOW_IMG_LENGTH, WINDOW_IMG_LENGTH);
+	}
+	
+	public ImgWindow getImgWindow() {
+		return imgWindow;
+	}
+	
+	public boolean haveImgWindow() {
+		if (imgWindow == null)
+			return false;
+		return true;
 	}
 	
 	public void addToScreen(JPanel p, int x, int y, int w, int h) {
@@ -32,6 +54,10 @@ public class PickupableItem extends JButton{
 		ImageIcon icon = new ImageIcon(this.img);
 		Image iconModified = icon.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
 		return new ImageIcon(iconModified);
+	}
+	
+	public String getName() {
+		return img;
 	}
 
 }

@@ -10,18 +10,21 @@ import java.awt.event.*;
 import Assets.*;
 import Core.*;
 import navigationButtons.*;
+import windows.Backpack;
 
 public class BedSide extends JPanel implements ActionListener { //, KeyListener{
 
 	private Game mainCore;
+	private Backpack backpack;
 	private int width, height;
 	private JButton leftButton, rightButton, backpackButton;
 	private DialogueBox dialogueBox;
 	private ArrayList<ClickableItem> clickableItems;
 	
-	public BedSide(Game mainCore, int width, int height) {
+	public BedSide(Game mainCore, Backpack backpack, int width, int height) {
 		super();
 		this.mainCore = mainCore;
+		this.backpack = backpack;
 		this.width = width;
 		this.height = height;
 		
@@ -104,7 +107,7 @@ public class BedSide extends JPanel implements ActionListener { //, KeyListener{
 			dialogueBox.remove();
 		}
 		if(e.getSource() == backpackButton)
-			mainCore.openInventory();
+			backpack.openInventory();
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();
 		}
