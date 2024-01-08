@@ -19,7 +19,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-public class Game extends JFrame {
+public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
 	public static final int WIDTH = 1050;
 	public static final int HEIGHT = 825;
@@ -38,7 +38,6 @@ public class Game extends JFrame {
 	private Backpack backpack;
 	
 //	private boolean inventoryOpen;
-//	
 //	private ArrayList<PickupableItem> inventory;
 	
 	public Game() {
@@ -147,8 +146,9 @@ public class Game extends JFrame {
 //	
 //	public void addToBackpack(PickupableItem item) {
 //		inventory.add(item);
+//		item.addActionListener(this);
 //	}
-	
+//	
 //	@Override
 //	public void actionPerformed(ActionEvent e) {
 //		System.out.println("hi");

@@ -1,10 +1,7 @@
 package windows;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -14,14 +11,10 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Assets.ClickableItem;
 import Assets.PickupableItem;
 import Core.Game;
-import navigationButtons.BackpackButton;
-import navigationButtons.DialogueBox;
 
 public class Backpack extends JFrame implements ActionListener, WindowListener {
 
@@ -39,16 +32,6 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 //		
 //		setLayout(null);
 		
-//		this.setResizable(false);
-//		this.setBounds(540, 160, 385, 415);
-//		
-//		p = new JPanel();
-//		
-//		ImageIcon icon = new ImageIcon(img);
-//		Image itemModified = icon.getImage().getScaledInstance(imgW, imgH, Image.SCALE_SMOOTH);
-//		p.add(new JLabel(new ImageIcon(itemModified, BorderLayout.CENTER)));
-//		
-//		this.add(p);
 		
 		super("Inventory");
 		ImageIcon bag = new ImageIcon("img/backpack.png");
