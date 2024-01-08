@@ -21,6 +21,7 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	private Game mainCore;
 	private int width, height;
 	private ArrayList<PickupableItem> inventory;
+	private ArrayList<JButton> inventoryButtons;
 	private boolean inventoryOpen;
 	private JPanel inventoryPanel;
 	
@@ -52,15 +53,16 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	}
 	
 	public void openInventory() {
-		for(int i = 0; i < inventory.size(); i++) {
-			JButton item = new JButton(inventory.get(i).getImage());
-			item.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
-			item.setOpaque(false);
-			item.setContentAreaFilled(false);
-//			item.setBorder(new LineBorder(Color.WHITE));
-//			item.setBorderPainted(true);
-			this.add(item);
-		}
+//		for(int i = 0; i < inventory.size(); i++) {
+//			JButton item = new JButton(inventory.get(i).getImage());
+//			item.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
+//			item.setOpaque(false);
+//			item.setContentAreaFilled(false);
+////			item.setBorder(new LineBorder(Color.WHITE));
+////			item.setBorderPainted(true);
+//			this.add(item);
+//		}
+		
 		
 		this.add(inventoryPanel);
 		this.setVisible(true);
@@ -69,7 +71,13 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	
 	public void addToBackpack(PickupableItem item) {
 		inventory.add(item);
-		item.addActionListener(this);
+		JButton itemButton = new JButton(item.get(i).getImage());
+		int i = inventory.size()-1;
+		itemButton.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
+		itemButton.setOpaque(false);
+		itemButton.setContentAreaFilled(false);
+		this.add(itemButton);
+		itemButton.addActionListener(this);
 	}
 	
 	public ActionListener getAL() {
@@ -88,7 +96,7 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 //					System.out.println("no window");
 //			}
 //		}
-		if (e.getSource() == inventory.get(0)) {
+		if (e.getSource() == inventoryButtons.get(0)) {
 			System.out.println("hi");
 		}
 //		
