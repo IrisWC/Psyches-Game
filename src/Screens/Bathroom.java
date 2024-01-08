@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import Assets.ClickableItem;
+import Assets.PickupableItem;
 
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -18,8 +19,8 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 	private int width, height;
 	private JButton exit, backpackButton;
 	private DialogueBox dialogueBox;
-	
 	private ArrayList<ClickableItem> clickableItems;
+	private ArrayList<PickupableItem> pickupableItems;
 	
 	public Bathroom(Game mainCore, int width, int height) {
 		super();
@@ -45,6 +46,7 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		add(exit);
 		
 		clickableItems = new ArrayList<ClickableItem>();
+		pickupableItems = new ArrayList<PickupableItem>();
 		
 		ClickableItem toilet = new ClickableItem(this, "img/bathroom/toilet.png", 370, 305, 156, 268);
 		ClickableItem sink = new ClickableItem(this, "img/bathroom/sink.png", 585, 355, 447, 229);
@@ -57,6 +59,8 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		clickableItems.add(mirror);
 		clickableItems.add(shower);
 		clickableItems.add(sd);
+		
+		pickupableItems.add(new PickupableItem("img/clues/lighter.png", 160, 160));
 		
 	}
 	
@@ -76,11 +80,19 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		if(e.getSource() == backpackButton) {
 			mainCore.openInventory();
 		}
+		if(e.getSource() == dialogueBox) {
+			dialogueBox.remove();
+		}
+		
 		if(e.getSource() == clickableItems.get(0)) {
-			dialogueBox.setDialogue("img/dialogue/Toilet Dialogue.png");
+				dialogueBox.setDialogue("img/dialogue/Toilet Dialogue.png");
 		}
 		if(e.getSource() == clickableItems.get(1)) {
-			
+			if (!clickableItems.get(1).gotClue()) {
+				clickableItems.get(1).getClue();
+				dialogueBox.setDialogue("img/dialogue/Sink Dialogue.png");
+				mainCore.addToBackpack(pickupableItems.get(0));
+			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {
 			dialogueBox.setDialogue("img/dialogue/Mirror Dialogue.png");
@@ -91,14 +103,12 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		if(e.getSource() == clickableItems.get(4)) {
 			dialogueBox.setDialogue("img/dialogue/Dali Dialogue.png");
 		}
-		if(e.getSource() == dialogueBox) {
-			dialogueBox.remove();
-		}
 		
-		for (int i = 0; i < clickableItems.size(); i++) {
-			if(e.getSource() == clickableItems.get(i))
-				clickableItems.get(i).click();
-		}
+		// for testing
+//		for (int i = 0; i < clickableItems.size(); i++) {
+//			if(e.getSource() == clickableItems.get(i))
+//				clickableItems.get(i).click();
+//		}
 		
 		mainCore.requestFocusInWindow();
 		

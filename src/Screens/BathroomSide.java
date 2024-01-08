@@ -60,7 +60,6 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		clickableItems.add(people);
 		clickableItems.add(spots);
 		
-		// pick up something
 		PickupableItem romanNumerals = new PickupableItem("img/clues/roman numerals.png", 75, 113);
 		romanNumerals.addToScreen(this, 405, 395, 48, 77);
 		pickupableItems.add(romanNumerals);
