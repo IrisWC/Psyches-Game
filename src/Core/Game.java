@@ -27,6 +27,7 @@ public class Game extends JFrame implements WindowListener{
 	
 	private JPanel cardPanel;
 	private MenuScreen menu;
+	private Intro intro;
 	private BedSide bedSide;
 	private ExitSide exitSide;
 	private BathroomSide bathroomSide;
@@ -54,6 +55,7 @@ public class Game extends JFrame implements WindowListener{
 		inventory = new ArrayList<PickupableItem>();
 		
 		menu = new MenuScreen(this, WIDTH, HEIGHT);
+		intro = new Intro(this, WIDTH, HEIGHT);
 		bedSide = new BedSide(this, WIDTH, HEIGHT);
 		exitSide = new ExitSide(this, WIDTH, HEIGHT);
 		bathroomSide = new BathroomSide(this, WIDTH, HEIGHT);
@@ -74,6 +76,7 @@ public class Game extends JFrame implements WindowListener{
 		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 591, 422));
 		
 //		cardPanel.add(menu, "menu");
+		cardPanel.add(intro, "intro");
 		cardPanel.add(bedSide, "bedSide");
 		cardPanel.add(exitSide, "exitSide");
 		cardPanel.add(bathroomSide, "bathroomSide");
