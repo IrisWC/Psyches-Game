@@ -67,13 +67,13 @@ public class Game extends JFrame implements WindowListener{
 		JLabel winLabel = new JLabel(new ImageIcon(winImage));
 		winPage.add(winLabel);
 		
-		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 0, 125, 125));
-		inventory.add(new PickupableItem(bedSide, "img/clues/composition.png", 0, 0, 694, 359));
-		inventory.add(new PickupableItem(bedSide, "img/clues/key.png", 0, 0, 378, 661));
-		inventory.add(new PickupableItem(bedSide, "img/clues/lemon paper.png", 0, 0, 430, 580));
-		inventory.add(new PickupableItem(bedSide, "img/clues/piano keys.png", 0, 0, 160, 160));
-		inventory.add(new PickupableItem(bedSide, "img/clues/roman numerals.png", 0, 0, 406, 614));
-		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 591, 422));
+		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 100, 106, 114));
+		inventory.add(new PickupableItem(bedSide, "img/clues/composition.png", 0, 0, 111, 57));
+		inventory.add(new PickupableItem(bedSide, "img/clues/key.png", 0, 0, 64, 112));
+		inventory.add(new PickupableItem(bedSide, "img/clues/lemon paper.png", 0, 0, 84, 113));
+		inventory.add(new PickupableItem(bedSide, "img/clues/piano keys.png", 0, 0, 115, 86));
+		inventory.add(new PickupableItem(bedSide, "img/clues/roman numerals.png", 0, 0, 75, 113));
+		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 112, 80));
 		
 //		cardPanel.add(menu, "menu");
 		cardPanel.add(intro, "intro");
