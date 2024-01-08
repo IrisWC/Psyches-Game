@@ -34,7 +34,7 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		((BackpackButton) backpackButton).setX(Game.WIDTH-75);
 		
 		exit = new JButton();
-		exit.setBounds(0, Game.HEIGHT-120, Game.WIDTH, 100);
+		exit.setBounds(0, Game.HEIGHT-125, Game.WIDTH, 100);
 		ImageIcon arrowIcon = new ImageIcon("img/signs/downarrow.png");
 		Image arrowModified = arrowIcon.getImage().getScaledInstance(50, 30, Image.SCALE_SMOOTH);
 		exit.setIcon(new ImageIcon(arrowModified));
