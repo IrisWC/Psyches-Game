@@ -29,6 +29,10 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		
 		setLayout(null);
 		
+		dialogueBox = new DialogueBox(this);
+		backpackButton = new BackpackButton(this);
+		((BackpackButton) backpackButton).setX(Game.WIDTH-75);
+		
 		exit = new JButton();
 		exit.setBounds(0, Game.HEIGHT-100, Game.WIDTH, 100);
 		ImageIcon arrowIcon = new ImageIcon("img/downarrow.png");
@@ -39,10 +43,6 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		exit.setBorderPainted(false);
 		exit.addActionListener(this);
 		add(exit);
-		
-		dialogueBox = new DialogueBox(this);
-		backpackButton = new BackpackButton(this);
-		((BackpackButton) backpackButton).setX(Game.WIDTH-75);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -75,6 +75,21 @@ public class Bathroom extends JPanel implements ActionListener, KeyListener {
 		}
 		if(e.getSource() == backpackButton) {
 			mainCore.openInventory();
+		}
+		if(e.getSource() == clickableItems.get(0)) {
+			dialogueBox.setDialogue("img/dialogue/Toilet Dialogue.png");
+		}
+		if(e.getSource() == clickableItems.get(1)) {
+			
+		}
+		if(e.getSource() == clickableItems.get(2)) {
+			dialogueBox.setDialogue("img/dialogue/Mirror Dialogue.png");
+		}
+		if(e.getSource() == clickableItems.get(3)) {
+			dialogueBox.setDialogue("img/dialogue/Shower Dialogue.png");
+		}
+		if(e.getSource() == clickableItems.get(4)) {
+			dialogueBox.setDialogue("img/dialogue/Dali Dialogue.png");
 		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();

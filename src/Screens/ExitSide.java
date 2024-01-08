@@ -105,6 +105,15 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 			if (!clickableItems.get(1).gotClue())
 				clickableItems.get(1).getClue();
 		}
+		if(e.getSource() == clickableItems.get(2)) {
+			
+		}
+		if(e.getSource() == clickableItems.get(3)) {
+			dialogueBox.setDialogue("img/dialogue/Creature Dialogue.png");
+		}
+		if(e.getSource() == clickableItems.get(4)) {
+			dialogueBox.setDialogue("img/dialogue/Empty Dialogue.png");
+		}
 		if(e.getSource() == dialogueBox) {
 			dialogueBox.remove();
 		}

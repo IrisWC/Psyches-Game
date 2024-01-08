@@ -130,7 +130,7 @@ public class BedSide extends JPanel implements ActionListener, KeyListener{
 			mainCore.openInventory();
 		
 		if(e.getSource() == clickableItems.get(0)) {
-//			dialogueBox.setDialogue("img/dialogue/Bed Dialogue.png"); // this line
+			dialogueBox.setDialogue("img/dialogue/Bed Dialogue.png"); // this line
 			if (!clickableItems.get(0).gotClue())
 				clickableItems.get(0).getClue();
 		}

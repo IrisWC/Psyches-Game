@@ -104,6 +104,18 @@ public class BathroomSide extends JPanel implements ActionListener, KeyListener 
 				doorCode.unlock();
 			}
 		}
+		if(e.getSource() == clickableItems.get(2)) {
+			dialogueBox.setDialogue("img/dialogue/Cat Dialogue.png");
+		}
+		if(e.getSource() == clickableItems.get(3)) {
+			dialogueBox.setDialogue("img/dialogue/Castle Dialogue.png");
+		}
+		if(e.getSource() == clickableItems.get(4)) {
+			dialogueBox.setDialogue("img/dialogue/People Dialogue.png");
+		}
+		if(e.getSource() == clickableItems.get(5)) {
+			dialogueBox.setDialogue("img/dialogue/Spots Dialogue.png");
+		}
 		if(e.getSource() == backpackButton)
 			mainCore.openInventory();
 		if(e.getSource() == clickableItems.get(0)) {
