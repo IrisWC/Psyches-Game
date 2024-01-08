@@ -13,6 +13,7 @@ public class ClickableItem extends JButton {
 	private int x, y;
 	private int w, h;
 	private boolean gotClue;
+	private boolean locked;
 	
 	// for testing
 	private boolean clicked;
@@ -35,7 +36,20 @@ public class ClickableItem extends JButton {
 		p.add(this);
 		
 		gotClue = false;
+		locked = false;
 		clicked = false;
+	}
+	
+	public void lock() {
+		locked = true;
+	}
+	
+	public boolean isLocked() {
+		return locked;
+	}
+	
+	public void unlock() {
+		locked = false;
 	}
 	
 	public void getClue() { 
