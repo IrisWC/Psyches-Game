@@ -1,14 +1,22 @@
 package Screens;
 
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Core.Game;
 
 public class PasscodeWindow extends JFrame implements ActionListener {
 	
@@ -17,24 +25,30 @@ public class PasscodeWindow extends JFrame implements ActionListener {
 	private boolean unlocked;
 	private String correctCode;
 
-	public PasscodeWindow(String correctCode) {
+	public PasscodeWindow(int x, int y, int w, int h, String correctCode, String img, int imgW, int imgH) {
 		super();
 		
 		unlocked = false;
 		this.correctCode = correctCode;
 		
 		this.setResizable(false);
-		this.setBounds(1100, 200, 400, 400);
+		this.setBounds(x, y, w, h);
 //		this.addWindowListener(wl);
 		
 		JPanel p = new JPanel();
+		
+		ImageIcon icon = new ImageIcon(img);
+		Image itemModified = icon.getImage().getScaledInstance(imgW, imgH, Image.SCALE_SMOOTH);
+		p.add(new JLabel(new ImageIcon(itemModified, BorderLayout.CENTER)));
+		
 		input = new JTextField(10);
-		submitButton = new JButton("submit");
+		submitButton = new JButton("enter");
 		submitButton.addActionListener(this);
 		
 		p.add(input);
 		p.add(submitButton);
 		this.add(p);
+		
 	}
 	
 	public void unlock() {

@@ -48,8 +48,6 @@ public class Game extends JFrame implements WindowListener{
 		cardPanel = new JPanel();
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
-//		container = getContentPane();
-//		container.setLayout(cl);
 		
 		inventoryOpen = false;
 		inventory = new ArrayList<PickupableItem>();
@@ -67,17 +65,17 @@ public class Game extends JFrame implements WindowListener{
 		JLabel winLabel = new JLabel(new ImageIcon(winImage));
 		winPage.add(winLabel);
 		
-		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 100, 106, 114));
-		inventory.add(new PickupableItem(bedSide, "img/clues/composition.png", 0, 0, 111, 57));
-		inventory.add(new PickupableItem(bedSide, "img/clues/key.png", 0, 0, 64, 112));
-		inventory.add(new PickupableItem(bedSide, "img/clues/lemon paper.png", 0, 0, 84, 113));
-		inventory.add(new PickupableItem(bedSide, "img/clues/piano keys.png", 0, 0, 115, 86));
-		inventory.add(new PickupableItem(bedSide, "img/clues/roman numerals.png", 0, 0, 75, 113));
-		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 112, 80));
-		inventory.add(new PickupableItem(bedSide, "img/clues/lighter.png", 0, 0, 160, 160));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 100, 106, 114));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/composition.png", 0, 0, 111, 57));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/key.png", 0, 0, 64, 112));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/lemon paper.png", 0, 0, 84, 113));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/piano keys.png", 0, 0, 115, 86));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/roman numerals.png", 0, 0, 75, 113));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 112, 80));
+//		inventory.add(new PickupableItem(bedSide, "img/clues/lighter.png", 0, 0, 160, 160));
 		
 //		cardPanel.add(menu, "menu");
-		cardPanel.add(intro, "intro");
+//		cardPanel.add(intro, "intro");
 		cardPanel.add(bedSide, "bedSide");
 		cardPanel.add(exitSide, "exitSide");
 		cardPanel.add(bathroomSide, "bathroomSide");
@@ -86,9 +84,9 @@ public class Game extends JFrame implements WindowListener{
 		cardPanel.add(winPage, "winPage");
 		
 		add(cardPanel);
-		addKeyListener(bedSide);
+//		addKeyListener(bedSide);
 		addKeyListener(exitSide);
-		addKeyListener(bathroomSide);
+//		addKeyListener(bathroomSide);
 		addKeyListener(pianoSide);
 		addKeyListener(bathroom);
 		
@@ -187,44 +185,4 @@ public class Game extends JFrame implements WindowListener{
 		
 	}
 	
-//	public void run() {
-//		while(true) {
-//			repaint();
-//			
-//			try {
-//				Thread.sleep(20);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
-	
-//	public void paintComponent(Graphics g) {
-//		super.paintComponent(g);;
-//		
-//		int width = getWidth();
-//		int height = getHeight();
-//		
-//		double ratioX = (double)width/WIDTH;
-//	    double ratioY = (double)height/HEIGHT;
-//	    
-//	    Graphics2D g2 = (Graphics2D)g;
-//	    AffineTransform at = g2.getTransform();
-//	    g2.scale(ratioX,ratioY);
-//	    
-//		for (Furniture f : furniture) {
-//			f.draw(g, this);
-//		}
-//	    
-//	    g2.setTransform(at);
-//	}
-//
-
-//	
-//	private void addFurniture() {
-//		furniture.add(new Furniture("bed", 180, 360, 450, 450));
-//		furniture.add(new Furniture("painting", 260, 50, 300, 300));
-//		
-//	}
-//
 }

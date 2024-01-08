@@ -38,7 +38,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 		dialogueBox = new DialogueBox(this);
 		backpackButton = new BackpackButton(this);
 		
-		doorCode = new PasscodeWindow("Mwahahaha");
+//		doorCode = new PasscodeWindow("Mwahahaha");
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		
@@ -102,11 +102,13 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 			}
 		}
 		if(e.getSource() == clickableItems.get(1)) {
-			if (!clickableItems.get(1).gotClue())
+			if (!clickableItems.get(1).gotClue()) {
 				clickableItems.get(1).getClue();
+				dialogueBox.setDialogue("img/dialogue/Closet Dialogue.png");
+			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {
-			
+			dialogueBox.setDialogue("img/dialogue/Behind Painting Dialogue.png");
 		}
 		if(e.getSource() == clickableItems.get(3)) {
 			dialogueBox.setDialogue("img/dialogue/Creature Dialogue.png");
@@ -118,6 +120,7 @@ public class ExitSide extends JPanel implements ActionListener, KeyListener {
 			dialogueBox.remove();
 		}
 		
+		// for testing
 		for (int i = 0; i < clickableItems.size(); i++) {
 			if(e.getSource() == clickableItems.get(i))
 				clickableItems.get(i).click();
