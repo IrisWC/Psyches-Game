@@ -1,5 +1,6 @@
 package Assets;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 
@@ -15,13 +16,14 @@ public class PickupableItem extends JButton{
 	private static final int WINDOW_X = 300;
 	private static final int WINDOW_Y = 200;
 	private static final int WINDOW_W = 700;
-	private static final int WINDOW_H = 700;
+	private static final int WINDOW_H = 680;
 	private static final int WINDOW_IMG_LENGTH = 600;
 
-	public PickupableItem(String img, int w, int h) { 
+	public PickupableItem(String img, int w, int h) { //, ActionListener al) { 
 		this.img = img;
 		this.w = w;
 		this.h = h;
+//		this.addActionListener(al);
 	}
 	
 	public void addImgWindow(String img) {
@@ -38,6 +40,17 @@ public class PickupableItem extends JButton{
 		return true;
 	}
 	
+	public void addToWindow(JFrame f, int i) {
+		this.setIcon(getImage());
+		this.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
+		this.setOpaque(false);
+		this.setContentAreaFilled(false);
+//		item.setBorder(new LineBorder(Color.WHITE));
+//		item.setBorderPainted(true);
+		this.addActionListener((ActionListener) f);
+		f.add(this);
+	}
+	
 	public void addToScreen(JPanel p, int x, int y, int w, int h) {
 		ImageIcon itemIcon = new ImageIcon(img);
 		Image itemModified = itemIcon.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
@@ -48,6 +61,10 @@ public class PickupableItem extends JButton{
 		this.setBorderPainted(false);
 		this.addActionListener((ActionListener) p);
 		p.add(this);
+	}
+	
+	public void removeFromScreen(JPanel p) {
+		p.remove(this);
 	}
 	
 	public ImageIcon getImage() {

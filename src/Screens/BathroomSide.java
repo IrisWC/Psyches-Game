@@ -70,9 +70,11 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		pickupableItems.add(romanNumerals);
 		pickupableItems.add(new PickupableItem("img/clues/key.png", 64, 112));
 		pickupableItems.add(new PickupableItem("img/clues/binary-decimal.png", 106, 114));
+		pickupableItems.add(new PickupableItem("img/clues/lemon paper before heat.png", 84, 113));
 		
-//		pickupableItems.get(0).addImgWindow("img/clue contents/roman numerals content.png");
+		pickupableItems.get(0).addImgWindow("img/clue contents/roman numerals content.png");
 		pickupableItems.get(2).addImgWindow("img/clue contents/binary-decimal content.png");
+		pickupableItems.get(3).addImgWindow("img/clue contents/lemon paper before heat content.png");
 		
 		
 		// for testing the location of images, they are not buttons
@@ -141,7 +143,11 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 			dialogueBox.setDialogue("img/dialogue/Castle Dialogue.png");
 		}
 		if(e.getSource() == clickableItems.get(4)) {
-			dialogueBox.setDialogue("img/dialogue/People Dialogue.png");
+			if (!clickableItems.get(4).gotClue()) {
+				clickableItems.get(4).getClue();
+				dialogueBox.setDialogue("img/dialogue/People Dialogue.png");
+				backpack.addToBackpack(pickupableItems.get(3));
+			}
 		}
 		if(e.getSource() == clickableItems.get(5)) {
 			dialogueBox.setDialogue("img/dialogue/Spots Dialogue.png");
@@ -149,7 +155,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		
 		if(e.getSource() == pickupableItems.get(0)) {
 			backpack.addToBackpack(pickupableItems.get(0));
-			pickupableItems.get(0).setVisible(false);
+			pickupableItems.get(0).removeFromScreen(this);
 		}
 		
 		// for testing

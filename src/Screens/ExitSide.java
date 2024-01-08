@@ -44,7 +44,6 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 		
 		this.backpack = backpack;
 		backpackButton = new BackpackButton(this);
-		ActionListener backpackAL = backpack.getAL();
 		
 		doorCode = new PasscodeWindow(330, 80, 690, 690, "23 - 90 - CAGED", "img/clue contents/exit door hint.png", 600, 600);
 		

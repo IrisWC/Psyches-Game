@@ -53,13 +53,16 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	
 	public void openInventory() {
 		for(int i = 0; i < inventory.size(); i++) {
-			JButton item = new JButton(inventory.get(i).getImage());
-			item.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
-			item.setOpaque(false);
-			item.setContentAreaFilled(false);
-//			item.setBorder(new LineBorder(Color.WHITE));
-//			item.setBorderPainted(true);
-			this.add(item);
+//			JButton item = new JButton(inventory.get(i).getImage());
+//			item.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
+//			item.setOpaque(false);
+//			item.setContentAreaFilled(false);
+////			item.setBorder(new LineBorder(Color.WHITE));
+////			item.setBorderPainted(true);
+//			item.addActionListener(this);
+//			this.add(item);
+			
+			inventory.get(i).addToWindow(this, i);
 		}
 		
 		this.add(inventoryPanel);
@@ -69,27 +72,18 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	
 	public void addToBackpack(PickupableItem item) {
 		inventory.add(item);
-		item.addActionListener(this);
-	}
-	
-	public ActionListener getAL() {
-		return this;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-//		for(int i = 0; i < inventory.size(); i++) {
-//			PickupableItem item = inventory.get(i);
-//			if (e.getSource() == item) {
-//				System.out.println("hi");
-//				if (item.haveImgWindow())
-//					item.getImgWindow().view();
-//				else
-//					System.out.println("no window");
-//			}
-//		}
-		if (e.getSource() == inventory.get(0)) {
-			System.out.println("hi");
+		for(int i = 0; i < inventory.size(); i++) {
+			PickupableItem item = inventory.get(i);
+			if (e.getSource() == item) {
+				if (item.haveImgWindow())
+					item.getImgWindow().view();
+				else
+					System.out.println("no window");
+			}
 		}
 //		
 //		
