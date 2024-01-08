@@ -74,6 +74,7 @@ public class Game extends JFrame implements WindowListener{
 		inventory.add(new PickupableItem(bedSide, "img/clues/piano keys.png", 0, 0, 115, 86));
 		inventory.add(new PickupableItem(bedSide, "img/clues/roman numerals.png", 0, 0, 75, 113));
 		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 112, 80));
+		inventory.add(new PickupableItem(bedSide, "img/clues/lighter.png", 0, 0, 160, 160));
 		
 //		cardPanel.add(menu, "menu");
 		cardPanel.add(intro, "intro");
