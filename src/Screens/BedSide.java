@@ -127,10 +127,10 @@ public class BedSide extends JPanel implements ActionListener { //, KeyListener{
 		
 		
 		// for testing
-		for (int i = 0; i < clickableItems.size(); i++) {
-			if(e.getSource() == clickableItems.get(i))
-				clickableItems.get(i).click();
-		}
+//		for (int i = 0; i < clickableItems.size(); i++) {
+//			if(e.getSource() == clickableItems.get(i))
+//				clickableItems.get(i).click();
+//		}
 		
 		mainCore.requestFocusInWindow();
 	}
