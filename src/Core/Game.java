@@ -2,6 +2,7 @@ package Core;
 
 import Assets.*;
 import Screens.*;
+import jay.jaysound.JayLayer;
 import windows.Backpack;
 import windows.ImgWindow;
 
@@ -117,6 +118,11 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 //		furniture = new ArrayList<Furniture>();
 //		addFurniture();
 		
+		JayLayer sound = new JayLayer("audio/", null, false);
+		sound.addPlayList();
+		sound.addSong(0, "HorrorPianoMusic.mp3");
+		sound.changePlayList(0);
+		sound.nextSong();
 
 	}
 	
