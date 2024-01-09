@@ -78,8 +78,8 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 //		inventory.add(new PickupableItem(bedSide, "img/clues/timeline.png", 0, 0, 112, 80));
 //		inventory.add(new PickupableItem(bedSide, "img/clues/lighter.png", 0, 0, 160, 160));
 		
-//		cardPanel.add(menu, "menu");
-//		cardPanel.add(intro, "intro");
+		cardPanel.add(menu, "menu");
+		cardPanel.add(intro, "intro");
 		cardPanel.add(bedSide, "bedSide");
 		cardPanel.add(exitSide, "exitSide");
 		cardPanel.add(bathroomSide, "bathroomSide");
