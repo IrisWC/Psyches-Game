@@ -43,7 +43,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 //	private ArrayList<PickupableItem> inventory;
 	
 	public Game() {
-		super();
+		super("Psyche's Game");
 		setSize(WIDTH, HEIGHT);
 		setBounds(200, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
