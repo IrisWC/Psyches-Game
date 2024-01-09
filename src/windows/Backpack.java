@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Assets.PickupableItem;
@@ -48,6 +49,7 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	public void openInventory() {
 		for(int i = 0; i < inventory.size(); i++) {
 			inventory.get(i).addToWindow(this, i);
+			inventory.get(i).setHorizontalAlignment(JButton.CENTER);
 		}
 		
 		this.add(inventoryPanel);
@@ -59,6 +61,11 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 		inventory.add(item);
 	}
 	
+	public void putBackinBackpack() {
+		inventory.add(removedItem);
+		removedItem = null;
+	}
+	
 	public void takeItem(PickupableItem item) {
 		removedItem = item;
 		item.removeFromWindow(this);
@@ -67,11 +74,17 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	public PickupableItem getItem() {
 		return removedItem;
 	}
+	
+	public void removeItem() {
+		removedItem = null;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// if clicked on window while holding something, then the thing gets put back
-		// code
+		if (e.getSource() == this) {
+			putBackinBackpack();
+		}
 		
 		for(int i = 0; i < inventory.size(); i++) {
 			PickupableItem item = inventory.get(i);
