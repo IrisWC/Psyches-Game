@@ -120,7 +120,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		
 		JayLayer sound = new JayLayer("audio/", null, false);
 		sound.addPlayList();
-		sound.addSong(0, "HorrorPianoMusic.mp3");
+		sound.addSong(0, "Monplaisir - Soundtrack.mp3");
 		sound.changePlayList(0);
 		sound.nextSong();
 
