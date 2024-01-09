@@ -1,6 +1,8 @@
 package Assets;
 
+import java.awt.Color;
 import java.awt.Component;
+import javax.swing.border.*;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 
@@ -31,6 +33,7 @@ public class PickupableItem extends JButton{
 		found = false;
 //		useable = false;
 		inBackpack = false;
+		this.setBorder(new LineBorder(Color.WHITE, 2));
 //		this.addActionListener(al);
 	}
 	
@@ -69,8 +72,21 @@ public class PickupableItem extends JButton{
 		f.add(this);
 	}
 	
-	public void removeFromWindow(JFrame f) {
-		f.remove(this);
+//	public void selectInWindow(JFrame f) {
+////		f.remove(this);
+//		if(!selected) {
+//			this.setBorder(new LineBorder(Color.BLACK, 2));
+//		} else {
+//			this.setBorder(new LineBorder(Color.WHITE, 2));
+//		}
+//	}
+	
+	public void selectInWindow(JFrame f) {
+		this.setBorder(new LineBorder(Color.BLACK, 2));
+	}
+	
+	public void unselectInWindow(JFrame f) {
+		this.setBorder(new LineBorder(Color.WHITE, 2));
 	}
 	
 	public void addToScreen(JPanel p, int x, int y, int w, int h) {

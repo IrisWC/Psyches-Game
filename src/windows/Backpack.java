@@ -67,7 +67,7 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	
 	public void takeItem(PickupableItem item) {
 		removedItem = item;
-		item.removeFromWindow(this);
+		item.selectInWindow(this);
 	}
 	
 	public PickupableItem getItem() {
@@ -92,8 +92,16 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 					item.getImgWindow().view();
 				}
 				else {
-					takeItem(inventory.get(i));
-					inventory.remove(i);
+					if(removedItem == item) {
+						removedItem = null;
+						item.unselectInWindow(this);
+					} else {
+						removedItem = item;
+						item.selectInWindow(this);
+					}
+					
+//					takeItem(inventory.get(i));
+//					inventory.remove(i);
 				}
 			}
 		}
