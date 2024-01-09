@@ -49,7 +49,6 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	public void openInventory() {
 		for(int i = 0; i < inventory.size(); i++) {
 			inventory.get(i).addToWindow(this, i);
-			inventory.get(i).setHorizontalAlignment(JButton.CENTER);
 		}
 		
 		this.add(inventoryPanel);
@@ -68,7 +67,10 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	
 	public void takeItem(PickupableItem item) {
 		removedItem = item;
-		item.removeFromWindow(this);
+		item.setBackground(new Color(216, 164, 154));
+//		item.setBackground(new Color(189, 123, 111));
+		item.setOpaque(true);
+		item.setBorderPainted(false);
 	}
 	
 	public PickupableItem getItem() {
@@ -98,6 +100,7 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 				}
 			}
 		}
+		
 //		
 //		
 //		this.requestFocusInWindow();
