@@ -25,6 +25,7 @@ public class MenuScreen extends JPanel implements ActionListener{
 		gameButton.setBounds(332, 502, 386, 94);
 		gameButton.setOpaque(false);
 		gameButton.setContentAreaFilled(false);
+		gameButton.setBorderPainted(false);
 		gameButton.addActionListener(this);
 		add(gameButton);
 		
@@ -32,6 +33,7 @@ public class MenuScreen extends JPanel implements ActionListener{
 		infoButton.setBounds(94, 648, 386, 94);
 		infoButton.setOpaque(false);
 		infoButton.setContentAreaFilled(false);
+		infoButton.setBorderPainted(false);
 		infoButton.addActionListener(this);
 		add(infoButton);
 		
@@ -39,6 +41,7 @@ public class MenuScreen extends JPanel implements ActionListener{
 		creditsButton.setBounds(582, 648, 386, 94);
 		creditsButton.setOpaque(false);
 		creditsButton.setContentAreaFilled(false);
+		creditsButton.setBorderPainted(false);
 		creditsButton.addActionListener(this);
 		add(creditsButton);
 		

@@ -27,6 +27,7 @@ public class DisplayScreen extends JPanel implements ActionListener{
 		backButton.setBounds(50, 47, 80, 80);
 		backButton.setOpaque(false);
 		backButton.setContentAreaFilled(false);
+		backButton.setBorderPainted(false);
 		backButton.addActionListener(this);
 		add(backButton);
 		
