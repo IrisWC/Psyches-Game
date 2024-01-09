@@ -35,6 +35,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	private BathroomSide bathroomSide;
 	private PianoSide pianoSide;
 	private Bathroom bathroom;
+	private DisplayScreen infoScreen, creditsScreen;
 	private Backpack backpack;
 	
 //	private boolean inventoryOpen;
@@ -63,6 +64,8 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		bathroomSide = new BathroomSide(this, backpack, WIDTH, HEIGHT);
 		pianoSide = new PianoSide(this, backpack, WIDTH, HEIGHT);
 		bathroom = new Bathroom(this, backpack, WIDTH, HEIGHT);
+		infoScreen = new DisplayScreen(this, WIDTH, HEIGHT, "img/Instructions.png");
+		creditsScreen = new DisplayScreen(this, WIDTH, HEIGHT, "img/Credits.png");
 		
 		// escaped
 		JPanel escaped = new JPanel();
@@ -92,6 +95,8 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		cardPanel.add(bathroomSide, "bathroomSide");
 		cardPanel.add(pianoSide, "pianoSide");
 		cardPanel.add(bathroom, "bathroom");
+		cardPanel.add(infoScreen, "info");
+		cardPanel.add(creditsScreen, "credits");
 		
 		cardPanel.add(escaped, "escaped");
 		cardPanel.add(hospital, "hospital");

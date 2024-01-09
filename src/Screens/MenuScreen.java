@@ -89,10 +89,10 @@ public class MenuScreen extends JPanel implements ActionListener{
 			mainCore.switchScreen("intro");
 		}
 		if(e.getSource() == infoButton) {
-			
+			mainCore.switchScreen("info");
 		}
 		if(e.getSource() == creditsButton) {
-			
+			mainCore.switchScreen("credits");
 		}
 		
 	}
