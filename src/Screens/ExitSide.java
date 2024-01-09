@@ -135,7 +135,6 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 				dialogueBox.setDialogue("img/dialogue/Closet Locked Dialogue.png");
 				if (backpack.getItem() != null && backpack.getItem().getName().equals("img/clues/key.png")) {
 					clickableItems.get(1).unlock();
-//					backpack.removeItem();
 					dialogueBox.setDialogue("img/dialogue/Unlocking Closet Dialogue.png");
 				}
 			}
@@ -144,6 +143,7 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 					clickableItems.get(1).getClue();
 					dialogueBox.setDialogue("img/dialogue/Closet Unlocked Dialogue.png");
 					backpack.addToBackpack(pickupableItems.get(1));
+					backpack.openInventory(); 
 				}
 			}
 		}
@@ -152,6 +152,7 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 				clickableItems.get(2).getClue();
 				dialogueBox.setDialogue("img/dialogue/Behind Painting Dialogue.png");
 				backpack.addToBackpack(pickupableItems.get(0));
+				backpack.openInventory(); 
 			}
 		}
 		if(e.getSource() == clickableItems.get(3)) {

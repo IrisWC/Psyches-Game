@@ -125,6 +125,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 					dialogueBox.setDialogue("img/dialogue/Table Dialogue.png");
 					backpack.addToBackpack(pickupableItems.get(1));
 					backpack.addToBackpack(pickupableItems.get(2));
+					backpack.openInventory();
 				}
 			}
 		}
@@ -148,6 +149,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 				clickableItems.get(4).getClue();
 				dialogueBox.setDialogue("img/dialogue/People Dialogue.png");
 				backpack.addToBackpack(pickupableItems.get(3));
+				backpack.openInventory(); 
 			}
 		}
 		if(e.getSource() == clickableItems.get(5)) {
@@ -159,6 +161,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 				pickupableItems.get(0).find();
 				dialogueBox.setDialogue("img/dialogue/Paper on Wall Dialogue.png");
 				backpack.addToBackpack(pickupableItems.get(0));
+				backpack.openInventory(); 
 				pickupableItems.get(0).removeFromScreen(this);
 			}
 		}

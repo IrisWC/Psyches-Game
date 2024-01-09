@@ -97,6 +97,7 @@ public class Bathroom extends JPanel implements ActionListener { //, KeyListener
 				clickableItems.get(1).getClue();
 				dialogueBox.setDialogue("img/dialogue/Sink Dialogue.png");
 				backpack.addToBackpack(pickupableItems.get(0));
+				backpack.openInventory(); 
 			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {

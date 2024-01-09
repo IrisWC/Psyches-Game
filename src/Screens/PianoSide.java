@@ -105,6 +105,7 @@ public class PianoSide extends JPanel implements ActionListener { //, KeyListene
 				clickableItems.get(1).getClue();
 				dialogueBox.setDialogue("img/dialogue/Behind Painting Dialogue.png");
 				backpack.addToBackpack(compositionLetter);
+				backpack.openInventory();
 			}
 		}
 		if(e.getSource() == clickableItems.get(2)) {

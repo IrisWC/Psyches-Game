@@ -83,7 +83,16 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 		for(int i = 0; i < inventory.size(); i++) {
 			PickupableItem item = inventory.get(i);
 			if (e.getSource() == item) {
-				if (item.haveImgWindow()) {
+				if (e.getSource() == item.isThis("img/clues/lemon paper before heat.png")) {
+					if (removedItem != null && removedItem.isItem("img/clues/lighter.png")) {
+						PickupableItem lemonPaper = item.isThis("img/clues/lemon paper before heat.png");
+						lemonPaper.removeImgWindow(this);
+						lemonPaper.setImage("img/clues/lemon paper after heat.png");
+						lemonPaper.addImgWindow("img/clue contents/lemon paper after heat content.png");
+						openInventory();
+					}
+				}
+				else if (item.haveImgWindow()) {
 					item.getImgWindow().view();
 				}
 				else {
@@ -100,14 +109,6 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 				}
 			}
 			
-			if (e.getSource() == item.isThis("img/clues/lemon paper before heat.png")) {
-				System.out.println("hi");
-				if (removedItem != null && removedItem.isItem("img/clues/lighter.png")) {
-					PickupableItem lemonPaper = item.isThis("img/clues/lemon paper before heat.png");
-					lemonPaper.setImage("img/clues/lemon paper after heat.png");
-					lemonPaper.addImgWindow("img/clue contents/lemon paper after heat content.png");
-				}
-			}
 		}
 		
 //		

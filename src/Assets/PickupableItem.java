@@ -72,6 +72,10 @@ public class PickupableItem extends JButton{
 		return true;
 	}
 	
+	public void removeImgWindow(JFrame f) {
+		f.remove(imgWindow);
+	}
+	
 	public void addToWindow(JFrame f, int i) {
 		this.setIcon(getImage());
 		this.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
