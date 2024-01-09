@@ -118,9 +118,10 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 		if(e.getSource() == clickableItems.get(1)) {
 			if (clickableItems.get(1).isLocked()) {
 				dialogueBox.setDialogue("img/dialogue/Closet Locked Dialogue.png");
-				if (backpack.getItem().getName().equals("img/clues/key.png")) {
+				if (backpack.getItem() != null && backpack.getItem().getName().equals("img/clues/key.png")) {
 					clickableItems.get(1).unlock();
 					backpack.removeItem();
+					dialogueBox.setDialogue("img/dialogue/Unlocking Closet Dialogue.png");
 				}
 			}
 			else {
