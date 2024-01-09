@@ -46,6 +46,7 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 		backpackButton = new BackpackButton(this);
 		
 		doorCode = new PasscodeWindow(330, 80, 690, 690, "23 - 90 - CAGED", "img/clue contents/exit door hint.png", 600, 600);
+		doorCode.addAttempts(3);
 		
 		clickableItems = new ArrayList<ClickableItem>();
 		pickupableItems = new ArrayList<PickupableItem>();
@@ -109,10 +110,15 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 		}
 		
 		if(e.getSource() == clickableItems.get(0)) {
-			if(doorCode.isUnlocked()) {
-				mainCore.switchScreen("winPage");
-			} else {
-				doorCode.view();
+			if (doorCode.getAttempts() < doorCode.getAttemptLimit()) {
+				if(doorCode.isUnlocked()) {
+					mainCore.switchScreen("escaped");
+				} else {
+					doorCode.view();
+				}
+			}
+			else {
+				mainCore.switchScreen("hospital");
 			}
 		}
 		if(e.getSource() == clickableItems.get(1)) {

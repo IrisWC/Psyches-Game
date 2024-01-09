@@ -64,10 +64,17 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		pianoSide = new PianoSide(this, backpack, WIDTH, HEIGHT);
 		bathroom = new Bathroom(this, backpack, WIDTH, HEIGHT);
 		
-		JPanel winPage = new JPanel();
-		Image winImage = new ImageIcon("img/Win.png").getImage().getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
-		JLabel winLabel = new JLabel(new ImageIcon(winImage));
-		winPage.add(winLabel);
+		// escaped
+		JPanel escaped = new JPanel();
+		Image escapedImage = new ImageIcon("img/Ending - Escaped.png").getImage().getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
+		JLabel escapedLabel = new JLabel(new ImageIcon(escapedImage));
+		escaped.add(escapedLabel);
+		
+		// hospital
+		JPanel hospital = new JPanel();
+		Image hospitalImage = new ImageIcon("img/Ending - Hospital.png").getImage().getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
+		JLabel hospitalLabel = new JLabel(new ImageIcon(hospitalImage));
+		hospital.add(hospitalLabel);
 		
 //		inventory.add(new PickupableItem(bedSide, "img/clues/binary-decimal.png", 0, 100, 106, 114));
 //		inventory.add(new PickupableItem(bedSide, "img/clues/composition.png", 0, 0, 111, 57));
@@ -85,7 +92,9 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		cardPanel.add(bathroomSide, "bathroomSide");
 		cardPanel.add(pianoSide, "pianoSide");
 		cardPanel.add(bathroom, "bathroom");
-		cardPanel.add(winPage, "winPage");
+		
+		cardPanel.add(escaped, "escaped");
+		cardPanel.add(hospital, "hospital");
 		
 		add(cardPanel);
 //		addKeyListener(bedSide);
