@@ -73,6 +73,7 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		pickupableItems.add(new PickupableItem("img/clues/lemon paper before heat.png", 84, 113));
 		
 		pickupableItems.get(0).addImgWindow("img/clue contents/roman numerals content.png");
+//		pickupableItems.get(1).setUse();
 		pickupableItems.get(2).addImgWindow("img/clue contents/binary-decimal content.png");
 		pickupableItems.get(3).addImgWindow("img/clue contents/lemon paper before heat content.png");
 		
@@ -154,9 +155,12 @@ public class BathroomSide extends JPanel implements ActionListener { //, KeyList
 		}
 		
 		if(e.getSource() == pickupableItems.get(0)) {
-			dialogueBox.setDialogue("img/dialogue/Paper on Wall Dialogue.png");
-			backpack.addToBackpack(pickupableItems.get(0));
-			pickupableItems.get(0).removeFromScreen(this);
+			if (!pickupableItems.get(0).found()) {
+				pickupableItems.get(0).find();
+				dialogueBox.setDialogue("img/dialogue/Paper on Wall Dialogue.png");
+				backpack.addToBackpack(pickupableItems.get(0));
+				pickupableItems.get(0).removeFromScreen(this);
+			}
 		}
 		
 		// for testing

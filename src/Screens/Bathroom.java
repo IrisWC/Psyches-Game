@@ -65,6 +65,7 @@ public class Bathroom extends JPanel implements ActionListener { //, KeyListener
 		clickableItems.add(sd);
 		
 		pickupableItems.add(new PickupableItem("img/clues/lighter.png", 160, 160));
+//		pickupableItems.get(0).setUse();
 		
 	}
 	

@@ -18,22 +18,14 @@ import Core.Game;
 
 public class Backpack extends JFrame implements ActionListener, WindowListener {
 
-	private Game mainCore;
-	private int width, height;
-	private ArrayList<PickupableItem> inventory;
-	private ArrayList<JButton> inventoryButtons;
-	private boolean inventoryOpen;
 	private JPanel inventoryPanel;
+	private ArrayList<PickupableItem> inventory;
+	private PickupableItem removedItem;
 	
-	public Backpack() { //(Game mainCore) {
-//		super();
-//		this.mainCore = mainCore;
-//		this.width = width;
-//		this.height = height;
-//		
-//		setLayout(null);
-		
-		
+//	private ArrayList<JButton> inventoryButtons;
+//	private boolean inventoryOpen;
+	
+	public Backpack() { 
 		super("Inventory");
 		ImageIcon bag = new ImageIcon("img/backpack.png");
 		this.setIconImage(bag.getImage());
@@ -47,48 +39,55 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 		inventoryPanel.setLayout(gl);
 		inventoryPanel.setBackground(new Color(250, 250, 250));
 		
-		inventoryOpen = false;
+//		inventoryOpen = false;
 		inventory = new ArrayList<PickupableItem>();
+		removedItem = null;
 		
 	}
 	
 	public void openInventory() {
 		for(int i = 0; i < inventory.size(); i++) {
-//			JButton item = new JButton(inventory.get(i).getImage());
-//			item.setBounds(i%3 * 125 + 5, i/3 * 125 + 5, 125, 125);
-//			item.setOpaque(false);
-//			item.setContentAreaFilled(false);
-////			item.setBorder(new LineBorder(Color.WHITE));
-////			item.setBorderPainted(true);
-//			item.addActionListener(this);
-//			this.add(item);
-			
 			inventory.get(i).addToWindow(this, i);
 		}
 		
 		this.add(inventoryPanel);
 		this.setVisible(true);
-		inventoryOpen = true;
+//		inventoryOpen = true;
 	}
 	
 	public void addToBackpack(PickupableItem item) {
 		inventory.add(item);
 	}
+	
+	public void takeItem(PickupableItem item) {
+		removedItem = item;
+		item.removeFromWindow(this);
+	}
+	
+	public PickupableItem getItem() {
+		return removedItem;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// if clicked on window while holding something, then the thing gets put back
+		// code
+		
 		for(int i = 0; i < inventory.size(); i++) {
 			PickupableItem item = inventory.get(i);
 			if (e.getSource() == item) {
-				if (item.haveImgWindow())
+				if (item.haveImgWindow()) {
 					item.getImgWindow().view();
-				else
-					System.out.println("no window");
+				}
+				else {
+					takeItem(inventory.get(i));
+					inventory.remove(i);
+				}
 			}
 		}
 //		
 //		
-//		mainCore.requestFocusInWindow();
+//		this.requestFocusInWindow();
 	}
 
 	@Override
@@ -100,7 +99,7 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// TODO Auto-generated method stub
-		inventoryOpen = false;	
+//		inventoryOpen = false;	
 	}
 
 	@Override
