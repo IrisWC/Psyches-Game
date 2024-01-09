@@ -45,6 +45,17 @@ public class PickupableItem extends JButton{
 //		return useable;
 //	}
 	
+	public boolean isItem(String otherImg) {
+		if (img.equals(otherImg))
+			return true;
+		return false;
+	}
+	
+	public PickupableItem isThis(String otherImg) {
+		if (isItem(otherImg))
+			return this;
+		return null;
+	}
 	
 	
 	public void addImgWindow(String img) {
@@ -117,6 +128,10 @@ public class PickupableItem extends JButton{
 		ImageIcon icon = new ImageIcon(this.img);
 		Image iconModified = icon.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
 		return new ImageIcon(iconModified);
+	}
+	
+	public void setImage(String img) {
+		this.img = img;
 	}
 	
 	public String getName() {

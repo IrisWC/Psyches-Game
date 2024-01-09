@@ -60,10 +60,10 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 		inventory.add(item);
 	}
 	
-	public void putBackinBackpack() {
-		inventory.add(removedItem);
-		removedItem = null;
-	}
+//	public void putBackinBackpack() {
+//		inventory.add(removedItem);
+//		removedItem = null;
+//	}
 	
 	public void takeItem(PickupableItem item) {
 		removedItem = item;
@@ -74,17 +74,12 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 		return removedItem;
 	}
 	
-	public void removeItem() {
-		removedItem = null;
-	}
+//	public void removeItem() {
+//		removedItem = null;
+//	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// if clicked on window or something while holding something, then the thing gets put back
-		if (e.getSource() == this) {
-			putBackinBackpack();
-		}
-		
 		for(int i = 0; i < inventory.size(); i++) {
 			PickupableItem item = inventory.get(i);
 			if (e.getSource() == item) {
@@ -104,6 +99,15 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 //					inventory.remove(i);
 				}
 			}
+			
+			if (e.getSource() == item.isThis("img/clues/lemon paper before heat.png")) {
+				System.out.println("hi");
+				if (removedItem != null && removedItem.isItem("img/clues/lighter.png")) {
+					PickupableItem lemonPaper = item.isThis("img/clues/lemon paper before heat.png");
+					lemonPaper.setImage("img/clues/lemon paper after heat.png");
+					lemonPaper.addImgWindow("img/clue contents/lemon paper after heat content.png");
+				}
+			}
 		}
 		
 //		
@@ -114,7 +118,6 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

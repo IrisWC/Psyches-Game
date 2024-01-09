@@ -116,6 +116,15 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 				} else {
 					doorCode.view();
 				}
+//				if (doorCode.getAttempts() == doorCode.getAttemptLimit()) {
+//					System.out.println("hi");
+//					clickableItems.get(0).doClick();
+//					e.setSource(clickableItems.get(0));
+//					if(e.getSource() == clickableItems.get(0)) {
+//						mainCore.switchScreen("hospital");
+//					}
+//				}
+				
 			}
 			else {
 				mainCore.switchScreen("hospital");
@@ -126,7 +135,7 @@ public class ExitSide extends JPanel implements ActionListener { //, KeyListener
 				dialogueBox.setDialogue("img/dialogue/Closet Locked Dialogue.png");
 				if (backpack.getItem() != null && backpack.getItem().getName().equals("img/clues/key.png")) {
 					clickableItems.get(1).unlock();
-					backpack.removeItem();
+//					backpack.removeItem();
 					dialogueBox.setDialogue("img/dialogue/Unlocking Closet Dialogue.png");
 				}
 			}
