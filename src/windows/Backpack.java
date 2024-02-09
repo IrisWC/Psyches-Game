@@ -83,14 +83,13 @@ public class Backpack extends JFrame implements ActionListener, WindowListener {
 		for(int i = 0; i < inventory.size(); i++) {
 			PickupableItem item = inventory.get(i);
 			if (e.getSource() == item) {
-				if (e.getSource() == item.isThis("img/clues/lemon paper before heat.png")) {
-					if (removedItem != null && removedItem.isItem("img/clues/lighter.png")) {
-						PickupableItem lemonPaper = item.isThis("img/clues/lemon paper before heat.png");
-						lemonPaper.removeImgWindow(this);
-						lemonPaper.setImage("img/clues/lemon paper after heat.png");
-						lemonPaper.addImgWindow("img/clue contents/lemon paper after heat content.png");
-						openInventory();
-					}
+				if (e.getSource() == item.isThis("img/clues/lemon paper before heat.png") && removedItem != null 
+						&& removedItem.isItem("img/clues/lighter.png")) {
+					PickupableItem lemonPaper = item.isThis("img/clues/lemon paper before heat.png");
+					lemonPaper.removeImgWindow(this);
+					lemonPaper.setImage("img/clues/lemon paper after heat.png");
+					lemonPaper.addImgWindow("img/clue contents/lemon paper after heat content.png");
+					openInventory();
 				}
 				else if (item.haveImgWindow()) {
 					item.getImgWindow().view();
